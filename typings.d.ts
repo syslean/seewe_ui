@@ -1,7 +1,6 @@
 interface ResumeModal {
   id: string;
   uid: string;
-  avatar: string;
   fullName: string;
   summary: string;
   resumeName: string;
@@ -24,7 +23,6 @@ interface SkillModal {
   id: string;
   title: string;
   describe: string;
-  level: number;
 }
 
 interface EducationModal {
