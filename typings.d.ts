@@ -1,13 +1,17 @@
 interface ResumeModal {
   id: string;
   uid: string;
-  fullName: string;
-  summary: string;
   resumeName: string;
+  basicInfo: BasicInfo,
   workExperiences: WorkExperienceModal[];
   skills: SkillModal[];
   educations: EducationModal[];
   publications: PublicationModal[]
+}
+
+interface BasicInfo {
+  fullName: string;
+  summary: string;
 }
 
 interface WorkExperienceModal {

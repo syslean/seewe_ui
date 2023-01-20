@@ -1,9 +1,11 @@
 {
   "id": "goodluckforyou",
   "uid": "thisisuid",
-  "fullName": "Cool Boy",
-  "summary": "A full-stack Software Developer with both front-end and back-end skills. Mainly use Java and NodeJS in recent projects. Delivered products for companies from different domains. Advocate agile practice and has a good understanding of domain driven development, micro-service system and so on. Always committed to producing high availability, easy-maintained and secure code. Understanding the practice of DevOps, and go deep into the container and automation deployment, familiar with container-related techniques. Good insight into design thinking and product design. He has a lot of efforts to improve the user experience of the product.",
   "resumeName": "Cool Boy's Resume",
+  "basicInfo": {
+    "fullName": "Cool Boy",
+    "summary": "A full-stack Software Developer with both front-end and back-end skills. Mainly use Java and NodeJS in recent projects. Delivered products for companies from different domains. Advocate agile practice and has a good understanding of domain driven development, micro-service system and so on. Always committed to producing high availability, easy-maintained and secure code. Understanding the practice of DevOps, and go deep into the container and automation deployment, familiar with container-related techniques. Good insight into design thinking and product design. He has a lot of efforts to improve the user experience of the product."
+  },
   "workExperiences": [
     {
       "id": "randomId1",
@@ -54,6 +56,5 @@
       "describe": "The Author of Seewe",
       "date": "2022-7"
     }
-
   ]
 }

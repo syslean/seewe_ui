@@ -4,9 +4,9 @@ import {
   UserOutlined,
 } from '@ant-design/icons';
 import {Menu} from 'antd';
-import {getItem} from "../../utils";
+import {getItem} from "../../../utils";
 import {MenuInfo} from "rc-menu/lib/interface";
-import {EducationIcon, PublicationIcon, SkillIcon} from "../common/icons";
+import {EducationIcon, PublicationIcon, SkillIcon} from "../../common/icons";
 
 
 const resumeItems = [
