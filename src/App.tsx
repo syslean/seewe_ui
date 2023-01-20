@@ -12,7 +12,7 @@ const AppHeader = styled.div`
 
 const AppContent = styled.div`
   height: 86vh;
-  background: antiquewhite;
+  background: white;
 
 `
 
