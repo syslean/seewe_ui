@@ -1,38 +1,32 @@
 import React from 'react';
-import styled from "styled-components";
 import Header from "./component/header";
 import Footer from "./component/footer";
 import {RouterProvider} from "react-router-dom";
 import router from "./routes";
+import config from "./config";
+import {WrappedDivider} from "./component/common/divider";
+import { WrappedContainer } from './component/common/container';
 
-const AppHeader = styled.div`
-  height: 6vh;
-  background: aqua;
-`
-
-const AppContent = styled.div`
-  height: 86vh;
-  background: white;
-
-`
-
-const AppFooter = styled.div`
-  height: 8vh;
-  background: brown;
-`
+const GlobalDisplay = {
+  headerHeight: "8vh",
+  contentHeight: "86vh",
+  footerHeight: "6vh"
+}
 
 function App() {
   return (
     <>
-      <AppHeader>
-        <Header/>
-      </AppHeader>
-      <AppContent>
+      <WrappedContainer containerHeight={GlobalDisplay.headerHeight}>
+        <Header appName={config.appName}/>
+        <WrappedDivider/>
+      </WrappedContainer>
+      <WrappedContainer containerHeight={GlobalDisplay.contentHeight}>
         <RouterProvider router={router}/>
-      </AppContent>
-      <AppFooter>
+      </WrappedContainer>
+      <WrappedContainer containerHeight={GlobalDisplay.footerHeight}>
+        <WrappedDivider/>
         <Footer/>
-      </AppFooter>
+      </WrappedContainer>
     </>
   );
 }
