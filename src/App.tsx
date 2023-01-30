@@ -8,19 +8,17 @@ import {WrappedDivider} from "./component/common/divider";
 import {WrappedContainer} from './component/common/container';
 
 const GlobalDisplay = {
-  headerHeight: "8vh",
-  contentHeight: "86vh",
-  footerHeight: "6vh"
+  headerHeight: "3rem",
+  footerHeight: "3rem"
 }
 
 function App() {
   return (
     <>
-      <WrappedContainer containerHeight={GlobalDisplay.headerHeight}>
+      <WrappedContainer containerHeight={GlobalDisplay.headerHeight} style={{ borderBottom: "lightgray solid thin"}}>
         <Header appName={config.appName}/>
-        <WrappedDivider marginVerticalSize="0"/>
       </WrappedContainer>
-      <WrappedContainer containerHeight={GlobalDisplay.contentHeight}>
+      <WrappedContainer>
         <RouterProvider router={router}/>
       </WrappedContainer>
       <WrappedContainer containerHeight={GlobalDisplay.footerHeight}>
