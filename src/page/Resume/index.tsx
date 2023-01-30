@@ -8,13 +8,13 @@ const Resume: React.FC<Props> = () => {
   return (
     <ResumeProvider>
       <Row>
-        <Col span={1}>
+        <Col flex="0 0 4.5rem">
           <SideBar/>
         </Col>
-        <Col span={5}>
+        <Col flex={4}>
           <Editor/>
         </Col>
-        <Col span={18}>Resume View</Col>
+        <Col flex={20}>Resume View</Col>
       </Row>
     </ResumeProvider>
   )

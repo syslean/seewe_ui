@@ -15,13 +15,13 @@ const GlobalDisplay = {
 function App() {
   return (
     <>
-      <WrappedContainer containerHeight={GlobalDisplay.headerHeight} style={{ borderBottom: "lightgray solid thin"}}>
+      <WrappedContainer height={GlobalDisplay.headerHeight} style={{ borderBottom: "lightgray solid thin"}}>
         <Header appName={config.appName}/>
       </WrappedContainer>
       <WrappedContainer>
         <RouterProvider router={router}/>
       </WrappedContainer>
-      <WrappedContainer containerHeight={GlobalDisplay.footerHeight}>
+      <WrappedContainer height={GlobalDisplay.footerHeight}>
         <WrappedDivider marginVerticalSize="0"/>
         <Footer/>
       </WrappedContainer>

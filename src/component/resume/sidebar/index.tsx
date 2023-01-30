@@ -26,7 +26,7 @@ const SideBar: React.FC = () => {
 
   return (
     <Menu
-      style={{width: "100%", height: "86vh"}}
+      style={{ height: "86vh"}}
       defaultSelectedKeys={['1']}
       defaultOpenKeys={['sub1']}
       mode="vertical"
