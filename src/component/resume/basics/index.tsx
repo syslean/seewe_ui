@@ -1,5 +1,5 @@
 import React, {useContext} from 'react';
-import {Col, Input, Row} from "antd";
+import {Card, Col, Input, Row} from "antd";
 import {ResumeContext} from "../../../page/Resume/ResumeContext";
 import Header from "../header";
 import Label from "../label";
@@ -8,7 +8,7 @@ const Basics: React.FC = () => {
   const {basicInfo} = useContext(ResumeContext);
 
   return (
-    <>
+    <Card>
       <Header title="Basics"/>
       <Row>
         <Col span={6}>
@@ -28,7 +28,7 @@ const Basics: React.FC = () => {
           <Input.TextArea autoSize defaultValue={basicInfo.summary}/>
         </Col>
       </Row>
-    </>
+    </Card>
   )
 }
 

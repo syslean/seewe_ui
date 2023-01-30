@@ -1,20 +1,19 @@
 import React from 'react';
 import {UserOutlined} from "@ant-design/icons";
-import styled from "styled-components";
-
-const Content = styled.div`
-  span{
-    margin: 0.25rem 0.5rem;
-    font:  1.5rem 'Lucida Grande';
-  }
-`
+import Meta from "antd/lib/card/Meta";
+import {WrappedDivider} from "../../common/divider";
 
 const Header: React.FC<Props> = ({title}: Props) => {
   return (
-    <Content>
-      <UserOutlined style={{fontSize: "2em", lineHeight: "2rem"}}/>
-      <span>{title}</span>
-    </Content>
+    <div>
+      <Meta
+        avatar={<UserOutlined style={{fontSize: "2em", lineHeight: "3rem"}}/>}
+        title={title}
+        description="This is the description"
+      />
+      <WrappedDivider marginVerticalSize="1rem"/>
+    </div>
+
   )
 }
 

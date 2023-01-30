@@ -11,10 +11,10 @@ const Resume: React.FC<Props> = () => {
         <Col flex="0 0 4.5rem">
           <SideBar/>
         </Col>
-        <Col flex={4}>
+        <Col flex={1}>
           <Editor/>
         </Col>
-        <Col flex={20}>Resume View</Col>
+        <Col flex={5}>Resume View</Col>
       </Row>
     </ResumeProvider>
   )
