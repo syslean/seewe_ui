@@ -9,7 +9,7 @@ const Basics: React.FC = () => {
 
   return (
     <Card>
-      <Header title="Basics"/>
+      <Header title="Basics" description="Record basic information"/>
       <Row>
         <Col span={6}>
           <Label name="FullName"/>
