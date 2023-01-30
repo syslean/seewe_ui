@@ -5,7 +5,7 @@ import {RouterProvider} from "react-router-dom";
 import router from "./routes";
 import config from "./config";
 import {WrappedDivider} from "./component/common/divider";
-import { WrappedContainer } from './component/common/container';
+import {WrappedContainer} from './component/common/container';
 
 const GlobalDisplay = {
   headerHeight: "8vh",
@@ -18,13 +18,13 @@ function App() {
     <>
       <WrappedContainer containerHeight={GlobalDisplay.headerHeight}>
         <Header appName={config.appName}/>
-        <WrappedDivider/>
+        <WrappedDivider marginVerticalSize="0"/>
       </WrappedContainer>
       <WrappedContainer containerHeight={GlobalDisplay.contentHeight}>
         <RouterProvider router={router}/>
       </WrappedContainer>
       <WrappedContainer containerHeight={GlobalDisplay.footerHeight}>
-        <WrappedDivider/>
+        <WrappedDivider marginVerticalSize="0"/>
         <Footer/>
       </WrappedContainer>
     </>
