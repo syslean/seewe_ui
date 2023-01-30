@@ -3,7 +3,7 @@ import Basics from "../basics";
 
 const Editor: React.FC<Props> = () => {
   return (
-    <div>
+    <div style={{ margin: "0.25rem"}}>
       <Basics/>
     </div>
   )

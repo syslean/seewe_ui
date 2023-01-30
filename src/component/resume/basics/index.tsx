@@ -1,37 +1,33 @@
 import React, {useContext} from 'react';
-import {UserOutlined} from "@ant-design/icons";
-import {Form, Input} from "antd";
+import {Col, Input, Row} from "antd";
 import {ResumeContext} from "../../../page/Resume/ResumeContext";
+import Header from "../header";
+import Label from "../label";
 
 const Basics: React.FC = () => {
   const {basicInfo} = useContext(ResumeContext);
 
   return (
     <>
-      <div>
-        <UserOutlined style={{fontSize: "1.5em"}}/>
-        <span>Basics</span>
-      </div>
-      <div>
-        <Form
-          name="basics"
-          labelCol={{span: 6}}
-          wrapperCol={{span: 18}}
-        >
-          <Form.Item
-            label="FullName"
-            name="FullName"
-          >
-            <Input defaultValue={basicInfo.fullName}/>
-          </Form.Item>
-          <Form.Item
-            label="Summary"
-            name="Summary"
-          >
-            <Input.TextArea defaultValue={basicInfo.summary}/>
-          </Form.Item>
-        </Form>
-      </div>
+      <Header title="Basics"/>
+      <Row>
+        <Col span={6}>
+          <Label name="FullName"/>
+        </Col>
+        <Col span={18}>
+          <Input defaultValue={basicInfo.fullName}/>
+        </Col>
+      </Row>
+      <Row>
+        <Col span={24}>
+          <Label name="Summary"/>
+        </Col>
+      </Row>
+      <Row>
+        <Col span={24}>
+          <Input.TextArea autoSize defaultValue={basicInfo.summary}/>
+        </Col>
+      </Row>
     </>
   )
 }
