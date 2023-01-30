@@ -1,18 +1,26 @@
-import React from 'react';
-import Basics from "../basics";
-import Works from "../works";
+import React, {ReactNode} from 'react';
+import styled from "styled-components";
 
-const Editor: React.FC<Props> = () => {
+const WrappedWithScroll = styled.div`
+  overflow-y: scroll;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+`
+
+const Editor: React.FC<Props> = ({items}: Props) => {
   return (
-    <div style={{margin: "1rem"}}>
-      <Basics/>
-      <Works/>
-    </div>
+    <WrappedWithScroll style={{padding: "1rem", height: "80vh"}}>
+      {items.map((item, index) => {
+        return <div key={index} id={item.title}>{item.modal}</div>
+      })}
+    </WrappedWithScroll>
   )
 }
 
 export default Editor;
 
 interface Props {
-
+  items: { title: string, icon: ReactNode, modal: ReactNode }[]
 }

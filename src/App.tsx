@@ -9,7 +9,8 @@ import {WrappedContainer} from './component/common/container';
 
 const GlobalDisplay = {
   headerHeight: "3rem",
-  footerHeight: "3rem"
+  containerHeight: "calc(100vh - 9rem)",
+  footerHeight: "5rem"
 }
 
 function App() {
@@ -18,7 +19,7 @@ function App() {
       <WrappedContainer height={GlobalDisplay.headerHeight} style={{ borderBottom: "lightgray solid thin"}}>
         <Header appName={config.appName}/>
       </WrappedContainer>
-      <WrappedContainer>
+      <WrappedContainer height={GlobalDisplay.containerHeight} >
         <RouterProvider router={router}/>
       </WrappedContainer>
       <WrappedContainer height={GlobalDisplay.footerHeight}>
