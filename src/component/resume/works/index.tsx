@@ -10,7 +10,7 @@ const Works: React.FC = () => {
   return (
     <Card>
       <Header title="WorkExperiences" description="Record your past work experiences"/>
-
+      {/*todo: Edit and Delete Function*/}
       <List
         itemLayout="horizontal"
         dataSource={workExperiences}
@@ -19,7 +19,7 @@ const Works: React.FC = () => {
             const basicInfo = `${workExperience.name} - ${workExperience.position}`
             const limitDate = `${getYearAndMonth(workExperience.startDate)} - ${getYearAndMonth(workExperience.endDate)}`;
             return (
-              <List.Item  actions={[<a key={index}>edit</a>]}>
+              <List.Item  actions={[<a key={index}>edit</a>, <a key={index}>delete</a>]}>
                 <List.Item.Meta
                   title={basicInfo}
                   description={limitDate}
