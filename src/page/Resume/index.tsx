@@ -1,5 +1,4 @@
 import React from 'react';
-import {Col, Row} from "antd";
 import SideBar from "../../component/resume/sidebar";
 import Editor from "../../component/resume/edictor";
 import {ResumeProvider} from "./resumeContext";
@@ -7,6 +6,7 @@ import {ShoppingFilled, UserOutlined} from "@ant-design/icons";
 import {EducationIcon, PublicationIcon, SkillIcon} from "../../component/common/icons";
 import Basics from "../../component/resume/basics";
 import Works from "../../component/resume/works";
+import {ResumeWrapper} from "./index.style";
 
 const Resume: React.FC<Props> = () => {
   const resumeItems = [
@@ -19,15 +19,10 @@ const Resume: React.FC<Props> = () => {
 
   return (
     <ResumeProvider>
-      <Row style={{height: "100%", backgroundColor: "#F3F6F9"}} >
-        <Col flex="0 0 4.5rem">
-          <SideBar items={resumeItems}/>
-        </Col>
-        <Col flex="2 0">
-          <Editor items={resumeItems}/>
-        </Col>
-        {/*<Col flex="5 0">Resume View</Col>*/}
-      </Row>
+      <ResumeWrapper>
+        <SideBar items={resumeItems}/>
+        <Editor items={resumeItems}/>
+      </ResumeWrapper>
     </ResumeProvider>
   )
 }

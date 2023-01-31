@@ -7,6 +7,7 @@ export const SeeweLogo = styled(Logo)`
   padding: 0.25rem 0;
   text-align: center;
 `
+
 export const HeaderWrapper = styled.div`
   position: sticky;
   top: 0;
