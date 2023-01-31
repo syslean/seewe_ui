@@ -9,9 +9,9 @@ interface IProps {
 const PageStructure: React.FC<IProps> = ({children}) => {
   return (
     <>
-      <Header appName={"Seewe"}></Header>
+      <Header />
       {children}
-      <Footer/>
+      <Footer />
     </>
   )
 }

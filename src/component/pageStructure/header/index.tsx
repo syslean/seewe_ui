@@ -1,21 +1,12 @@
 import React from 'react';
-import {Title, HeaderWrapper} from "./index.style";
-import {ResumeIcon} from "../../common/icons";
+import {HeaderWrapper, SeeweLogo} from "./index.style";
 
-
-const Header: React.FC<Props> = ({appName}: Props) => {
+const Header: React.FC = () => {
   return (
     <HeaderWrapper>
-      <ResumeIcon/>
-      <Title>{appName}</Title>
-
+      <SeeweLogo />
     </HeaderWrapper>
   )
-}
-
-
-interface Props {
-  appName: string;
 }
 
 export default Header;
