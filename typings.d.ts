@@ -18,8 +18,8 @@ interface WorkExperienceModal {
   id: string;
   name: string;
   position: string;
-  startDate: Date;
-  endDate: Date;
+  startDate: string;
+  endDate: string;
   summary: string;
 }
 
@@ -33,13 +33,13 @@ interface EducationModal {
   id: string;
   institution: string;
   degree: string;
-  startDate: Date;
-  endDate: Date;
+  startDate: string;
+  endDate: string;
 }
 
 interface PublicationModal {
   id: string;
   title: string;
   describe: string;
-  date: Date;
+  date: string;
 }
