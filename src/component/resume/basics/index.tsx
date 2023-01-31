@@ -5,15 +5,15 @@ import Header from "../header";
 import Label from "../label";
 
 const Basics: React.FC = () => {
-  const {resume, setBasicInfo} = useContext(ResumeContext);
+  const {resume, updateBasicInfo} = useContext(ResumeContext);
   const {basicInfo} = resume;
 
   const setFullName = (event: ChangeEvent<HTMLInputElement>) => {
-    setBasicInfo({...basicInfo, fullName: event.target.value})
+    updateBasicInfo({...basicInfo, fullName: event.target.value})
   }
 
   const setSummary = (event: ChangeEvent<HTMLTextAreaElement>) => {
-    setBasicInfo({...basicInfo, summary: event.target.value})
+    updateBasicInfo({...basicInfo, summary: event.target.value})
   }
 
   return (

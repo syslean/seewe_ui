@@ -1,7 +1,7 @@
-import React, {useContext} from 'react';
+import React, {useContext, useState} from 'react';
 import {ResumeContext} from "../../../page/Resume/resumeContext";
 import Header from "../header";
-import {Card, List} from "antd";
+import {Button, Card, List} from "antd";
 import {getYearAndMonth} from "../../../utils";
 import WorkForm from "./workForm";
 
@@ -9,6 +9,8 @@ const Works: React.FC = () => {
 
   const {resume} = useContext(ResumeContext);
   const {workExperiences} = resume;
+  const [isOpen, setIsOpen] = useState(true);
+
 
   return (
     <>
@@ -22,7 +24,8 @@ const Works: React.FC = () => {
               const basicInfo = `${workExperience.name} - ${workExperience.position}`
               const limitDate = `${getYearAndMonth(workExperience.startDate)} - ${getYearAndMonth(workExperience.endDate)}`;
               return (
-                <List.Item actions={[<a key={index}>edit</a>, <a key={index}>delete</a>]}>
+                <List.Item actions={
+                  [<Button key={index} type="link">Edit</Button>, <Button key={index} type="link" danger>Delete</Button>]}>
                   <List.Item.Meta
                     title={basicInfo}
                     description={limitDate}
@@ -33,7 +36,10 @@ const Works: React.FC = () => {
           }
         />
       </Card>
-      <WorkForm workExperience={workExperiences[0]} handleSave={(workExperience) => {
+      <WorkForm
+        isOpen={isOpen}
+        setIsOpen={setIsOpen}
+        workExperience={workExperiences[0]} handleSave={(workExperience) => {
         console.log(workExperience)
       }}/>
     </>

@@ -1,4 +1,4 @@
-import React, {ChangeEvent, useState} from 'react';
+import React, {ChangeEvent, Dispatch, useState} from 'react';
 import {Col, DatePicker, Input, Modal, Row} from 'antd';
 import Label from "../label";
 import styled from "styled-components";
@@ -9,9 +9,9 @@ const WrappedRow = styled(Row)`
   margin-bottom: 1rem;
 `
 
-const WorkForm: React.FC<Props> = ({workExperience, handleSave}: Props) => {
+const WorkForm: React.FC<Props> = ({workExperience, handleSave, isOpen, setIsOpen}: Props) => {
 
-  const [isOpen, setIsOpen] = useState(true);
+
   const [workInfo, setWorkInfo] = useState(workExperience);
 
   const {name, position, startDate, endDate, summary} = workInfo;
@@ -97,6 +97,8 @@ const WorkForm: React.FC<Props> = ({workExperience, handleSave}: Props) => {
 
 
 interface Props {
+  isOpen: boolean,
+  setIsOpen: Dispatch<boolean>,
   workExperience: WorkExperienceModal,
   handleSave: (workExperience: WorkExperienceModal) => void
 }
