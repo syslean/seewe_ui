@@ -1,28 +1,14 @@
 import React, {Context, createContext} from "react";
-import initResume from "../../mock/mockResume01.json";
-import useLocalStorage from "./useLocalStorage";
-import {RESUME_DATA} from "../../constants";
+import useResume, {ResumeService} from "../../service/resume";
 
-interface ResumeData {
-  resume: ResumeModal,
-  setBasicInfo: (basicInfo: BasicInfo) => void,
-}
-
-export const ResumeContext: Context<ResumeData> = createContext({} as unknown as ResumeData);
+export const ResumeContext: Context<ResumeService> = createContext({} as unknown as ResumeService);
 
 
 export const ResumeProvider: React.FC<Props> = ({children}: Props) => {
-  let [resume, setResume] = useLocalStorage(RESUME_DATA ,initResume as unknown as ResumeModal);
-
-  const resumeData = {
-    resume: resume,
-    setBasicInfo: (basicInfo: BasicInfo) => {
-      setResume({...resume, basicInfo});
-    }
-  }
+  const resumeService = useResume();
 
   return (
-    <ResumeContext.Provider value={{...resumeData}}>
+    <ResumeContext.Provider value={{...resumeService}}>
       {children}
     </ResumeContext.Provider>
   );
