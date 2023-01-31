@@ -1,5 +1,6 @@
 # IDE
 .idea/
+.fleet/
 
 # Node
 node_modules/
