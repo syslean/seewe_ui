@@ -1,9 +1,9 @@
 import React from 'react';
 import {Space} from "antd";
 import Link from "antd/lib/typography/Link";
-import {getYearAndMonth} from "../../utils";
+import {getYearAndMonth} from "../../../utils";
 
-const Footer: React.FC<Props> = () => {
+const Footer: React.FC = () => {
 
   return (
     <div style={{textAlign: "center", padding: "1rem"}}>
@@ -17,7 +17,3 @@ const Footer: React.FC<Props> = () => {
 }
 
 export default Footer;
-
-interface Props {
-
-}

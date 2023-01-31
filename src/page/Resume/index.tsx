@@ -26,7 +26,7 @@ const Resume: React.FC<Props> = () => {
         <Col flex="2 0">
           <Editor items={resumeItems}/>
         </Col>
-        <Col flex="5 0">Resume View</Col>
+        {/*<Col flex="5 0">Resume View</Col>*/}
       </Row>
     </ResumeProvider>
   )
