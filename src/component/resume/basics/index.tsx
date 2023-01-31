@@ -9,8 +9,11 @@ const Basics: React.FC = () => {
   const {basicInfo} = resume;
 
   const setFullName = (event: ChangeEvent<HTMLInputElement>) => {
-    console.log(event.target.value);
     setBasicInfo({...basicInfo, fullName: event.target.value})
+  }
+
+  const setSummary = (event: ChangeEvent<HTMLTextAreaElement>) => {
+    setBasicInfo({...basicInfo, summary: event.target.value})
   }
 
   return (
@@ -31,7 +34,7 @@ const Basics: React.FC = () => {
       </Row>
       <Row>
         <Col span={24}>
-          <Input.TextArea autoSize defaultValue={basicInfo.summary}/>
+          <Input.TextArea autoSize value={basicInfo.summary} onChange={setSummary}/>
         </Col>
       </Row>
     </Card>
