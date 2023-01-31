@@ -1,16 +1,26 @@
 import React, {useContext, useState} from 'react';
 import {ResumeContext} from "../../../page/Resume/resumeContext";
 import Header from "../header";
-import {Button, Card, List} from "antd";
-import {getYearAndMonth} from "../../../utils";
+import {Card, List} from "antd";
 import WorkForm from "./workForm";
+import WorkItem from "./WorkItem";
 
 const Works: React.FC = () => {
 
-  const {resume} = useContext(ResumeContext);
+  const {resume, updateWorkExperience} = useContext(ResumeContext);
   const {workExperiences} = resume;
-  const [isOpen, setIsOpen] = useState(true);
+  const [showEditForm, setShowEditForm] = useState(false);
 
+  const [currentWorkExperience, setCurrentWorkExperience] = useState<WorkExperienceModal>({} as WorkExperienceModal);
+
+  const handleClick = (id: string) => {
+    const work = workExperiences.find((item) => item.id === id);
+    if (work) {
+      setCurrentWorkExperience(work);
+      setShowEditForm(true);
+    }
+    // not find handle
+  }
 
   return (
     <>
@@ -19,29 +29,16 @@ const Works: React.FC = () => {
         <List
           itemLayout="horizontal"
           dataSource={workExperiences}
-          renderItem={
-            (workExperience, index) => {
-              const basicInfo = `${workExperience.name} - ${workExperience.position}`
-              const limitDate = `${getYearAndMonth(workExperience.startDate)} - ${getYearAndMonth(workExperience.endDate)}`;
-              return (
-                <List.Item actions={
-                  [<Button key={index} type="link">Edit</Button>, <Button key={index} type="link" danger>Delete</Button>]}>
-                  <List.Item.Meta
-                    title={basicInfo}
-                    description={limitDate}
-                  />
-                </List.Item>
-              )
-            }
-          }
+          renderItem={(workExperience, index) => <WorkItem key={index} workExperience={workExperience}
+                                                           handleClick={handleClick}/>}
         />
       </Card>
-      <WorkForm
-        isOpen={isOpen}
-        setIsOpen={setIsOpen}
-        workExperience={workExperiences[0]} handleSave={(workExperience) => {
-        console.log(workExperience)
-      }}/>
+      {
+        showEditForm &&
+        <WorkForm
+          setShowEditForm={setShowEditForm}
+          workExperience={currentWorkExperience} handleSave={updateWorkExperience}/>
+      }
     </>
 
   )

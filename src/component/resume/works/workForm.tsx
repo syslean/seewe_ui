@@ -9,7 +9,7 @@ const WrappedRow = styled(Row)`
   margin-bottom: 1rem;
 `
 
-const WorkForm: React.FC<Props> = ({workExperience, handleSave, isOpen, setIsOpen}: Props) => {
+const WorkForm: React.FC<Props> = ({workExperience, handleSave, setShowEditForm}: Props) => {
 
 
   const [workInfo, setWorkInfo] = useState(workExperience);
@@ -17,11 +17,12 @@ const WorkForm: React.FC<Props> = ({workExperience, handleSave, isOpen, setIsOpe
   const {name, position, startDate, endDate, summary} = workInfo;
 
   const handleCancel = () => {
-    setIsOpen(false);
+    setShowEditForm(false);
   }
 
   const handleOk = () => {
     handleSave(workInfo);
+    setShowEditForm(false);
   }
 
 
@@ -47,7 +48,7 @@ const WorkForm: React.FC<Props> = ({workExperience, handleSave, isOpen, setIsOpe
 
   return (
     <>
-      <Modal title="Edit Work Experience" open={isOpen} onOk={handleOk} onCancel={handleCancel}
+      <Modal title="Edit Work Experience" open={true} onOk={handleOk} onCancel={handleCancel}
              style={{minWidth: "45rem"}}>
         <WrappedRow style={{marginTop: "2rem"}}>
           <Col span={3}>
@@ -97,8 +98,7 @@ const WorkForm: React.FC<Props> = ({workExperience, handleSave, isOpen, setIsOpe
 
 
 interface Props {
-  isOpen: boolean,
-  setIsOpen: Dispatch<boolean>,
+  setShowEditForm: Dispatch<boolean>,
   workExperience: WorkExperienceModal,
   handleSave: (workExperience: WorkExperienceModal) => void
 }

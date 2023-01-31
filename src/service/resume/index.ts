@@ -5,7 +5,7 @@ import initResume from "../../mock/mockResume01.json";
 export interface ResumeService {
   resume: ResumeModal,
   updateBasicInfo: (basicInfo: BasicInfo) => void,
-  updateWorkExperience: (id: string, workExperience: WorkExperienceModal) => void,
+  updateWorkExperience: (workExperience: WorkExperienceModal) => void,
   addWorkExperience: (workExperience: WorkExperienceModal) => void,
   deleteWorkExperience: (id: string) => void
 }
@@ -21,10 +21,10 @@ const useResume = () => {
       setResume({...resume, basicInfo: {...basicInfo}});
     },
 
-    updateWorkExperience: (id: string, workExperience: WorkExperienceModal) => {
+    updateWorkExperience: (workExperience: WorkExperienceModal) => {
       const {workExperiences} = resume;
       const updateWorkExperiences = workExperiences.map(
-        (item) => item.id === id ? workExperience : item
+        (item) => item.id === workExperience.id ? workExperience : item
       );
       setResume({...resume, workExperiences: updateWorkExperiences})
     },
