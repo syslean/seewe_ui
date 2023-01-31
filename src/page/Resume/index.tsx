@@ -19,7 +19,7 @@ const Resume: React.FC<Props> = () => {
 
   return (
     <ResumeProvider>
-      <Row style={{height: "100%"}}>
+      <Row style={{height: "100%", backgroundColor: "#F3F6F9"}} >
         <Col flex="0 0 4.5rem">
           <SideBar items={resumeItems}/>
         </Col>

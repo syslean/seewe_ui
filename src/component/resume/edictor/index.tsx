@@ -2,11 +2,11 @@ import React, {ReactNode} from 'react';
 import styled from "styled-components";
 
 const WrappedWithScroll = styled.div`
-  overflow-y: scroll;
-
-  &::-webkit-scrollbar {
-    display: none;
-  }
+  //overflow-y: scroll;
+  //
+  //&::-webkit-scrollbar {
+  //  display: none;
+  //}
 `
 
 const Editor: React.FC<Props> = ({items}: Props) => {
