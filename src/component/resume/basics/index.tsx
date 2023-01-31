@@ -1,11 +1,17 @@
-import React, {useContext} from 'react';
+import React, {ChangeEvent, useContext} from 'react';
 import {Card, Col, Input, Row} from "antd";
-import {ResumeContext} from "../../../page/Resume/ResumeContext";
+import {ResumeContext} from "../../../page/Resume/resumeContext";
 import Header from "../header";
 import Label from "../label";
 
 const Basics: React.FC = () => {
-  const {basicInfo} = useContext(ResumeContext);
+  const {resume, setBasicInfo} = useContext(ResumeContext);
+  const {basicInfo} = resume;
+
+  const setFullName = (event: ChangeEvent<HTMLInputElement>) => {
+    console.log(event.target.value);
+    setBasicInfo({...basicInfo, fullName: event.target.value})
+  }
 
   return (
     <Card>
@@ -15,7 +21,7 @@ const Basics: React.FC = () => {
           <Label name="FullName"/>
         </Col>
         <Col span={18}>
-          <Input defaultValue={basicInfo.fullName}/>
+          <Input value={basicInfo.fullName} onChange={setFullName}/>
         </Col>
       </Row>
       <Row>

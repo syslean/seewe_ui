@@ -11,7 +11,7 @@ const Header: React.FC<Props> = ({title, description}: Props) => {
         title={title}
         description={description}
       />
-      <WrappedDivider marginVerticalSize="1rem"/>
+      <WrappedDivider marginverticalsize="1rem"/>
     </div>
 
   )

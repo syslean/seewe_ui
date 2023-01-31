@@ -23,7 +23,7 @@ function App() {
         <RouterProvider router={router}/>
       </WrappedContainer>
       <WrappedContainer height={GlobalDisplay.footerHeight}>
-        <WrappedDivider marginVerticalSize="0"/>
+        <WrappedDivider marginverticalsize="0"/>
         <Footer/>
       </WrappedContainer>
     </>

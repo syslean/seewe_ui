@@ -1,11 +1,12 @@
 import React, {useContext} from 'react';
-import {ResumeContext} from "../../../page/Resume/ResumeContext";
+import {ResumeContext} from "../../../page/Resume/resumeContext";
 import Header from "../header";
 import {Card, List} from "antd";
 import {getYearAndMonth} from "../../../utils";
 
 const Works: React.FC = () => {
-  const {workExperiences} = useContext(ResumeContext);
+  const {resume} = useContext(ResumeContext);
+  const {workExperiences} = resume;
 
   return (
     <Card>
@@ -19,7 +20,7 @@ const Works: React.FC = () => {
             const basicInfo = `${workExperience.name} - ${workExperience.position}`
             const limitDate = `${getYearAndMonth(workExperience.startDate)} - ${getYearAndMonth(workExperience.endDate)}`;
             return (
-              <List.Item  actions={[<a key={index}>edit</a>, <a key={index}>delete</a>]}>
+              <List.Item actions={[<a key={index}>edit</a>, <a key={index}>delete</a>]}>
                 <List.Item.Meta
                   title={basicInfo}
                   description={limitDate}

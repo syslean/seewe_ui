@@ -2,7 +2,7 @@ import React from 'react';
 import {Col, Row} from "antd";
 import SideBar from "../../component/resume/sidebar";
 import Editor from "../../component/resume/edictor";
-import {ResumeProvider} from "./ResumeContext";
+import {ResumeProvider} from "./resumeContext";
 import {ShoppingFilled, UserOutlined} from "@ant-design/icons";
 import {EducationIcon, PublicationIcon, SkillIcon} from "../../component/common/icons";
 import Basics from "../../component/resume/basics";
