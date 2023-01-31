@@ -1,18 +1,17 @@
 import React, {ReactNode} from 'react';
-import {Space} from 'antd';
 import MenuItem from "../../common/menuItem";
+import {SideBarWrapper} from "./index.style";
 
 
 const SideBar: React.FC<Props> = ({items}: Props) => {
-
   return (
-    <Space direction="vertical" size="middle" align="center" style={{width: "100%", paddingTop: "2rem"}}>
+    <SideBarWrapper>
       {
         items.map((item, index) => {
           return <MenuItem key={index} icon={item.icon} title={item.title}/>
         })
       }
-    </Space>
+    </SideBarWrapper>
   )
 };
 

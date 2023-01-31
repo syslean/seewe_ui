@@ -3,6 +3,9 @@ import styled from "styled-components";
 
 const WrappedWithScroll = styled.div`
   overflow-y: scroll;
+  padding: 1rem;
+  height: calc(100vh - 9.5rem);
+  flex: 1;
 
   &::-webkit-scrollbar {
     display: none;
@@ -11,7 +14,7 @@ const WrappedWithScroll = styled.div`
 
 const Editor: React.FC<Props> = ({items}: Props) => {
   return (
-    <WrappedWithScroll style={{padding: "1rem", height: "80vh"}}>
+    <WrappedWithScroll style={{}}>
       {items.map((item, index) => {
         return <div key={index} id={item.title}>{item.modal}</div>
       })}

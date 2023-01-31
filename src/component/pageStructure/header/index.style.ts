@@ -5,7 +5,6 @@ export const SeeweLogo = styled(Logo)`
   height: 3rem;
   width: auto;
   padding: 0.25rem 0;
-  text-align: center;
 `
 
 export const HeaderWrapper = styled.div`
