@@ -14,7 +14,7 @@ module.exports = {
     "<rootDir>/src/utils/**/*.{tsx,ts}",
   ],
   transform: {
-    ".+\\.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2)$":
+    ".+\\.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2|svg)$":
       "jest-transform-stub",
     "node_modules/axios/.+\\.(j|t)sx?$": "ts-jest",
   },
