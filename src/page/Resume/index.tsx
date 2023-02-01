@@ -8,7 +8,7 @@ import Basics from "../../component/resume/basics";
 import Works from "../../component/resume/works";
 import {ResumeWrapper} from "./index.style";
 
-const Resume: React.FC<Props> = () => {
+const Resume: React.FC = () => {
   const resumeItems = [
     {title: 'Basics', icon: <UserOutlined/>, modal: <Basics/>},
     {title: 'Works', icon: <ShoppingFilled/>, modal: <Works/>},
@@ -28,7 +28,3 @@ const Resume: React.FC<Props> = () => {
 }
 
 export default Resume;
-
-interface Props {
-
-}

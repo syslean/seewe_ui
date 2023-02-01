@@ -1,14 +1,10 @@
 
 import React from 'react';
 
-const NotFound: React.FC<Props> = () => {
+const NotFound: React.FC = () => {
     return (
         <div>404 Not Found!</div>
     )
 }
 
 export default NotFound;
-
-interface Props {
-
-}

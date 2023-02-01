@@ -1,11 +1,11 @@
-import React, {Dispatch, MouseEvent} from 'react';
+import React, {Dispatch} from 'react';
 import {getYearAndMonth} from "../../../utils";
 import {Button, List, Popconfirm} from "antd";
 
 
 const WorkItem: React.FC<Props> = ({workExperience, handleClick}: Props) => {
 
-  const handleEditClick = (_event: MouseEvent<HTMLButtonElement> | MouseEvent<HTMLAnchorElement>) => {
+  const handleEditClick = () => {
     handleClick(workExperience.id);
   }
 
