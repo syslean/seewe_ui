@@ -1,20 +1,18 @@
 import styled from "styled-components";
 
-
 export const FooterWrapper = styled.div`
   position: fixed;
+  height: 3rem;
   width: 100%;
-  height: 4rem;
   bottom: 0;
-  background-color: #FFFFFF;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  background-color: #162A48;
 `
 
-
-export const TimeLine = styled.div`
-  font: normal 0.8rem 'Lucida Grande';
-
+export const Copyright = styled.div`
+  line-height: 3rem;
+  margin: 0 auto;
+  max-width: 1020px;
+  font-family: "Open Sans", serif;
+  font-size: 0.75rem;
+  color: #E5EFFF;
 `

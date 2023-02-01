@@ -1,12 +1,6 @@
 import styled from "styled-components";
 import {ReactComponent as Logo} from "../../../assets/img/logo.svg";
 
-export const SeeweLogo = styled(Logo)`
-  height: 2.5rem;
-  width: auto;
-  padding-right: 0.5rem;
-`
-
 export const HeaderWrapper = styled.div`
   height: 4rem;
   position: sticky;
@@ -19,6 +13,7 @@ export const HeaderWrapper = styled.div`
 
   > div {
     height: 100%;
+    width: 100%;
     max-width: 1020px;
     margin: 0 auto;
     display: flex;
@@ -31,4 +26,10 @@ export const HeaderWrapper = styled.div`
       color: #162A48;
     }
   }
+`
+
+export const SeeweLogo = styled(Logo)`
+  height: 2.5rem;
+  width: auto;
+  padding-right: 0.5rem;
 `
