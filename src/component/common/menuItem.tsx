@@ -1,7 +1,10 @@
 import React from 'react';
-import {Avatar, Tooltip} from "antd";
 
-const MenuItem: React.FC<Props> = ({title, icon}: Props) => {
+interface Props {
+  title: string;
+}
+
+const MenuItem: React.FC<Props> = ({title}: Props) => {
   const handleClickScroll = (title: string) => {
     const element = document.getElementById(title);
     if (element) {
@@ -10,15 +13,9 @@ const MenuItem: React.FC<Props> = ({title, icon}: Props) => {
   };
 
   return (
-    <Tooltip title={title} placement="left">
-      <Avatar icon={icon} onClick={() => handleClickScroll(title)}/>
-    </Tooltip>
+      <span onClick={() => handleClickScroll(title)}>{title}</span>
   )
 }
 
 export default MenuItem;
 
-interface Props {
-  title: string;
-  icon: React.ReactNode;
-}

@@ -1,7 +1,7 @@
 import useLocalStorage from "../useLocalStorage";
-import {RESUME_DATA} from "../../constants";
 import initResume from "../../mock/mockResume01.json";
 
+const RESUME_DATA = "{}"
 export interface ResumeService {
   resume: ResumeModal,
   updateBasicInfo: (basicInfo: BasicInfo) => void,

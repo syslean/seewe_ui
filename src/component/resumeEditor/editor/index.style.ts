@@ -6,9 +6,8 @@ export const EditorWrapper = styled.div`
   padding: 0.5rem;
   border-radius: 0.5rem;
   background-color: #F9F9F9;
-
+  flex: 1;
   overflow-y: scroll;
-  flex: 5 3;
 
   &::-webkit-scrollbar {
     display: none;

@@ -1,6 +1,6 @@
 import React from "react";
 import {createBrowserRouter} from "react-router-dom";
-import Resume from "../page/Resume";
+import Resume from "../page/ResumeEditor";
 import NotFound from "../page/NotFound";
 
 

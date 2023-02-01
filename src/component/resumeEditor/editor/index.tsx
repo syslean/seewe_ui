@@ -1,6 +1,9 @@
 import React, {ReactNode} from 'react';
-import { EditorWrapper } from './index.style';
+import {EditorWrapper} from "./index.style";
 
+interface Props {
+  items: { title: string, modal: ReactNode }[]
+}
 const Editor: React.FC<Props> = ({items}: Props) => {
   return (
     <EditorWrapper>
@@ -12,7 +15,3 @@ const Editor: React.FC<Props> = ({items}: Props) => {
 }
 
 export default Editor;
-
-interface Props {
-  items: { title: string, icon: ReactNode, modal: ReactNode }[]
-}

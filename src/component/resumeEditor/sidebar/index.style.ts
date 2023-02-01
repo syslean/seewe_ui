@@ -6,9 +6,5 @@ export const SideBarWrapper = styled.div`
   padding: 0.5rem;
   border-radius: 0.5rem;
   background-color: #F9F9F9;
-
-  display: flex;
-  flex: 1 1;
-  flex-direction: column;
-
+  width: 10rem;
 `

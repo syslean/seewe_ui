@@ -1,7 +1,7 @@
-import React, {ReactNode} from 'react';
+import React from 'react';
 import MenuItem from "../../common/menuItem";
 import {SideBarWrapper} from "./index.style";
-import {Card} from "../../common/card";
+import {Card} from "../index.style";
 
 
 const SideBar: React.FC<Props> = ({items}: Props) => {
@@ -11,7 +11,7 @@ const SideBar: React.FC<Props> = ({items}: Props) => {
         items.map((item, index) => {
           return (
             <Card>
-              <MenuItem key={index} icon={item.icon} title={item.title}/>
+              <MenuItem key={index} title={item.title}/>
             </Card>
           )
         })
@@ -21,7 +21,7 @@ const SideBar: React.FC<Props> = ({items}: Props) => {
 };
 
 interface Props {
-  items: { title: string, icon: ReactNode }[]
+  items: { title: string }[]
 }
 
 export default SideBar;

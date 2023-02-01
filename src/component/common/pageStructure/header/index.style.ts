@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {ReactComponent as Logo} from "../../../assets/img/logo.svg";
+import {ReactComponent as Logo} from "../../../../assets/img/logo.svg";
 
 export const HeaderWrapper = styled.div`
   height: 4rem;
