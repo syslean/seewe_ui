@@ -1,7 +1,6 @@
 import React from 'react';
 import {UserOutlined} from "@ant-design/icons";
 import Meta from "antd/lib/card/Meta";
-import {WrappedDivider} from "../../common/divider";
 
 const Header: React.FC<Props> = ({title, description}: Props) => {
   return (
@@ -11,7 +10,6 @@ const Header: React.FC<Props> = ({title, description}: Props) => {
         title={title}
         description={description}
       />
-      <WrappedDivider marginverticalsize="1rem"/>
     </div>
 
   )

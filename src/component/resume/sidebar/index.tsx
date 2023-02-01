@@ -1,6 +1,7 @@
 import React, {ReactNode} from 'react';
 import MenuItem from "../../common/menuItem";
 import {SideBarWrapper} from "./index.style";
+import {Card} from "../../common/card";
 
 
 const SideBar: React.FC<Props> = ({items}: Props) => {
@@ -8,7 +9,11 @@ const SideBar: React.FC<Props> = ({items}: Props) => {
     <SideBarWrapper>
       {
         items.map((item, index) => {
-          return <MenuItem key={index} icon={item.icon} title={item.title}/>
+          return (
+            <Card>
+              <MenuItem key={index} icon={item.icon} title={item.title}/>
+            </Card>
+          )
         })
       }
     </SideBarWrapper>

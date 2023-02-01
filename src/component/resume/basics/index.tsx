@@ -1,8 +1,9 @@
 import React, {ChangeEvent, useContext} from 'react';
-import {Card, Col, Input, Row} from "antd";
+import {Col, Input, Row} from "antd";
 import {ResumeContext} from "../../../page/Resume/resumeContext";
 import Header from "../header";
 import Label from "../label";
+import {Card} from "../../common/card";
 
 const Basics: React.FC = () => {
   const {resume, updateBasicInfo} = useContext(ResumeContext);

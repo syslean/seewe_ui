@@ -1,9 +1,11 @@
 import React, {useContext, useState} from 'react';
 import {ResumeContext} from "../../../page/Resume/resumeContext";
 import Header from "../header";
-import {Card, List} from "antd";
+import {List} from "antd";
+
 import WorkForm from "./workForm";
 import WorkItem from "./WorkItem";
+import {Card} from "../../common/card";
 
 const Works: React.FC = () => {
 
