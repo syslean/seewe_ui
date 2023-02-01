@@ -6,7 +6,7 @@ import {ResumeWrapper} from "./index.style";
 
 const Resume: React.FC = () => {
   const resumeItems = [
-    {title: 'Basics', modal: <Profile />},
+    {title: 'Profile', modal: <Profile />},
   ];
 
   return (
