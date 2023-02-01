@@ -24,7 +24,7 @@ const Works: React.FC = () => {
 
   return (
     <>
-      <Card>
+      <Card id='work'>
         <Header title="WorkExperiences" description="Record your past work experiences"/>
         <List
           itemLayout="horizontal"
