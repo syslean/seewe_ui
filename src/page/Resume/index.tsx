@@ -1,6 +1,6 @@
 import React from 'react';
 import SideBar from "../../component/resume/sidebar";
-import Editor from "../../component/resume/edictor";
+import Editor from "../../component/resume/editor";
 import {ResumeProvider} from "./resumeContext";
 import {ShoppingFilled, UserOutlined} from "@ant-design/icons";
 import {EducationIcon, PublicationIcon, SkillIcon} from "../../component/common/icons";
