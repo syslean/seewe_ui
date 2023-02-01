@@ -2,9 +2,9 @@ import styled from "styled-components";
 import {ReactComponent as Logo} from "../../../assets/img/logo.svg";
 
 export const SeeweLogo = styled(Logo)`
-  height: 3rem;
+  height: 2.5rem;
   width: auto;
-  padding: 0.25rem 0;
+  padding: 0.5rem 0;
 `
 
 export const HeaderWrapper = styled.div`
