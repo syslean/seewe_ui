@@ -4,7 +4,10 @@ import {HeaderWrapper, SeeweLogo} from "./index.style";
 const Header: React.FC = () => {
   return (
     <HeaderWrapper>
-      <SeeweLogo />
+      <div>
+        <SeeweLogo />
+        <span>SEEWE RESUME</span>
+      </div>
     </HeaderWrapper>
   )
 }
