@@ -20,13 +20,14 @@ export const CardContainer = styled.div`
 export const CardInnerLine = styled.div`
   margin-bottom: 0.5rem;
   display: flex;
+  justify-content: space-between;
 
-  div {
-
-    margin-right: 3rem;
-  }
-
-  div:last-child {
-    margin-right: 0;
-  }
+  //div {
+  //
+  //  margin-right: 3rem;
+  //}
+  //
+  //div:last-child {
+  //  margin-right: 0;
+  //}
 `

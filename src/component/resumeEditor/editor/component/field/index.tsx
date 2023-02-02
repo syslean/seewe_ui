@@ -1,6 +1,5 @@
 import React from "react";
-import {FieldWrapper, FiledTitle} from "./index.style";
-import {Input} from "antd";
+import {FieldWrapper, FiledTitle, InputWrapper, TextAreaWrapper} from "./index.style";
 
 interface Props {
   title: string;
@@ -13,7 +12,7 @@ const TextField: React.FC<Props> = ({title, value}: Props) => {
   return (
     <FieldWrapper>
       <FiledTitle>{title}</FiledTitle>
-      <Input defaultValue={value}/>
+      <InputWrapper defaultValue={value}/>
     </FieldWrapper>
   );
 }
@@ -23,7 +22,7 @@ const TextAreaField: React.FC<Props> = ({title, value}: Props) => {
   return (
     <FieldWrapper>
       <FiledTitle>{title}</FiledTitle>
-      <Input.TextArea style={{maxWidth: "25rem"}}
+      <TextAreaWrapper style={{minWidth: "25rem"}}
                       defaultValue={value}/>
     </FieldWrapper>
   );

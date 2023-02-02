@@ -1,8 +1,8 @@
 import styled from "styled-components";
+import {Input} from "antd";
 
 export const FieldWrapper = styled.div`
-  width: calc(50% - 3rem);
-  flex: 1;
+  width: calc(50% - 0.75rem);
   display: flex;
   flex-direction: column;
 `
@@ -16,3 +16,16 @@ export const FiledTitle = styled.div`
   color: rgba(0, 0, 0, 0.85);
 `
 
+export const InputWrapper = styled(Input)`
+  font-family: "Open Sans", serif;
+  font-size: 0.75rem;
+  font-weight: normal;
+  line-height: 22px;
+`
+
+export const TextAreaWrapper = styled(Input.TextArea)`
+  font-family: "Open Sans", serif;
+  font-size: 0.75rem;
+  font-weight: normal;
+  line-height: 22px;
+`
