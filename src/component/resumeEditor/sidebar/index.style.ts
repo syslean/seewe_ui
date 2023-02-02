@@ -5,5 +5,5 @@ export const SideBarWrapper = styled.div`
   margin-right: 1rem;
   border-radius: 0.5rem;
   background-color: #F9F9F9;
-  width: 10rem;
+  width: 11rem;
 `
