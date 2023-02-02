@@ -5,6 +5,7 @@ const Profile: React.FC = () => {
 
   return (
     <div>
+      Profile Name
     </div>
   )
 }
