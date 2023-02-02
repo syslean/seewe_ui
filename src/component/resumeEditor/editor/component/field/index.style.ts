@@ -10,7 +10,7 @@ export const FiledTitle = styled.div`
   margin-bottom: 0.5rem;
 
   font-family: "Open Sans", serif;
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: 600;
 
   color: rgba(0, 0, 0, 0.85);
