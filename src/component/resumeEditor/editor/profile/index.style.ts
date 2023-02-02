@@ -1,11 +1,11 @@
 import styled from "styled-components";
 
 export const CardHeader = styled.div`
-
   height: 3rem;
   border-bottom: 1px solid #F0F0F0;;
   padding-left: 1.5rem;
   line-height: 3rem;
+  cursor: default;
 
   font-family: "Open Sans", serif;
   font-size: 1rem;
@@ -21,13 +21,4 @@ export const CardInnerLine = styled.div`
   margin-bottom: 0.5rem;
   display: flex;
   justify-content: space-between;
-
-  //div {
-  //
-  //  margin-right: 3rem;
-  //}
-  //
-  //div:last-child {
-  //  margin-right: 0;
-  //}
 `

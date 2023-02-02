@@ -8,6 +8,7 @@ export const FieldWrapper = styled.div`
 `
 export const FiledTitle = styled.div`
   margin-bottom: 0.5rem;
+  cursor: default;
 
   font-family: "Open Sans", serif;
   font-size: 0.875rem;

@@ -7,6 +7,8 @@ export const MenuItemWrapper = styled.div`
   margin-bottom: 0.75rem;
   height: 2.6rem;
 
+  cursor: default;
+
   display: flex;
   align-items: center;
 `
