@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
 export const SideBarWrapper = styled.div`
-  height: calc(100vh - 9rem);
-  margin: 0.5rem;
-  padding: 0.5rem;
+  padding-top: 1rem;
+  margin-right: 1rem;
   border-radius: 0.5rem;
   background-color: #F9F9F9;
-  width: 12rem;
+  min-width: 12rem;
+  max-width: 12rem;
 `

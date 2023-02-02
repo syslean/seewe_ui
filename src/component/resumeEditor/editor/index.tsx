@@ -10,7 +10,7 @@ const Editor: React.FC<Props> = ({items}: Props) => {
   return (
     <EditorWrapper>
       {items.map((item, index) => {
-        return <EditorInnerCard key={index} id={item.title}>{RESUME_COMPONENT_MAPPING[item.title]}</EditorInnerCard>
+        return <EditorInnerCard key={index} id={item.title}>{RESUME_COMPONENT_MAPPING[item.title].component}</EditorInnerCard>
       })}
     </EditorWrapper>
   )

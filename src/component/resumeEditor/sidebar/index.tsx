@@ -1,5 +1,5 @@
 import React from 'react';
-import MenuItem from "../../common/menuItem";
+import MenuItem from "./menuItem";
 import {SideBarWrapper} from "./index.style";
 
 const SideBar: React.FC<Props> = ({items}: Props) => {
