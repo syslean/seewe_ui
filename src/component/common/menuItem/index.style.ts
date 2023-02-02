@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Card = styled.div`
+export const MenuItemWrapper = styled.div`
   background: #FFFFFF;
   border-radius: 0.5rem;
   box-shadow: 0 2px 4px 0 rgba(197, 197, 197, 0.3);

@@ -1,4 +1,5 @@
 import React from 'react';
+import {MenuItemWrapper} from "./index.style";
 
 interface Props {
   title: string;
@@ -13,7 +14,9 @@ const MenuItem: React.FC<Props> = ({title}: Props) => {
   };
 
   return (
+    <MenuItemWrapper>
       <span onClick={() => handleClickScroll(title)}>{title}</span>
+    </MenuItemWrapper>
   )
 }
 
