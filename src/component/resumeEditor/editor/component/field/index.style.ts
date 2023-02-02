@@ -21,6 +21,8 @@ export const InputWrapper = styled(Input)`
   font-size: 0.75rem;
   font-weight: normal;
   line-height: 22px;
+
+  color: rgba(0, 0, 0, 0.65);
 `
 
 export const TextAreaWrapper = styled(Input.TextArea)`
@@ -28,4 +30,6 @@ export const TextAreaWrapper = styled(Input.TextArea)`
   font-size: 0.75rem;
   font-weight: normal;
   line-height: 22px;
+
+  color: rgba(0, 0, 0, 0.65);
 `
