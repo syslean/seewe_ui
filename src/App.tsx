@@ -5,15 +5,18 @@ import PageStructure from "./component/common/pageStructure";
 import {ConfigProvider} from "antd";
 import ANT_THEME_CONFIG from "./config/theme";
 
+import {LanguageProvider} from "./context/LanguageContext";
+import languages from "./lang";
 
 const App = () => {
   return (
-    <ConfigProvider theme={ANT_THEME_CONFIG}>
-      <PageStructure>
-        <RouterProvider router={router}/>
-      </PageStructure>
-    </ConfigProvider>
-
+    <LanguageProvider languages={languages}>
+      <ConfigProvider theme={ANT_THEME_CONFIG}>
+        <PageStructure>
+          <RouterProvider router={router}/>
+        </PageStructure>
+      </ConfigProvider>
+    </LanguageProvider>
   );
 }
 

@@ -6,14 +6,14 @@ const SideBar: React.FC<Props> = ({items}: Props) => {
   return (
     <SideBarWrapper>
       {
-        items.map((item, index) => <MenuItem key={index} title={item.title}/>)
+        items.map((item, index) => <MenuItem key={index} title={item.title} label={item.label}/>)
       }
     </SideBarWrapper>
   )
 };
 
 interface Props {
-  items: { title: string }[]
+  items: { title: string; label: string }[]
 }
 
 export default SideBar;
