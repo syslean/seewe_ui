@@ -13,7 +13,7 @@ const Educations: React.FC = () => {
       <CardHeader title={RESUME_COMPONENT_NAME.EDUCATIONS}/>
       <CardContainer>
         <SubContainer>
-          <div style={{height: "2.5rem", background: "#FAFAFA"}}/>
+          <div style={{height: "2.5rem", background: "#FAFAFA", borderBottom: "1px solid #E9E9E9"}}/>
           <div style={{padding: "2rem"}}>
             <CardInnerLine>
               <TextField title="School Name" value="Happy University"/>
@@ -27,7 +27,7 @@ const Educations: React.FC = () => {
         </SubContainer>
 
         <SubContainer>
-          <div style={{height: "2.5rem", background: "#FAFAFA"}}/>
+          <div style={{height: "2.5rem", background: "#FAFAFA", borderBottom: "1px solid #E9E9E9"}}/>
           <div style={{padding: "2rem"}}>
             <CardInnerLine>
               <TextField title="School Name" value="Happy University"/>
