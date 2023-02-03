@@ -7,6 +7,7 @@ interface Props {
 }
 
 const MenuItem: React.FC<Props> = ({title}: Props) => {
+
   const handleClickScroll = (title: string) => {
     const element = document.getElementById(title);
     if (element) {
