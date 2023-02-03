@@ -37,7 +37,7 @@ const Educations: React.FC = () => {
           <DateRangeField title="Period" value=""/>
         </TwoFieldsLayout>
       </SubCard>
-      <SubCard>
+      <SubCard actions={subActions}>
         <TwoFieldsLayout>
           <TextField title="School Name" value="Happy University"/>
           <TextField title="Major" value="Experience design"/>
