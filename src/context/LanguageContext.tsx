@@ -9,6 +9,7 @@ export type TLanguages = {
 
 export const LanguageContext = React.createContext({
   language: Language.ENGB,
+  // eslint-disable-next-line
 } as any);
 
 export const LanguageProvider = ({
