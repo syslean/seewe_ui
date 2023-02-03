@@ -48,7 +48,7 @@ const SelectorField: React.FC<Props> = ({title, value}: Props) => {
   );
 }
 
-const DateRangeField: React.FC<Props> = ({title, value}: Props) => {
+const DateRangeField: React.FC<Props> = ({title}: Props) => {
 
   return (
     <FieldWrapper>
