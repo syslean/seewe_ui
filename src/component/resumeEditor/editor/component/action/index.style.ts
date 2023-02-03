@@ -4,7 +4,8 @@ import {ReactComponent as CloseSvg} from "../../../../../assets/img/close.svg";
 import {ReactComponent as DeleteSvg} from "../../../../../assets/img/delete.svg";
 
 export const ActionWrapper = styled.span`
-    margin-left: 0.75rem;
+  line-height: 100%;
+  margin-left: 0.75rem;
 `
 
 export const AddIcon = styled(AddSvg)`
@@ -18,6 +19,6 @@ export const CloseIcon = styled(CloseSvg)`
 `
 
 export const DeleteIcon = styled(DeleteSvg)`
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 1rem;
+  height: 1rem;
 `
