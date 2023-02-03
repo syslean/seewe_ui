@@ -7,7 +7,4 @@ export const CardInnerLine = styled.div`
 `
 
 
-export const SubContainer = styled.div`
-  border: 1px solid #E9E9E9;
-  margin-bottom: 2rem;
-`
+
