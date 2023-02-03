@@ -17,6 +17,7 @@ export const FiledTitle = styled.div`
   color: rgba(0, 0, 0, 0.85);
 `
 
+// todo: repeat font with ant-design input
 export const InputWrapper = styled(Input)`
   font-family: "Open Sans", serif;
   font-size: 0.75rem;
