@@ -1,5 +1,5 @@
 import React, {ReactNode} from "react";
-import {SubCardWrapper, SubContainer, SubHeader} from "./index.style";
+import { SubCardWrapper, SubContainer, SubHeader } from "./index.style";
 
 interface Props {
   children: ReactNode

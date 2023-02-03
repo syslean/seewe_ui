@@ -1,6 +1,6 @@
 import React from "react";
-import {FieldWrapper, FiledTitle, InputWrapper, TextAreaWrapper} from "./index.style";
-import {DatePicker, Select} from "antd";
+import {FieldWrapper, FiledTitle} from "./index.style";
+import {DatePicker, Input, Select} from "antd";
 import dayjs from "dayjs";
 
 interface Props {
@@ -8,13 +8,12 @@ interface Props {
   value: string;
 }
 
-
 const TextField: React.FC<Props> = ({title, value}: Props) => {
 
   return (
     <FieldWrapper>
       <FiledTitle>{title}</FiledTitle>
-      <InputWrapper defaultValue={value}/>
+      <Input defaultValue={value}/>
     </FieldWrapper>
   );
 }
@@ -24,7 +23,7 @@ const TextAreaField: React.FC<Props> = ({title, value}: Props) => {
   return (
     <FieldWrapper>
       <FiledTitle>{title}</FiledTitle>
-      <TextAreaWrapper style={{minWidth: "25rem"}}
+      <Input.TextArea style={{minWidth: "25rem"}}
                        defaultValue={value}/>
     </FieldWrapper>
   );

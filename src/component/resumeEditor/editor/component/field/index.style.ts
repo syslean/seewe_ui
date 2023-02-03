@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import {Input} from "antd";
 
 export const SingleFieldLayout = styled.div`
   margin-bottom: 0.5rem;
@@ -25,23 +24,4 @@ export const FiledTitle = styled.div`
   font-weight: 600;
 
   color: rgba(0, 0, 0, 0.85);
-`
-
-// todo: repeat font with ant-design input
-export const InputWrapper = styled(Input)`
-  font-family: "Open Sans", serif;
-  font-size: 0.75rem;
-  font-weight: normal;
-  line-height: 22px;
-
-  color: rgba(0, 0, 0, 0.65);
-`
-
-export const TextAreaWrapper = styled(Input.TextArea)`
-  font-family: "Open Sans", serif;
-  font-size: 0.75rem;
-  font-weight: normal;
-  line-height: 22px;
-
-  color: rgba(0, 0, 0, 0.65);
 `
