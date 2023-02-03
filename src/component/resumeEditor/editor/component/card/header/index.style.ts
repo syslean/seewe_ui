@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const CardHeaderWrapper = styled.div`
+export const HeaderWrapper = styled.div`
   height: 3rem;
   border-bottom: 1px solid #F0F0F0;;
   padding-left: 1.5rem;
