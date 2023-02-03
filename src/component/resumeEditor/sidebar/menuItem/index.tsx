@@ -1,12 +1,16 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {MenuTitle, MenuIcon, MenuItemWrapper} from "./index.style";
 import {RESUME_COMPONENT_MAPPING} from "../../../../page/ResumeEditor";
+import {LanguageContext} from "../../../../context/LanguageContext";
 
 interface Props {
   title: string;
+  label: string;
 }
 
-const MenuItem: React.FC<Props> = ({title}: Props) => {
+const MenuItem: React.FC<Props> = ({title, label}: Props) => {
+
+  const {t} = useContext(LanguageContext);
 
   const handleClickScroll = (title: string) => {
     const element = document.getElementById(title);
@@ -18,7 +22,7 @@ const MenuItem: React.FC<Props> = ({title}: Props) => {
   return (
     <MenuItemWrapper onClick={() => handleClickScroll(title)}>
       <MenuIcon>{RESUME_COMPONENT_MAPPING[title].icon}</MenuIcon>
-      <MenuTitle style={{flex: "1"}}>{title}</MenuTitle>
+      <MenuTitle style={{flex: "1"}}>{t(label)}</MenuTitle>
     </MenuItemWrapper>
   )
 }

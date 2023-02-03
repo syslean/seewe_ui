@@ -31,9 +31,9 @@ export const RESUME_COMPONENT_MAPPING = {
 
 const Resume: React.FC = () => {
   const resumeItems = [
-    {title: RESUME_COMPONENT_NAME.PROFILE},
-    {title: RESUME_COMPONENT_NAME.EDUCATIONS},
-    {title: RESUME_COMPONENT_NAME.EXPERIENCES},
+    {title: RESUME_COMPONENT_NAME.PROFILE, label: "sidebar.profile.label"},
+    {title: RESUME_COMPONENT_NAME.EDUCATIONS, label: "sidebar.educations.label"},
+    {title: RESUME_COMPONENT_NAME.EXPERIENCES, label: "sidebar.experiences.label"},
   ];
 
   return (
