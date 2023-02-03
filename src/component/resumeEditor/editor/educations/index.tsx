@@ -1,7 +1,7 @@
 import React from 'react';
 import {RESUME_COMPONENT_NAME} from "../../../../page/ResumeEditor";
 import Card from "../component/card";
-import SubCard from "./subCard";
+import SubCard from "../component/subCard";
 import {DateRangeField, SelectorField, TextField} from "../component/field";
 import {TwoFieldsLayout} from "../component/field/index.style";
 
