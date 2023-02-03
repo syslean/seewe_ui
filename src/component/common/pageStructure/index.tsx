@@ -7,7 +7,7 @@ interface IProps {
   children: React.ReactNode;
 }
 
-const PageStructure: React.FC<IProps> = ({children}) => {
+const PageStructure: React.FC<IProps> = ({children}: IProps) => {
   return (
     <Container>
       <Header />

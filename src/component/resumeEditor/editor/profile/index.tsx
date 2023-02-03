@@ -1,14 +1,16 @@
 import React from 'react';
-import {CardHeader, CardContainer, CardInnerLine} from './index.style';
+import {CardInnerLine} from './index.style';
 import {RESUME_COMPONENT_NAME} from "../../../../page/ResumeEditor";
 import {TextAreaField, TextField} from "../component/field";
+import CardHeader from "../component/cardHeader";
+import CardContainer from "../component/cardContainer";
 
 
 const Profile: React.FC = () => {
 
   return (
     <>
-      <CardHeader>{RESUME_COMPONENT_NAME.PROFILE}</CardHeader>
+      <CardHeader title={RESUME_COMPONENT_NAME.PROFILE}/>
       <CardContainer>
         <CardInnerLine>
           <TextField title="Full Name" value="Seewe Jean"/>

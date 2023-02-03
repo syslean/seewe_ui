@@ -6,6 +6,7 @@ import {ReactComponent as ProfileLogo} from "../../assets/img/profile.svg";
 import {ReactComponent as EducationsLogo} from "../../assets/img/educations.svg";
 import {ReactComponent as ExperiencesLogo} from "../../assets/img/experiences.svg";
 import {ResumeWrapper} from "./index.style";
+import Educations from "../../component/resumeEditor/editor/educations";
 
 export const RESUME_COMPONENT_NAME = {
   PROFILE: 'Profile',
@@ -19,7 +20,7 @@ export const RESUME_COMPONENT_MAPPING = {
     icon: <ProfileLogo/>
   },
   [RESUME_COMPONENT_NAME.EDUCATIONS]: {
-    component: <Profile/>,
+    component: <Educations/>,
     icon: <EducationsLogo/>
   },
   [RESUME_COMPONENT_NAME.EXPERIENCES]: {
