@@ -1,6 +1,16 @@
 import styled from "styled-components";
 import {Input} from "antd";
 
+export const SingleFieldLayout = styled.div`
+  margin-bottom: 0.5rem;
+`
+
+export const TwoFieldsLayout = styled.div`
+  margin-bottom: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+`
+
 export const FieldWrapper = styled.div`
   width: calc(50% - 0.75rem);
   display: flex;
