@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const EditorWrapper = styled.div`
   padding: 1rem 1rem 0 1rem;
   border-radius: 0.5rem;
-  background-color: #89B5E1;
+  background-color: #235385;
   flex: 1;
   overflow-y: scroll;
 
