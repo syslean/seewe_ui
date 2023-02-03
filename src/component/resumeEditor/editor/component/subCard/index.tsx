@@ -1,15 +1,22 @@
 import React, {ReactNode} from "react";
-import { SubCardWrapper, SubContainer, SubHeader } from "./index.style";
+import { HeaderActions } from "../card/header/index.style";
+import {SubCardWrapper, SubContainer, SubHeader} from "./index.style";
 
 interface Props {
+  actions?: ReactNode[],
   children: ReactNode
 }
 
 
-const SubCard: React.FC<Props> = ({children}: Props) => {
+const SubCard: React.FC<Props> = ({children, actions}: Props) => {
   return (
     <SubCardWrapper>
-      <SubHeader/>
+      <SubHeader>
+        <HeaderActions>
+          {actions &&
+          actions.map((action) => action)}
+        </HeaderActions>
+      </SubHeader>
       <SubContainer>
         {children}
       </SubContainer>

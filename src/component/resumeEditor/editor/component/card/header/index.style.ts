@@ -3,9 +3,11 @@ import styled from "styled-components";
 export const HeaderWrapper = styled.div`
   height: 3rem;
   border-bottom: 1px solid #F0F0F0;;
-  padding-left: 1.5rem;
-  line-height: 3rem;
+  padding: 0 1rem 0 1.5rem;
   cursor: default;
+
+  display: flex;
+  align-items: center;
 `
 
 export const HeaderTitle = styled.div`
@@ -18,5 +20,5 @@ export const HeaderTitle = styled.div`
 `
 
 export const HeaderActions = styled.div`
-
+  margin-right: 0.25rem;
 `

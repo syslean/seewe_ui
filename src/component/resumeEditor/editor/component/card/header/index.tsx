@@ -13,9 +13,7 @@ const Header: React.FC<Props> = ({title, actions}: Props) => {
       <HeaderTitle>{title}</HeaderTitle>
       {actions &&
       <HeaderActions>
-        {actions.map((action) => {
-          return action
-        })}
+        {actions.map((action) => action)}
       </HeaderActions>
       }
     </HeaderWrapper>
