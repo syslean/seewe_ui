@@ -55,7 +55,8 @@ const DateRangeField: React.FC<Props> = ({title}: Props) => {
       <FiledTitle>{title}</FiledTitle>
       <DatePicker.RangePicker
         defaultValue={[dayjs('2015/06', 'YYYY/MM'), dayjs('2015/06', 'YYYY-MM')]}
-        format="YYYY/MM"
+        format="YYYY / MM"
+        picker="month"
       />
     </FieldWrapper>
   );
