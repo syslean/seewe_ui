@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const SubCardWrapper = styled.div`
   border: 1px solid #E9E9E9;
-  margin-bottom: 2rem;
+  margin-bottom: 0.75rem;
 `
 
 export const SubHeader = styled.div`
@@ -12,5 +12,5 @@ export const SubHeader = styled.div`
 `
 
 export const SubContainer = styled.div`
-  padding: 2rem;
+  padding: 1rem 1.25rem;
 `

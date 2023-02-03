@@ -41,9 +41,7 @@ const SelectorField: React.FC<Props> = ({title, value}: Props) => {
           {value: 'Associate', label: 'Associate'},
           {value: 'Bachelor', label: 'Bachelor'},
           {value: 'Master', label: 'Master'},
-          {value: 'Doctor', label: 'Doctor(Ph,D)'},
-          {value: 'Doctoral', label: 'Doctoral / PhD'},
-          {value: 'Professional', label: 'Professional / EdD'},
+          {value: 'Doctor', label: 'Doctor(PhD)'},
         ]}
       />
     </FieldWrapper>
@@ -57,6 +55,7 @@ const DateRangeField: React.FC<Props> = ({title, value}: Props) => {
       <FiledTitle>{title}</FiledTitle>
       <DatePicker.RangePicker
         defaultValue={[dayjs('2015/06', 'YYYY/MM'), dayjs('2015/06', 'YYYY-MM')]}
+        format="YYYY/MM"
       />
     </FieldWrapper>
   );
