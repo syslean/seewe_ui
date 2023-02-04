@@ -3,14 +3,23 @@ export const language = {
     header: "SEEWE RESUME",
   },
   sidebar: {
+    profile: "Profile",
+    educations: "Educations",
+    experiences: "Experiences"
+  },
+  editor: {
     profile: {
-      label: "Profile"
+      name: "姓名",
+      title: "职位",
+      phone: "手机号",
+      email: "邮件",
+      about: "自我介绍"
     },
-    educations: {
-      label: "Educations"
-    },
-    experiences: {
-      label: "Experiences"
+    experience: {
+      school: "学校",
+      major: "专业",
+      degree: "专业",
+      period: "经历时间"
     }
   }
 };
