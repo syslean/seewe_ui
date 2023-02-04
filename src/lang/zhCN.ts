@@ -9,13 +9,15 @@ export const language = {
   },
   editor: {
     profile: {
+      key: "简介",
       name: "姓名",
       title: "职位",
       phone: "手机号",
       email: "邮件",
       about: "自我介绍"
     },
-    experience: {
+    educations: {
+      key: "教育经历",
       school: "学校",
       major: "专业",
       degree: "专业",

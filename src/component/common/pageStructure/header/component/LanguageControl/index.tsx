@@ -16,8 +16,9 @@ const LanguageControl: React.FC = () => {
     }
   ];
   return (<LanguageControlWrapper>
-      {languages.map(({language: lang, label}) => {
-        return <LanguageLabel isSelected={lang === language} onClick={()=>setLanguage(lang)}>{label}</LanguageLabel>
+      {languages.map(({language: lang, label}, index) => {
+        return <LanguageLabel key={index} isSelected={lang === language}
+                              onClick={() => setLanguage(lang)}>{label}</LanguageLabel>
       })}
     </LanguageControlWrapper>
   )

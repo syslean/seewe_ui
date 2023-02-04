@@ -9,17 +9,19 @@ export const language = {
   },
   editor: {
     profile: {
-      name: "姓名",
-      title: "职位",
-      phone: "手机号",
-      email: "邮件",
-      about: "自我介绍"
+      key: "Profile",
+      name: "Full Name",
+      title: "Title",
+      phone: "Mobile Phone",
+      email: "Email Address",
+      about: "About Me"
     },
-    experience: {
-      school: "学校",
-      major: "专业",
-      degree: "专业",
-      period: "经历时间"
+    educations: {
+      key: "Educations",
+      school: "School Name",
+      major: "Major",
+      degree: "Academic Degree",
+      period: "Period"
     }
   }
 };
