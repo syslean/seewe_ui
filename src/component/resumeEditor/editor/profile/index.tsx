@@ -22,15 +22,15 @@ const Profile: React.FC = () => {
   return (
     <Card title={t(PROFILE_LABEL.KEY)}>
       <TwoFieldsLayout>
-        <TextField title={t(PROFILE_LABEL.NAME)} value="Seewe Jean"/>
-        <TextField title={t(PROFILE_LABEL.TITLE)} value="Lead experience designer"/>
+        <TextField title={t(PROFILE_LABEL.NAME)} placeholder="Seewe Jean"/>
+        <TextField title={t(PROFILE_LABEL.TITLE)} placeholder="Lead experience designer"/>
       </TwoFieldsLayout>
       <TwoFieldsLayout>
-        <TextField title={t(PROFILE_LABEL.PHONE)} value="+1 676 256 867"/>
-        <TextField title={t(PROFILE_LABEL.EMAIL)} value="jean@seewe.com"/>
+        <TextField title={t(PROFILE_LABEL.PHONE)} placeholder="+1 676 256 867"/>
+        <TextField title={t(PROFILE_LABEL.EMAIL)} placeholder="jean@seewe.com"/>
       </TwoFieldsLayout>
       <SingleFieldLayout>
-        <TextAreaField title={t(PROFILE_LABEL.ABOUT)} value="The greatest designer in the world"/>
+        <TextAreaField title={t(PROFILE_LABEL.ABOUT)} placeholder="The greatest designer in the world"/>
       </SingleFieldLayout>
     </Card>
   )

@@ -54,22 +54,22 @@ const Educations: React.FC = () => {
     <Card title={t(EDUCATIONS_LABEL.KEY)} actions={actions}>
       <SubCard actions={subActions}>
         <TwoFieldsLayout>
-          <TextField title={t(EDUCATIONS_LABEL.SCHOOL)} value="Happy University"/>
-          <TextField title={t(EDUCATIONS_LABEL.MAJOR)} value="Experience design"/>
+          <TextField title={t(EDUCATIONS_LABEL.SCHOOL)} placeholder="Happy University"/>
+          <TextField title={t(EDUCATIONS_LABEL.MAJOR)} placeholder="Experience design"/>
         </TwoFieldsLayout>
         <TwoFieldsLayout>
-          <SelectorField title={t(EDUCATIONS_LABEL.DEGREE)} value="" options={DEGREE_TYPE_OPTIONS}/>
-          <DateRangeField title={t(EDUCATIONS_LABEL.PERIOD)} value=""/>
+          <SelectorField title={t(EDUCATIONS_LABEL.DEGREE)} placeholder="" options={DEGREE_TYPE_OPTIONS}/>
+          <DateRangeField title={t(EDUCATIONS_LABEL.PERIOD)} placeholder=""/>
         </TwoFieldsLayout>
       </SubCard>
       <SubCard actions={subActions}>
         <TwoFieldsLayout>
-          <TextField title={t(EDUCATIONS_LABEL.SCHOOL)} value="Happy University"/>
-          <TextField title={t(EDUCATIONS_LABEL.MAJOR)} value="Experience design"/>
+          <TextField title={t(EDUCATIONS_LABEL.SCHOOL)} placeholder="Happy University"/>
+          <TextField title={t(EDUCATIONS_LABEL.MAJOR)} placeholder="Experience design"/>
         </TwoFieldsLayout>
         <TwoFieldsLayout>
-          <SelectorField title={t(EDUCATIONS_LABEL.DEGREE)} value="" options={DEGREE_TYPE_OPTIONS}/>
-          <DateRangeField title={t(EDUCATIONS_LABEL.PERIOD)} value=""/>
+          <SelectorField title={t(EDUCATIONS_LABEL.DEGREE)} placeholder={DEGREE_TYPE_OPTIONS[0].value} options={DEGREE_TYPE_OPTIONS}/>
+          <DateRangeField title={t(EDUCATIONS_LABEL.PERIOD)} placeholder=""/>
         </TwoFieldsLayout>
       </SubCard>
     </Card>

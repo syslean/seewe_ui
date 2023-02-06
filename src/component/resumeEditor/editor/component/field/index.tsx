@@ -1,42 +1,42 @@
 import React from "react";
 import {FieldWrapper, FiledTitle} from "./index.style";
 import {DatePicker, Input, Select} from "antd";
-import dayjs from "dayjs";
 
 interface Props {
   title: string;
-  value: string;
+  value?: string;
+  placeholder?: string;
   options?: { value: string; label: string }[];
 }
 
-const TextField: React.FC<Props> = ({title, value}: Props) => {
+const TextField: React.FC<Props> = ({title, value, placeholder}: Props) => {
 
   return (
     <FieldWrapper>
       <FiledTitle>{title}</FiledTitle>
-      <Input defaultValue={value}/>
+      <Input value={value} placeholder={placeholder}/>
     </FieldWrapper>
   );
 }
 
-const TextAreaField: React.FC<Props> = ({title, value}: Props) => {
+const TextAreaField: React.FC<Props> = ({title, value, placeholder}: Props) => {
 
   return (
     <FieldWrapper>
       <FiledTitle>{title}</FiledTitle>
       <Input.TextArea style={{minWidth: "25rem"}}
-                      defaultValue={value}/>
+                      placeholder={placeholder}
+                      value={value}/>
     </FieldWrapper>
   );
 }
 
-const SelectorField: React.FC<Props> = ({title, value, options}: Props) => {
+const SelectorField: React.FC<Props> = ({title, options}: Props) => {
 
   return (
     <FieldWrapper>
       <FiledTitle>{title}</FiledTitle>
       <Select
-        defaultValue={value}
         options={options ? options : []}
       />
     </FieldWrapper>
@@ -49,7 +49,7 @@ const DateRangeField: React.FC<Props> = ({title}: Props) => {
     <FieldWrapper>
       <FiledTitle>{title}</FiledTitle>
       <DatePicker.RangePicker
-        defaultValue={[dayjs('2015/06', 'YYYY/MM'), dayjs('2015/06', 'YYYY-MM')]}
+        placeholder={["", ""]}
         format="YYYY / MM"
         picker="month"
       />
