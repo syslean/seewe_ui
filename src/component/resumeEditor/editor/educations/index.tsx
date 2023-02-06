@@ -32,17 +32,13 @@ const Educations: React.FC = () => {
 
   const [educations, setEducations] = useLocalStorage<EducationModal[]>("educations", []);
 
-  const handleChangeTextValue = (key: string, index: number) => (e: ChangeEvent<HTMLInputElement>) => {
-    setEducations(educations.map((item, i) => (index === i) ? {...item, [key]: e.target.value} : item))
+  const handleChangeValue = (key: string, index: number) => (action: ChangeEvent<HTMLInputElement> | string | [string, string]) => {
+    if (action instanceof Array || typeof action === "string") {
+      setEducations(educations.map((item, i) => (index === i) ? {...item, [key]: action} : item))
+    } else {
+      setEducations(educations.map((item, i) => (index === i) ? {...item, [key]: action.target.value} : item))
+    }
   };
-
-  const handleChangeSelectValue = (key: string, index: number) => ((value: string) => {
-    setEducations(educations.map((item, i) => (index === i) ? {...item, [key]: value} : item))
-  });
-
-  const handleChangeDateRangeValue = (key: string, index: number) => ((value: [string, string]) => {
-    setEducations(educations.map((item, i) => (index === i) ? {...item, [key]: value} : item))
-  });
 
   const DEGREE_TYPE_OPTIONS = [
     {label: `${t(EDUCATIONS_LABEL.DEGREE_TYPE.ASSOCIATE)}`, value: "associate"},
@@ -74,18 +70,18 @@ const Educations: React.FC = () => {
             <TwoFieldsLayout>
               <TextField title={t(EDUCATIONS_LABEL.SCHOOL)} placeholder="Happy University"
                          value={item.school}
-                         onChange={handleChangeTextValue("school", index)}/>
+                         onChange={handleChangeValue("school", index)}/>
               <TextField title={t(EDUCATIONS_LABEL.MAJOR)} placeholder="Experience design"
                          value={item.major}
-                         onChange={handleChangeTextValue("major", index)}/>
+                         onChange={handleChangeValue("major", index)}/>
             </TwoFieldsLayout>
             <TwoFieldsLayout>
               <SelectorField title={t(EDUCATIONS_LABEL.DEGREE)} options={DEGREE_TYPE_OPTIONS}
                              value={item.degree}
-                             onChange={handleChangeSelectValue("degree", index)}/>
+                             onChange={handleChangeValue("degree", index)}/>
               <DateRangeField title={t(EDUCATIONS_LABEL.PERIOD)}
                               value={[dayjs(item.period[0]), dayjs(item.period[1])]}
-                              onChange={handleChangeDateRangeValue("period", index)}/>
+                              onChange={handleChangeValue("period", index)}/>
             </TwoFieldsLayout>
           </SubCard>
         ))
