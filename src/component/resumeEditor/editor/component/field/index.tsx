@@ -7,26 +7,30 @@ interface Props {
   value?: string;
   placeholder?: string;
   options?: { value: string; label: string }[];
+  // eslint-disable-next-line
+  onChange?: any;
 }
 
-const TextField: React.FC<Props> = ({title, value, placeholder}: Props) => {
+const TextField: React.FC<Props> = ({title, value, placeholder, onChange}: Props) => {
 
   return (
     <FieldWrapper>
       <FiledTitle>{title}</FiledTitle>
-      <Input value={value} placeholder={placeholder}/>
+      <Input value={value} placeholder={placeholder} onChange={onChange}/>
     </FieldWrapper>
   );
 }
 
-const TextAreaField: React.FC<Props> = ({title, value, placeholder}: Props) => {
+const TextAreaField: React.FC<Props> = ({title, value, placeholder, onChange}: Props) => {
 
   return (
     <FieldWrapper>
       <FiledTitle>{title}</FiledTitle>
       <Input.TextArea style={{minWidth: "25rem"}}
                       placeholder={placeholder}
-                      value={value}/>
+                      value={value}
+                      onChange={onChange}
+      />
     </FieldWrapper>
   );
 }
