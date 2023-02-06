@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, {ChangeEvent, useContext} from 'react';
 import Card from "../component/card";
 import SubCard from "../component/subCard";
 import {DateRangeField, SelectorField, TextField} from "../component/field";
@@ -6,6 +6,8 @@ import {TwoFieldsLayout} from "../component/field/index.style";
 import Action from "../component/action";
 import {AddIcon, CloseIcon, DeleteIcon} from '../component/action/index.style';
 import {LanguageContext} from "../../../../context/LanguageContext";
+import useLocalStorage from "../../../../service/useLocalStorage";
+import dayjs from "dayjs";
 
 
 const EDUCATIONS_PREFIX = "editor.educations"
@@ -27,6 +29,20 @@ const EDUCATIONS_LABEL = {
 const Educations: React.FC = () => {
 
   const {t} = useContext(LanguageContext);
+
+  const [educations, setEducations] = useLocalStorage<EducationModal[]>("educations", []);
+
+  const handleChangeTextValue = (key: string, index: number) => (e: ChangeEvent<HTMLInputElement>) => {
+    setEducations(educations.map((item, i) => (index === i) ? {...item, [key]: e.target.value} : item))
+  };
+
+  const handleChangeSelectValue = (key: string, index: number) => ((value: string) => {
+    setEducations(educations.map((item, i) => (index === i) ? {...item, [key]: value} : item))
+  });
+
+  const handleChangeDateRangeValue = (key: string, index: number) => ((value: [string, string]) => {
+    setEducations(educations.map((item, i) => (index === i) ? {...item, [key]: value} : item))
+  });
 
   const DEGREE_TYPE_OPTIONS = [
     {label: `${t(EDUCATIONS_LABEL.DEGREE_TYPE.ASSOCIATE)}`, value: "associate"},
@@ -52,26 +68,28 @@ const Educations: React.FC = () => {
 
   return (
     <Card title={t(EDUCATIONS_LABEL.KEY)} actions={actions}>
-      <SubCard actions={subActions}>
-        <TwoFieldsLayout>
-          <TextField title={t(EDUCATIONS_LABEL.SCHOOL)} placeholder="Happy University"/>
-          <TextField title={t(EDUCATIONS_LABEL.MAJOR)} placeholder="Experience design"/>
-        </TwoFieldsLayout>
-        <TwoFieldsLayout>
-          <SelectorField title={t(EDUCATIONS_LABEL.DEGREE)} placeholder="" options={DEGREE_TYPE_OPTIONS}/>
-          <DateRangeField title={t(EDUCATIONS_LABEL.PERIOD)} placeholder=""/>
-        </TwoFieldsLayout>
-      </SubCard>
-      <SubCard actions={subActions}>
-        <TwoFieldsLayout>
-          <TextField title={t(EDUCATIONS_LABEL.SCHOOL)} placeholder="Happy University"/>
-          <TextField title={t(EDUCATIONS_LABEL.MAJOR)} placeholder="Experience design"/>
-        </TwoFieldsLayout>
-        <TwoFieldsLayout>
-          <SelectorField title={t(EDUCATIONS_LABEL.DEGREE)} placeholder={DEGREE_TYPE_OPTIONS[0].value} options={DEGREE_TYPE_OPTIONS}/>
-          <DateRangeField title={t(EDUCATIONS_LABEL.PERIOD)} placeholder=""/>
-        </TwoFieldsLayout>
-      </SubCard>
+      {
+        educations.map((item, index) => (
+          <SubCard actions={subActions} key={index}>
+            <TwoFieldsLayout>
+              <TextField title={t(EDUCATIONS_LABEL.SCHOOL)} placeholder="Happy University"
+                         value={item.school}
+                         onChange={handleChangeTextValue("school", index)}/>
+              <TextField title={t(EDUCATIONS_LABEL.MAJOR)} placeholder="Experience design"
+                         value={item.major}
+                         onChange={handleChangeTextValue("major", index)}/>
+            </TwoFieldsLayout>
+            <TwoFieldsLayout>
+              <SelectorField title={t(EDUCATIONS_LABEL.DEGREE)} options={DEGREE_TYPE_OPTIONS}
+                             value={item.degree}
+                             onChange={handleChangeSelectValue("degree", index)}/>
+              <DateRangeField title={t(EDUCATIONS_LABEL.PERIOD)}
+                              value={[dayjs(item.period[0]), dayjs(item.period[1])]}
+                              onChange={handleChangeDateRangeValue("period", index)}/>
+            </TwoFieldsLayout>
+          </SubCard>
+        ))
+      }
     </Card>
   )
 }

@@ -33,11 +33,10 @@ interface SkillModal {
 }
 
 interface EducationModal {
-  id: string;
-  institution: string;
+  school: string;
+  major: string;
   degree: string;
-  startDate: string;
-  endDate: string;
+  period: [string, string];
 }
 
 interface PublicationModal {

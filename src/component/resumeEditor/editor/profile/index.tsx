@@ -19,7 +19,7 @@ const PROFILE_LABEL = {
 const Profile: React.FC = () => {
 
   const {t} = useContext(LanguageContext);
-  const [profile, setProfile] = useLocalStorage("profile", {} as Profile);
+  const [profile, setProfile] = useLocalStorage<Profile>("profile", {} as Profile);
 
   const handleChangeValue = (key: string) => (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => setProfile({
     ...profile,
