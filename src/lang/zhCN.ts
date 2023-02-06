@@ -13,15 +13,21 @@ export const language = {
       name: "姓名",
       title: "职位",
       phone: "手机号",
-      email: "邮件",
+      email: "邮箱",
       about: "自我介绍"
     },
     educations: {
       key: "教育经历",
       school: "学校",
       major: "专业",
-      degree: "专业",
-      period: "经历时间"
+      degree: "学位",
+      period: "经历时间",
+      degreeType: {
+        associate: "大专",
+        bachelor: "学士",
+        master: "硕士",
+        doctor: "博士"
+      }
     }
   }
 };

@@ -6,6 +6,7 @@ import dayjs from "dayjs";
 interface Props {
   title: string;
   value: string;
+  options?: { value: string; label: string }[];
 }
 
 const TextField: React.FC<Props> = ({title, value}: Props) => {
@@ -24,24 +25,19 @@ const TextAreaField: React.FC<Props> = ({title, value}: Props) => {
     <FieldWrapper>
       <FiledTitle>{title}</FiledTitle>
       <Input.TextArea style={{minWidth: "25rem"}}
-                       defaultValue={value}/>
+                      defaultValue={value}/>
     </FieldWrapper>
   );
 }
 
-const SelectorField: React.FC<Props> = ({title, value}: Props) => {
+const SelectorField: React.FC<Props> = ({title, value, options}: Props) => {
 
   return (
     <FieldWrapper>
       <FiledTitle>{title}</FiledTitle>
       <Select
         defaultValue={value}
-        options={[
-          {value: 'Associate', label: 'Associate'},
-          {value: 'Bachelor', label: 'Bachelor'},
-          {value: 'Master', label: 'Master'},
-          {value: 'Doctor', label: 'Doctor(PhD)'},
-        ]}
+        options={options ? options : []}
       />
     </FieldWrapper>
   );

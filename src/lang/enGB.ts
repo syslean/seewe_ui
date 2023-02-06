@@ -21,7 +21,13 @@ export const language = {
       school: "School Name",
       major: "Major",
       degree: "Academic Degree",
-      period: "Period"
+      period: "Period",
+      degreeType: {
+        associate: "Associate",
+        bachelor: "Bachelor",
+        master: "Master",
+        doctor: "Doctor(PhD)"
+      }
     }
   }
 };
