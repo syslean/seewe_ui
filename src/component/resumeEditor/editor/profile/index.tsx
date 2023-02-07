@@ -4,6 +4,7 @@ import Card from "../component/card";
 import {SingleFieldLayout, TwoFieldsLayout} from '../component/field/index.style';
 import {LanguageContext} from "../../../../context/LanguageContext";
 import useLocalStorage from "../../../../service/useLocalStorage";
+import {ResumeKey} from "../../../../constants/enums";
 
 const PROFILE_PREFIX = "editor.profile"
 
@@ -19,7 +20,7 @@ const PROFILE_LABEL = {
 const Profile: React.FC = () => {
 
   const {t} = useContext(LanguageContext);
-  const [profile, setProfile] = useLocalStorage<Profile>("profile", {} as Profile);
+  const [profile, setProfile] = useLocalStorage<Profile>(ResumeKey.profile, {} as Profile);
 
   const handleChangeValue = (key: string) => (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => setProfile({
     ...profile,

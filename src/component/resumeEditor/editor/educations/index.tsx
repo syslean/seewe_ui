@@ -8,6 +8,7 @@ import {AddIcon, CloseIcon, DeleteIcon} from '../component/action/index.style';
 import {LanguageContext} from "../../../../context/LanguageContext";
 import useLocalStorage from "../../../../service/useLocalStorage";
 import dayjs from "dayjs";
+import {ResumeKey} from "../../../../constants/enums";
 
 
 const EDUCATIONS_PREFIX = "editor.educations"
@@ -30,7 +31,7 @@ const Educations: React.FC = () => {
 
   const {t} = useContext(LanguageContext);
 
-  const [educations, setEducations] = useLocalStorage<EducationModal[]>("educations", []);
+  const [educations, setEducations] = useLocalStorage<EducationModal[]>(ResumeKey.educations, []);
 
   const handleChangeValue = (key: string, index: number) => (action: ChangeEvent<HTMLInputElement> | string | [string, string]) => {
     if (action instanceof Array || typeof action === "string") {
