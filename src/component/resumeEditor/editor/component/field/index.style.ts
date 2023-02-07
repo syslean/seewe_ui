@@ -1,10 +1,6 @@
 import styled from "styled-components";
 
-export const SingleFieldLayout = styled.div`
-  margin-bottom: 0.5rem;
-`
-
-export const TwoFieldsLayout = styled.div`
+export const Inline = styled.div`
   margin-bottom: 0.5rem;
   display: flex;
   justify-content: space-between;

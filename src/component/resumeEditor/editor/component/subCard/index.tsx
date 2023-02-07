@@ -1,9 +1,13 @@
-import React, {ReactNode} from "react";
-import { HeaderActions } from "../card/header/index.style";
+import React, {MouseEventHandler, ReactNode} from "react";
+import {HeaderActions} from "../card/header/index.style";
 import {SubCardWrapper, SubContainer, SubHeader} from "./index.style";
+import Action from "../action";
 
 interface Props {
-  actions?: ReactNode[],
+  actions?: {
+    onClick: MouseEventHandler<HTMLElement>,
+    icon: ReactNode,
+  }[],
   children: ReactNode
 }
 
@@ -14,7 +18,7 @@ const SubCard: React.FC<Props> = ({children, actions}: Props) => {
       <SubHeader>
         <HeaderActions>
           {actions &&
-          actions.map((action) => action)}
+          actions.map(({icon, onClick}, index) => (<Action key={index} icon={icon} onClick={onClick}/>))}
         </HeaderActions>
       </SubHeader>
       <SubContainer>

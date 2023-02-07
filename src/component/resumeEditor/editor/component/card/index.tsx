@@ -1,11 +1,14 @@
-import React, {ReactNode} from "react";
+import React, {MouseEventHandler, ReactNode} from "react";
 import Header from "./header";
 import Container from "./container";
 
 
 interface Props {
   title: string;
-  actions?: ReactNode[];
+  actions?: {
+    icon: ReactNode,
+    onClick: MouseEventHandler<HTMLElement>
+  }[]
   children: ReactNode;
 }
 

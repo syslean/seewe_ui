@@ -25,13 +25,9 @@ const TextField: React.FC<Props<string>> = ({title, value, placeholder, onChange
 const TextAreaField: React.FC<Props<string>> = ({title, value, placeholder, onChange}: Props<string>) => {
 
   return (
-    <FieldWrapper>
+    <FieldWrapper style={{width: "100%"}}>
       <FiledTitle>{title}</FiledTitle>
-      <Input.TextArea style={{minWidth: "25rem"}}
-                      placeholder={placeholder}
-                      value={value}
-                      onChange={onChange}
-      />
+      <Input.TextArea placeholder={placeholder} value={value} onChange={onChange}/>
     </FieldWrapper>
   );
 }

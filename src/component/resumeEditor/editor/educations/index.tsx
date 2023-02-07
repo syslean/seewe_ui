@@ -2,8 +2,7 @@ import React, {ChangeEvent, useContext} from 'react';
 import Card from "../component/card";
 import SubCard from "../component/subCard";
 import {DateRangeField, SelectorField, TextField} from "../component/field";
-import {TwoFieldsLayout} from "../component/field/index.style";
-import Action from "../component/action";
+import {Inline} from "../component/field/index.style";
 import {AddIcon, CloseIcon, DeleteIcon} from '../component/action/index.style';
 import {LanguageContext} from "../../../../context/LanguageContext";
 import useLocalStorage from "../../../../service/useLocalStorage";
@@ -59,39 +58,37 @@ const Educations: React.FC = () => {
   ]
 
   const actions = [
-    <Action icon={<AddIcon/>} onClick={handleAddAction}/>,
-    <Action icon={<CloseIcon/>} onClick={() => {
-      alert("CloseIcon")
-    }}/>,
+    {icon: <AddIcon/>, onClick: handleAddAction},
+    {
+      icon: <CloseIcon/>, onClick: () => {
+        alert("todo close~")
+      }
+    },
   ];
 
-  const subActions = [
-    <Action icon={<DeleteIcon/>} onClick={() => {
-      alert("DeleteIcon")
-    }}/>,
-  ]
+  const generateSubActions = (key: number) => [{icon: <DeleteIcon/>, onClick: handleDeleteAction(key)}]
 
   return (
     <Card title={t(EDUCATIONS_LABEL.KEY)} actions={actions}>
       {
         educations.map((item, index) => (
-          <SubCard actions={subActions} key={index}>
-            <TwoFieldsLayout>
+          <SubCard actions={generateSubActions(index)} key={index}>
+            <Inline>
               <TextField title={t(EDUCATIONS_LABEL.SCHOOL)} placeholder="Happy University"
                          value={item.school}
                          onChange={handleChangeValue("school", index)}/>
               <TextField title={t(EDUCATIONS_LABEL.MAJOR)} placeholder="Experience design"
                          value={item.major}
                          onChange={handleChangeValue("major", index)}/>
-            </TwoFieldsLayout>
-            <TwoFieldsLayout>
+            </Inline>
+            <Inline>
               <SelectorField title={t(EDUCATIONS_LABEL.DEGREE)} options={DEGREE_TYPE_OPTIONS}
                              value={item.degree}
                              onChange={handleChangeValue("degree", index)}/>
               <DateRangeField title={t(EDUCATIONS_LABEL.PERIOD)}
                               value={item.period ? [dayjs(item.period[0]), dayjs(item.period[1])] : undefined}
                               onChange={handleChangeValue("period", index)}/>
-            </TwoFieldsLayout>
+            </Inline>
           </SubCard>
         ))
       }
