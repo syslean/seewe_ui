@@ -41,6 +41,16 @@ const Educations: React.FC = () => {
     }
   };
 
+  const handleAddAction = () => {
+    educations.push({} as EducationModal)
+    setEducations([...educations]);
+  }
+
+  const handleDeleteAction = (index: number) => () => {
+    educations.splice(index, 1);
+    setEducations([...educations]);
+  }
+
   const DEGREE_TYPE_OPTIONS = [
     {label: `${t(EDUCATIONS_LABEL.DEGREE_TYPE.ASSOCIATE)}`, value: "associate"},
     {label: `${t(EDUCATIONS_LABEL.DEGREE_TYPE.BACHELOR)}`, value: "bachelor"},
@@ -49,9 +59,7 @@ const Educations: React.FC = () => {
   ]
 
   const actions = [
-    <Action icon={<AddIcon/>} onClick={() => {
-      alert("AddIcon")
-    }}/>,
+    <Action icon={<AddIcon/>} onClick={handleAddAction}/>,
     <Action icon={<CloseIcon/>} onClick={() => {
       alert("CloseIcon")
     }}/>,
@@ -81,7 +89,7 @@ const Educations: React.FC = () => {
                              value={item.degree}
                              onChange={handleChangeValue("degree", index)}/>
               <DateRangeField title={t(EDUCATIONS_LABEL.PERIOD)}
-                              value={[dayjs(item.period[0]), dayjs(item.period[1])]}
+                              value={item.period ? [dayjs(item.period[0]), dayjs(item.period[1])] : undefined}
                               onChange={handleChangeValue("period", index)}/>
             </TwoFieldsLayout>
           </SubCard>
