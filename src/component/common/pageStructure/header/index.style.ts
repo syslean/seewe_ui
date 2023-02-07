@@ -2,6 +2,7 @@ import styled from "styled-components";
 import {ReactComponent as Logo} from "../../../../assets/img/logo.svg";
 
 export const HeaderWrapper = styled.div`
+  padding: 0 1rem;
   height: 4rem;
   position: sticky;
   top: 0;
@@ -14,7 +15,7 @@ export const HeaderWrapper = styled.div`
   > div {
     height: 100%;
     width: 100%;
-    max-width: 1020px;
+    max-width: 1000px;
     margin: 0 auto;
     display: flex;
     align-items: center;

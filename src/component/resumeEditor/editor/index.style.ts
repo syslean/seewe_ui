@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const EditorWrapper = styled.div`
   padding: 1rem 1rem 0 1rem;
+  margin-right: 1rem;
   border-radius: 0.5rem;
   background-color: #235385;
   flex: 1;
@@ -9,6 +10,11 @@ export const EditorWrapper = styled.div`
 
   &::-webkit-scrollbar {
     display: none;
+  }
+
+  // phone size
+  @media (max-width: 480px) {
+    margin-right: 0;
   }
 `
 
