@@ -8,6 +8,7 @@ import {LanguageContext} from "../../../../context/LanguageContext";
 import useLocalStorage from "../../../../service/useLocalStorage";
 import dayjs from "dayjs";
 import {ResumeKey} from "../../../../constants/enums";
+import Hint from "../component/card/hint";
 
 
 const EDUCATIONS_PREFIX = "editor.educations"
@@ -70,6 +71,7 @@ const Educations: React.FC = () => {
 
   return (
     <Card title={t(EDUCATIONS_LABEL.KEY)} actions={actions}>
+      {educations.length === 0 && (<Hint/>)}
       {
         educations.map((item, index) => (
           <SubCard actions={generateSubActions(index)} key={index}>
