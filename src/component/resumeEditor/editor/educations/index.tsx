@@ -44,7 +44,7 @@ const Educations: React.FC = () => {
   };
 
   const handleAddAction = () => {
-    educations.push({} as EducationModal)
+    educations.unshift({} as EducationModal)
     setEducations([...educations]);
   }
 
