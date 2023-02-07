@@ -74,11 +74,9 @@ const Educations: React.FC = () => {
         educations.map((item, index) => (
           <SubCard actions={generateSubActions(index)} key={index}>
             <Inline>
-              <TextField title={t(EDUCATIONS_LABEL.SCHOOL)} placeholder="Happy University"
-                         value={item.school}
+              <TextField title={t(EDUCATIONS_LABEL.SCHOOL)} value={item.school}
                          onChange={handleChangeValue("school", index)}/>
-              <TextField title={t(EDUCATIONS_LABEL.MAJOR)} placeholder="Experience design"
-                         value={item.major}
+              <TextField title={t(EDUCATIONS_LABEL.MAJOR)} value={item.major}
                          onChange={handleChangeValue("major", index)}/>
             </Inline>
             <Inline>
