@@ -6,7 +6,7 @@ export const HeaderWrapper = styled.div`
   height: 4rem;
   position: sticky;
   top: 0;
-  z-index: 1100;
+  z-index: 1000;
   backdrop-filter: blur(8px);
   box-shadow: inset 0px -1px 1px #EEE;
   background-color: rgba(255, 255, 255, 0.8);
