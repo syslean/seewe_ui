@@ -27,6 +27,8 @@ const EDUCATIONS_LABEL = {
   }
 }
 
+const NO_EDUCATION_HINT = "hint.noEducation"
+
 const Educations: React.FC = () => {
 
   const {t} = useContext(LanguageContext);
@@ -71,7 +73,7 @@ const Educations: React.FC = () => {
 
   return (
     <Card title={t(EDUCATIONS_LABEL.KEY)} actions={actions}>
-      {educations.length === 0 && (<Hint/>)}
+      {educations.length === 0 && (<Hint value={t(NO_EDUCATION_HINT)}/>)}
       {
         educations.map((item, index) => (
           <SubCard actions={generateSubActions(index)} key={index}>

@@ -4,6 +4,7 @@ import {ReactComponent as ErrorSvg} from "../../../../../../assets/img/error.svg
 export const HintWrapper = styled.div`
   padding: 1.5rem 0 1rem 0;
   line-height: 1.25rem;
+  white-space: pre-line;
 
   font-family: "Open Sans", serif;
   font-size: 0.75rem;

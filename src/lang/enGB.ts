@@ -29,6 +29,9 @@ export const language = {
         doctor: "Doctor(PhD)"
       }
     }
+  },
+  hint: {
+    noEducation: "No education experience added.\nPlease click the plus sign in the top right corner to add :)"
   }
 };
 export default language;

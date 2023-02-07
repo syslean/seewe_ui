@@ -29,6 +29,9 @@ export const language = {
         doctor: "博士"
       }
     }
+  },
+  hint: {
+    noEducation: "您还没有添加教育经历.\n点击右侧添加按钮添加一个吧 :)"
   }
 };
 export default language;
