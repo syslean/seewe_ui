@@ -6,4 +6,9 @@ export const SideBarWrapper = styled.div`
   border-radius: 0.5rem;
   background-color: #235385;;
   width: 11rem;
+
+  // phone size
+  @media (max-width: 26.75rem) {
+    display: none;
+  }
 `
