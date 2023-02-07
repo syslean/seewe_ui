@@ -7,7 +7,7 @@ export const Inline = styled.div`
   flex-wrap: wrap;
 
   // ipad size
-  @media (max-width: 52rem) {
+  @media (max-width: 768px) {
     margin-bottom: 0;
   }
 `
@@ -18,7 +18,7 @@ export const FieldWrapper = styled.div`
   flex-direction: column;
 
   // ipad size
-  @media (max-width: 52rem) {
+  @media (max-width: 768px) {
     width: 100%;
     margin-bottom: 0.5rem;
   }

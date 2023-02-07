@@ -8,7 +8,7 @@ export const SideBarWrapper = styled.div`
   width: 11rem;
 
   // phone size
-  @media (max-width: 26.75rem) {
+  @media (max-width: 480px) {
     display: none;
   }
 `
