@@ -33,7 +33,7 @@ const Resume: React.FC = () => {
   const resumeItems = [
     {title: RESUME_COMPONENT_NAME.PROFILE, label: "sidebar.profile"},
     {title: RESUME_COMPONENT_NAME.EDUCATIONS, label: "sidebar.educations"},
-    {title: RESUME_COMPONENT_NAME.EXPERIENCES, label: "sidebar.experiences"},
+    // {title: RESUME_COMPONENT_NAME.EXPERIENCES, label: "sidebar.experiences"},
   ];
 
   return (
