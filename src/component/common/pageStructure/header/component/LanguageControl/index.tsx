@@ -6,40 +6,34 @@ import {Dropdown} from "antd";
 
 const LanguageControl: React.FC = () => {
   const {language, setLanguage} = useContext(LanguageContext);
-  const languages = [
-    {
-      label: "English",
-      language: Language.ENGB
-    },
-    {
-      label: "中文",
-      language: Language.ZHCN
-    }
-  ];
+  const languages = {
+    [Language.ENGB]: "English",
+    [Language.ZHCN]: "中文",
+  };
 
-  const switchLanguage = (language: Language) => () => {
-    setLanguage(language);
+  const switchLanguage = (lang: Language) => () => {
+    setLanguage(lang);
   }
 
   const generateItems = () => {
-    return languages.map(({label, language}, index) => (
+    return Object.entries(languages).map(([lang, label], index) => (
       {
-        key: index.toString(),
-        label: (<div onClick={switchLanguage(language)}>{label}</div>),
+        key: index,
+        label: (<div onClick={switchLanguage(lang as Language)}>{label}</div>),
       }));
   }
 
   return (
     <LanguageControlWrapper>
       <NavMenu>
-        {languages.map(({language: lang, label}, index) => {
+        {Object.entries(languages).map(([lang, label], index) => {
           return <LanguageLabel key={index} isSelected={lang === language}
-                                onClick={switchLanguage(lang)}>{label}</LanguageLabel>
+                                onClick={switchLanguage(lang as Language)}>{label}</LanguageLabel>
         })}
       </NavMenu>
       <SelectMenu>
         <Dropdown menu={{items: generateItems()}} trigger={['click']}>
-          <div>语言</div>
+          <div>{languages[language]}</div>
         </Dropdown>
       </SelectMenu>
     </LanguageControlWrapper>

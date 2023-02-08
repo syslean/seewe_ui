@@ -2,15 +2,21 @@ import get from "lodash.get";
 import * as React from "react";
 import {Language, LanguageKey} from "../constants/enums";
 import useLocalStorage from "../service/useLocalStorage";
+import {Dispatch} from "react";
 
 export type TLanguages = {
   [key in Language]?: unknown;
 };
 
-export const LanguageContext = React.createContext({
+interface Props {
+  language: Language,
+  setLanguage: Dispatch<Language>;
+  t: (path: string) => string;
+}
+
+export const LanguageContext = React.createContext<Props>({
   language: Language.ENGB,
-  // eslint-disable-next-line
-} as any);
+} as Props);
 
 export const LanguageProvider = ({
                                    children,
@@ -29,8 +35,8 @@ export const LanguageProvider = ({
     <LanguageContext.Provider
       value={{
         language,
-        t,
         setLanguage: (lang: Language) => setLanguage(lang),
+        t,
       }}
     >
       {children}
