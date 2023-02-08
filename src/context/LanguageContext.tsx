@@ -1,5 +1,5 @@
 import get from "lodash.get";
-import * as React from "react";
+import React from 'react';
 import {Language, LanguageKey} from "../constants/enums";
 import useLocalStorage from "../service/useLocalStorage";
 import {Dispatch} from "react";
