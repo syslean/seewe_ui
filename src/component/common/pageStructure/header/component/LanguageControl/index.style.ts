@@ -31,3 +31,15 @@ export const SelectMenu = styled.div`
     display: inline-block;
   }
 `;
+
+export const SelectButton = styled.div`
+  display: flex;
+  align-items: center;
+
+
+  font-size: 1rem;
+  font-weight: normal;
+
+  color: #3D3D3D;
+
+`

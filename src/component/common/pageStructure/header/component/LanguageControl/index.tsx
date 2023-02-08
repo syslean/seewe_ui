@@ -1,7 +1,8 @@
 import React, {useContext} from 'react';
 import {LanguageContext} from "../../../../../../context/LanguageContext";
 import {Language} from "../../../../../../constants/enums";
-import {LanguageControlWrapper, LanguageLabel, NavMenu, SelectMenu} from "./index.style";
+import {LanguageControlWrapper, LanguageLabel, NavMenu, SelectButton, SelectMenu} from "./index.style";
+import {ReactComponent as ArrowSvg} from "../../../../../../assets/img/arrow.svg";
 import {Dropdown} from "antd";
 
 const LanguageControl: React.FC = () => {
@@ -33,7 +34,10 @@ const LanguageControl: React.FC = () => {
       </NavMenu>
       <SelectMenu>
         <Dropdown menu={{items: generateItems()}} trigger={['click']}>
-          <div>{languages[language]}</div>
+          <SelectButton>
+            {languages[language]}
+            <ArrowSvg/>
+          </SelectButton>
         </Dropdown>
       </SelectMenu>
     </LanguageControlWrapper>
