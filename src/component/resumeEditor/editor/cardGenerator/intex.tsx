@@ -3,9 +3,9 @@ import {LanguageContext} from "../../../../context/LanguageContext";
 import useLocalStorage from "../../../../service/useLocalStorage";
 import Card from "../component/card";
 import {template} from "./template";
-import BaseField from "./wrapperFiled";
+import BaseField from "./baseField";
 
-const TemplateEngine: React.FC = () => {
+const CardGenerator: React.FC = () => {
   const {t} = useContext(LanguageContext);
 
   const module = template.modules[0];
@@ -32,4 +32,4 @@ const TemplateEngine: React.FC = () => {
   )
 }
 
-export default TemplateEngine;
+export default CardGenerator;
