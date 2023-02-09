@@ -44,7 +44,7 @@ const SelectorField: React.FC<Props<string>> = ({title, value, options, handleCh
       <Select
         value={value}
         options={options ? options : []}
-        onChange={handleChange ? handleChange((e) => e.target.value) : onChange}
+        onChange={handleChange ? handleChange(e => e) : onChange}
       />
     </FieldWrapper>
   );
