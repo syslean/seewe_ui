@@ -6,7 +6,7 @@ import {template} from "./template";
 import BaseField from "./baseField";
 import {AddIcon, CloseIcon, DeleteIcon} from "../component/action/index.style";
 import SubCard from "../component/subCard";
-import {Inline} from "../component/field/index.style";
+import {Module} from "../component/field/index.style";
 
 const CardGenerator: React.FC = () => {
   const {t} = useContext(LanguageContext);
@@ -25,15 +25,16 @@ const CardGenerator: React.FC = () => {
 
   return (
     <Card title={t(module.label)}>
-      {module.fields.map(
-        ({label, value, type, options}, index) =>
-          <Inline>
+      <Module>
+        {module.fields.map(
+          ({label, value, type, options}, index) =>
             <BaseField key={index} label={t(label)} value={store[value]} type={type}
                        options={translateOptions(options)}
                        handleChange={handleChangeValue(value)}/>
-          </Inline>
-      )
-      }
+        )
+        }
+      </Module>
+
     </Card>
   )
 }
@@ -82,15 +83,15 @@ const ListCardGenerator: React.FC = () => {
       {
         store.map((item: any, index: number) => (
           <SubCard actions={generateSubActions(index)} key={index}>
-            {module.fields.map(
-              ({label, value, type, options}, subIndex) =>
-                <Inline key={subIndex}>
-                  <BaseField label={t(label)} value={item[value]} type={type}
+            <Module>
+              {module.fields.map(
+                ({label, value, type, options}, subIndex) =>
+                  <BaseField key={subIndex} label={t(label)} value={item[value]} type={type}
                              options={translateOptions(options)}
                              handleChange={handleChangeValueWithIndex(value, index)}/>
-                </Inline>
-            )
-            }
+              )
+              }
+            </Module>
           </SubCard>
         ))
       }

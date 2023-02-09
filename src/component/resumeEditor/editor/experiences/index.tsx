@@ -2,7 +2,7 @@ import React, {useContext} from 'react';
 import Card from "../component/card";
 import SubCard from "../component/subCard";
 import {DateRangeField, TextAreaField, TextField} from "../component/field";
-import {Inline} from "../component/field/index.style";
+import {Module} from "../component/field/index.style";
 import {AddIcon, CloseIcon, DeleteIcon} from '../component/action/index.style';
 import {LanguageContext} from "../../../../context/LanguageContext";
 import useLocalStorage from "../../../../service/useLocalStorage";
@@ -65,21 +65,21 @@ const Experiences: React.FC = () => {
       {
         experiences.map((item, index) => (
           <SubCard actions={generateSubActions(index)} key={index}>
-            <Inline>
+            <Module>
               <TextField title={t(EXPERIENCES_LABEL.NAME)} value={item.name}
                          onChange={handleChangeValue("name", index)}/>
               <TextField title={t(EXPERIENCES_LABEL.POSITION)} value={item.position}
                          onChange={handleChangeValue("position", index)}/>
-            </Inline>
-            <Inline>
+            </Module>
+            <Module>
               <DateRangeField title={t(EXPERIENCES_LABEL.PERIOD)}
                               value={item.period ? [dayjs(item.period[0]), dayjs(item.period[1])] : undefined}
                               onChange={handleChangeValue("period", index)}/>
-            </Inline>
-            <Inline>
+            </Module>
+            <Module>
               <TextAreaField title={t(EXPERIENCES_LABEL.SUMMARY)} value={item.summary}
                              onChange={handleChangeValue("summary", index)}/>
-            </Inline>
+            </Module>
           </SubCard>
         ))
       }

@@ -2,7 +2,7 @@ import React, {useContext} from 'react';
 import Card from "../component/card";
 import SubCard from "../component/subCard";
 import {DateRangeField, SelectorField, TextField} from "../component/field";
-import {Inline} from "../component/field/index.style";
+import {Module} from "../component/field/index.style";
 import {AddIcon, CloseIcon, DeleteIcon} from '../component/action/index.style';
 import {LanguageContext} from "../../../../context/LanguageContext";
 import useLocalStorage from "../../../../service/useLocalStorage";
@@ -76,20 +76,20 @@ const Educations: React.FC = () => {
       {
         educations.map((item, index) => (
           <SubCard actions={generateSubActions(index)} key={index}>
-            <Inline>
+            <Module>
               <TextField title={t(EDUCATIONS_LABEL.SCHOOL)} value={item.school}
                          onChange={handleChangeValue("school", index)}/>
               <TextField title={t(EDUCATIONS_LABEL.MAJOR)} value={item.major}
                          onChange={handleChangeValue("major", index)}/>
-            </Inline>
-            <Inline>
+            </Module>
+            <Module>
               <SelectorField title={t(EDUCATIONS_LABEL.DEGREE)} options={DEGREE_TYPE_OPTIONS}
                              value={item.degree}
                              onChange={handleChangeValue("degree", index)}/>
               <DateRangeField title={t(EDUCATIONS_LABEL.PERIOD)}
                               value={item.period ? [dayjs(item.period[0]), dayjs(item.period[1])] : undefined}
                               onChange={handleChangeValue("period", index)}/>
-            </Inline>
+            </Module>
           </SubCard>
         ))
       }
