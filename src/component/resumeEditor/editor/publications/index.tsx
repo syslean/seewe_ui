@@ -1,4 +1,4 @@
-import React, {ChangeEvent, useContext} from 'react';
+import React, {useContext} from 'react';
 import Card from "../component/card";
 import SubCard from "../component/subCard";
 import {DateField, TextField} from "../component/field";
@@ -27,12 +27,11 @@ const Publications: React.FC = () => {
 
   const [publications, setPublications] = useLocalStorage<PublicationModal[]>(ResumeKey.publications, []);
 
-  const handleChangeValue = (key: string, index: number) => (action: ChangeEvent<HTMLInputElement> | string | [string, string]) => {
-    if (action instanceof Array || typeof action === "string") {
-      setPublications(publications.map((item, i) => (index === i) ? {...item, [key]: action} : item))
-    } else {
-      setPublications(publications.map((item, i) => (index === i) ? {...item, [key]: action.target.value} : item))
-    }
+  const handleChangeValue = (key: string, index: number) => (action: any) => {
+    setPublications(publications.map((item, i) => (index === i) ? {
+      ...item,
+      [key]: action?.target?.value ?? action.toString()
+    } : item))
   };
 
   const handleAddAction = () => {

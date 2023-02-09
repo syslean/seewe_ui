@@ -1,4 +1,4 @@
-import React, {ChangeEvent, useContext} from 'react';
+import React, {useContext} from 'react';
 import Card from "../component/card";
 import SubCard from "../component/subCard";
 import {DateRangeField, SelectorField, TextField} from "../component/field";
@@ -35,12 +35,11 @@ const Educations: React.FC = () => {
 
   const [educations, setEducations] = useLocalStorage<EducationModal[]>(ResumeKey.educations, []);
 
-  const handleChangeValue = (key: string, index: number) => (action: ChangeEvent<HTMLInputElement> | string | [string, string]) => {
-    if (action instanceof Array || typeof action === "string") {
-      setEducations(educations.map((item, i) => (index === i) ? {...item, [key]: action} : item))
-    } else {
-      setEducations(educations.map((item, i) => (index === i) ? {...item, [key]: action.target.value} : item))
-    }
+  const handleChangeValue = (key: string, index: number) => (action: any) => {
+    setEducations(educations.map((item, i) => (index === i) ? {
+      ...item,
+      [key]: action?.target?.value ?? action.toString()
+    } : item))
   };
 
   const handleAddAction = () => {
