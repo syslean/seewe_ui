@@ -4,10 +4,6 @@ import initResume from "../../mock/mockResume01.json";
 const RESUME_DATA = "{}"
 export interface ResumeService {
   resume: ResumeModal,
-  updateBasicInfo: (basicInfo: Profile) => void,
-  updateWorkExperience: (workExperience: WorkExperienceModal) => void,
-  addWorkExperience: (workExperience: WorkExperienceModal) => void,
-  deleteWorkExperience: (id: string) => void
 }
 
 const useResume = () => {
@@ -16,33 +12,6 @@ const useResume = () => {
   const resumeService: ResumeService = {
 
     resume: resume as ResumeModal,
-
-    updateBasicInfo: (basicInfo: Profile) => {
-      setResume({...resume, profile: {...basicInfo}});
-    },
-
-    updateWorkExperience: (workExperience: WorkExperienceModal) => {
-      const {workExperiences} = resume;
-      const updateWorkExperiences = workExperiences.map(
-        (item) => item.id === workExperience.id ? workExperience : item
-      );
-      setResume({...resume, workExperiences: updateWorkExperiences})
-    },
-
-    addWorkExperience: (workExperience: WorkExperienceModal) => {
-      // fix: id generator in back end
-      workExperience.id = Math.ceil(Math.random() * 1000000).toString();
-      const {workExperiences} = resume;
-      workExperiences.push(workExperience);
-      setResume({...resume, workExperiences: workExperiences});
-    },
-
-    deleteWorkExperience: (id: string) => {
-      const {workExperiences} = resume;
-      const index = workExperiences.findIndex((item) => item.id === id);
-      index > -1 || workExperiences.splice(index, 1);
-      setResume({...resume, workExperiences: workExperiences})
-    }
   }
 
   return resumeService;

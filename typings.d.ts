@@ -3,8 +3,7 @@ interface ResumeModal {
   uid: string;
   resumeName: string;
   profile: Profile,
-  workExperiences: WorkExperienceModal[];
-  skills: SkillModal[];
+  experiences: ExperienceModal[];
   educations: EducationModal[];
   publications: PublicationModal[]
 }
@@ -17,21 +16,6 @@ interface Profile {
   about: string;
 }
 
-interface WorkExperienceModal {
-  id: string;
-  name: string;
-  position: string;
-  startDate: string;
-  endDate: string;
-  summary: string;
-}
-
-interface SkillModal {
-  id: string;
-  title: string;
-  describe: string;
-}
-
 interface EducationModal {
   school: string;
   major: string;
@@ -39,9 +23,15 @@ interface EducationModal {
   period: [string, string];
 }
 
+interface ExperienceModal {
+  title: string;
+  position: string;
+  period: [string, string];
+  summary: string;
+}
+
 interface PublicationModal {
-  id: string;
   title: string;
   describe: string;
-  date: string;
+  period: [string, string];
 }
