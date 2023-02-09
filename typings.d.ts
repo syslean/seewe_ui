@@ -32,6 +32,5 @@ interface ExperienceModal {
 
 interface PublicationModal {
   title: string;
-  describe: string;
-  period: [string, string];
+  publishedAt: string;
 }

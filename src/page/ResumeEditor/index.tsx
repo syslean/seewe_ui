@@ -7,11 +7,14 @@ import {ReactComponent as EducationsLogo} from "../../assets/img/educations.svg"
 import {ReactComponent as ExperiencesLogo} from "../../assets/img/experiences.svg";
 import {ResumeWrapper} from "./index.style";
 import Educations from "../../component/resumeEditor/editor/educations";
+import Experiences from "../../component/resumeEditor/editor/experiences";
+import Publications from "../../component/resumeEditor/editor/publications";
 
 export const RESUME_COMPONENT_NAME = {
-  PROFILE: 'Profile',
-  EDUCATIONS: 'Educations',
-  EXPERIENCES: 'Experiences'
+  PROFILE: 'sidebar.profile',
+  EDUCATIONS: 'sidebar.educations',
+  EXPERIENCES: 'sidebar.experiences',
+  PUBLICATIONS: 'sidebar.publications'
 };
 
 export const RESUME_COMPONENT_MAPPING = {
@@ -24,16 +27,22 @@ export const RESUME_COMPONENT_MAPPING = {
     icon: <EducationsLogo/>
   },
   [RESUME_COMPONENT_NAME.EXPERIENCES]: {
-    component: <Profile/>,
+    component: <Experiences/>,
+    icon: <ExperiencesLogo/>
+  },
+  [RESUME_COMPONENT_NAME.PUBLICATIONS]: {
+    component: <Publications/>,
+    // todo: icon
     icon: <ExperiencesLogo/>
   }
 }
 
 const Resume: React.FC = () => {
   const resumeItems = [
-    {title: RESUME_COMPONENT_NAME.PROFILE, label: "sidebar.profile"},
-    {title: RESUME_COMPONENT_NAME.EDUCATIONS, label: "sidebar.educations"},
-    // {title: RESUME_COMPONENT_NAME.EXPERIENCES, label: "sidebar.experiences"},
+    {label: RESUME_COMPONENT_NAME.PROFILE},
+    {label: RESUME_COMPONENT_NAME.EDUCATIONS},
+    {label: RESUME_COMPONENT_NAME.EXPERIENCES},
+    {label: RESUME_COMPONENT_NAME.PUBLICATIONS},
   ];
 
   return (

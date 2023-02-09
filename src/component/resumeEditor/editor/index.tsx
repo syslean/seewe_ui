@@ -3,14 +3,14 @@ import {EditorInnerCard, EditorWrapper} from "./index.style";
 import {RESUME_COMPONENT_MAPPING} from "../../../page/ResumeEditor";
 
 interface Props {
-  items: { title: string }[]
+  items: { label: string }[]
 }
 
 const Editor: React.FC<Props> = ({items}: Props) => {
   return (
     <EditorWrapper>
-      {items.map((item, index) => {
-        return <EditorInnerCard key={index} id={item.title}>{RESUME_COMPONENT_MAPPING[item.title].component}</EditorInnerCard>
+      {items.map(({label}, index) => {
+        return <EditorInnerCard key={index} id={label}>{RESUME_COMPONENT_MAPPING[label].component}</EditorInnerCard>
       })}
     </EditorWrapper>
   )

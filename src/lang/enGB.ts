@@ -5,7 +5,8 @@ export const language = {
   sidebar: {
     profile: "Profile",
     educations: "Educations",
-    experiences: "Experiences"
+    experiences: "Experiences",
+    publications: "Publications"
   },
   editor: {
     profile: {
