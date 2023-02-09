@@ -30,6 +30,13 @@ export const language = {
         doctor: "Doctor(PhD)"
       }
     },
+    experiences: {
+      key: "Experiences",
+      name: "Name",
+      position: "Position",
+      period: "Period",
+      summary: "Summary"
+    },
     publications: {
       key: "Publications",
       name: "School Name",
@@ -38,6 +45,7 @@ export const language = {
   },
   hint: {
     noEducation: "No education experience added.\nPlease click the plus sign in the top right corner to add :)",
+    noExperience: "No work experience added.\nPlease click the plus sign in the top right corner to add :)",
     noPublication: "No publication added.\nPlease click the plus sign in the top right corner to add :)",
   }
 };

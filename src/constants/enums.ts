@@ -8,5 +8,6 @@ export const LanguageKey = "language";
 export const ResumeKey = {
   profile: "profile",
   educations: "educations",
+  experiences: "experiences",
   publications: "publications"
 }
