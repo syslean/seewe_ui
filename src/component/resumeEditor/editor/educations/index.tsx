@@ -38,7 +38,7 @@ const Educations: React.FC = () => {
   const handleChangeValue = (key: string, index: number) => (action: any) => {
     setEducations(educations.map((item, i) => (index === i) ? {
       ...item,
-      [key]: action?.target?.value ?? action.toString()
+      [key]: (action instanceof Array) ? action : action?.target?.value ?? action.toString()
     } : item))
   };
 

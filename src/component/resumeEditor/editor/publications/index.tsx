@@ -30,7 +30,7 @@ const Publications: React.FC = () => {
   const handleChangeValue = (key: string, index: number) => (action: any) => {
     setPublications(publications.map((item, i) => (index === i) ? {
       ...item,
-      [key]: action?.target?.value ?? action.toString()
+      [key]: (action instanceof Array) ? action : action?.target?.value ?? action.toString()
     } : item))
   };
 
