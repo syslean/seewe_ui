@@ -24,12 +24,18 @@ export const template = {
         {
           label: "editor.profile.master",
           value: "master",
-          type: "selector"
+          type: "selector",
+          options: [
+            {label: "1", value: "associate"},
+            {label: "2", value: "bachelor"},
+            {label: "3", value: "master"},
+            {label: "4", value: "doctor"}
+          ]
         },
         {
           label: "editor.experiences.period",
           value: "period",
-          type: "dataRange"
+          type: "dateRange"
         }
       ]
     }
