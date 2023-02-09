@@ -22,14 +22,14 @@ export const template = {
           type: "date"
         },
         {
-          label: "editor.profile.master",
-          value: "master",
+          label: "editor.educations.degree",
+          value: "degree",
           type: "selector",
           options: [
-            {label: "1", value: "associate"},
-            {label: "2", value: "bachelor"},
-            {label: "3", value: "master"},
-            {label: "4", value: "doctor"}
+            {label: "editor.educations.degreeType.associate", value: "associate"},
+            {label: "editor.educations.degreeType.bachelor", value: "bachelor"},
+            {label: "editor.educations.degreeType.master", value: "master"},
+            {label: "editor.educations.degreeType.doctor", value: "doctor"}
           ]
         },
         {
