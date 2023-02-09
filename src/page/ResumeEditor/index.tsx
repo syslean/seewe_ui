@@ -8,7 +8,7 @@ import {ReactComponent as ExperiencesLogo} from "../../assets/img/experiences.sv
 import {ResumeWrapper} from "./index.style";
 import Educations from "../../component/resumeEditor/editor/educations";
 import Experiences from "../../component/resumeEditor/editor/experiences";
-import Publications from "../../component/resumeEditor/editor/publications";
+import TemplateEngine from "../../component/resumeEditor/editor/templateEngine/intex";
 
 export const RESUME_COMPONENT_NAME = {
   PROFILE: 'sidebar.profile',
@@ -31,7 +31,7 @@ export const RESUME_COMPONENT_MAPPING = {
     icon: <ExperiencesLogo/>
   },
   [RESUME_COMPONENT_NAME.PUBLICATIONS]: {
-    component: <Publications/>,
+    component: <TemplateEngine/>,
     // todo: icon
     icon: <ExperiencesLogo/>
   }
