@@ -29,10 +29,16 @@ export const language = {
         master: "硕士",
         doctor: "博士"
       }
+    },
+    publications: {
+      key: "出版物",
+      name: "名字",
+      publishedAt: "出版时间"
     }
   },
   hint: {
-    noEducation: "您还没有添加教育经历.\n点击右侧添加按钮添加一个吧 :)"
+    noEducation: "您还没有添加教育经历.\n点击右侧添加按钮添加一个吧 :)",
+    noPublication: "您还没有添加出版项.\n点击右侧添加按钮添加一个吧 :)"
   }
 };
 export default language;

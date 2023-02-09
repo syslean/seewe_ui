@@ -7,5 +7,6 @@ export const LanguageKey = "language";
 
 export const ResumeKey = {
   profile: "profile",
-  educations: "educations"
+  educations: "educations",
+  publications: "publications"
 }

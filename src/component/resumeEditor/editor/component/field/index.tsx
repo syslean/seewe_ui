@@ -46,6 +46,22 @@ const SelectorField: React.FC<Props<string>> = ({title, value, options, onChange
   );
 }
 
+const DateField: React.FC<Props<Dayjs>> = ({title, value, onChange}: Props<Dayjs>) => {
+
+  return (
+    <FieldWrapper>
+      <FiledTitle>{title}</FiledTitle>
+      <DatePicker
+        value={value}
+        onChange={onChange}
+        placeholder={""}
+        format="YYYY / MM"
+        picker="month"
+      />
+    </FieldWrapper>
+  );
+}
+
 const DateRangeField: React.FC<Props<[Dayjs, Dayjs]>> = ({title, value, onChange}: Props<[Dayjs, Dayjs]>) => {
 
   return (
@@ -63,4 +79,4 @@ const DateRangeField: React.FC<Props<[Dayjs, Dayjs]>> = ({title, value, onChange
 }
 
 
-export {TextAreaField, TextField, SelectorField, DateRangeField}
+export {TextAreaField, TextField, SelectorField, DateField, DateRangeField}

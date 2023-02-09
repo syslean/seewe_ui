@@ -24,13 +24,13 @@ interface EducationModal {
 }
 
 interface ExperienceModal {
-  title: string;
+  name: string;
   position: string;
   period: [string, string];
   summary: string;
 }
 
 interface PublicationModal {
-  title: string;
+  name: string;
   publishedAt: string;
 }
