@@ -3,23 +3,27 @@ import {FieldWrapper, FiledTitle} from "./index.style";
 import {DatePicker, Input, Select} from "antd";
 import dayjs, {Dayjs} from "dayjs";
 
-interface Props<T> {
+interface Props<V> {
   title: string;
-  value?: T;
+  value: unknown;
   placeholder?: string;
   options?: { value: string; label: string }[];
-  handleChange: (getValue: (e: any) => T) => (e: any) => void;
+  handleChange: (valueOf: (e: any) => V) => (e: any) => void;
 }
 
-interface FiledProps {
-  label: string;
+interface TextFieldProps extends Props<string> {
   value: string;
-  type: string;
-  options?: any;
-  handleChange: (valueOf: (e: any) => any) => (e: any) => void
 }
 
-const TextField: React.FC<Props<string>> = ({title, value, placeholder, handleChange}: Props<string>) => {
+interface DateFieldProps extends Props<Dayjs> {
+  value: string;
+}
+
+interface DateRangeFieldProps extends Props<[Dayjs, Dayjs]> {
+  value: [string, string];
+}
+
+const TextField: React.FC<TextFieldProps> = ({title, value, placeholder, handleChange}: TextFieldProps) => {
 
   return (
     <FieldWrapper>
@@ -30,7 +34,7 @@ const TextField: React.FC<Props<string>> = ({title, value, placeholder, handleCh
   );
 }
 
-const TextAreaField: React.FC<Props<string>> = ({title, value, placeholder, handleChange}: Props<string>) => {
+const TextAreaField: React.FC<TextFieldProps> = ({title, value, placeholder, handleChange}: TextFieldProps) => {
 
   return (
     <FieldWrapper style={{width: "100%"}}>
@@ -41,7 +45,7 @@ const TextAreaField: React.FC<Props<string>> = ({title, value, placeholder, hand
   );
 }
 
-const SelectorField: React.FC<Props<string>> = ({title, value, options, handleChange}: Props<string>) => {
+const SelectorField: React.FC<TextFieldProps> = ({title, value, options, handleChange}: TextFieldProps) => {
 
   return (
     <FieldWrapper>
@@ -55,29 +59,28 @@ const SelectorField: React.FC<Props<string>> = ({title, value, options, handleCh
   );
 }
 
-const DateField: React.FC<Props<Dayjs>> = ({title, value, handleChange}: Props<Dayjs>) => {
+const DateField: React.FC<DateFieldProps> = ({title, value, handleChange}: DateFieldProps) => {
 
   return (
     <FieldWrapper>
       <FiledTitle>{title}</FiledTitle>
-      <DatePicker
-        value={value}
+      <DatePicker.MonthPicker
+        value={value ? dayjs(value) : undefined}
         onChange={handleChange((e) => e.toString())}
         placeholder={""}
         format="YYYY / MM"
-        picker="month"
       />
     </FieldWrapper>
   );
 }
 
-const DateRangeField: React.FC<Props<[Dayjs, Dayjs]>> = ({title, value, handleChange}: Props<[Dayjs, Dayjs]>) => {
+const DateRangeField: React.FC<DateRangeFieldProps> = ({title, value, handleChange}: DateRangeFieldProps) => {
 
   return (
     <FieldWrapper>
       <FiledTitle>{title}</FiledTitle>
       <DatePicker.RangePicker
-        value={value}
+        value={value ? [dayjs(value[1]), dayjs(value[1])] : undefined}
         onChange={handleChange((e) => e)}
         placeholder={["", ""]}
         format="YYYY / MM"
@@ -95,23 +98,25 @@ export const FIELD_TYPE = {
   DATE_RANGE: "dateRange",
 }
 
-const Field: React.FC<FiledProps> = ({label, value, type, options, handleChange}) => {
+interface FiledProps {
+  label: string;
+  value: any;
+  type: string;
+  options?: any;
+  handleChange: (valueOf: (e: any) => any) => (e: any) => void
+}
 
-  switch (type) {
-    case FIELD_TYPE.TEXT:
-      return <TextField title={label} value={value} handleChange={handleChange}/>;
-    case FIELD_TYPE.AREA :
-      return <TextAreaField title={label} value={value} handleChange={handleChange}/>;
-    case FIELD_TYPE.DATE :
-      return <DateField title={label} value={value ? dayjs(value) : undefined} handleChange={handleChange}/>;
-    case FIELD_TYPE.SELECTOR :
-      return <SelectorField title={label} options={options} value={value} handleChange={handleChange}/>;
-    case FIELD_TYPE.DATE_RANGE :
-      return <DateRangeField title={label} value={value ? [dayjs(value[1]), dayjs(value[1])] : undefined}
-                             handleChange={handleChange}/>
-    default:
-      return <>Error Field</>
-  }
+const FILED_MAPPING = {
+  [FIELD_TYPE.TEXT]: TextField,
+  [FIELD_TYPE.AREA]: TextAreaField,
+  [FIELD_TYPE.DATE]: DateField,
+  [FIELD_TYPE.SELECTOR]: SelectorField,
+  [FIELD_TYPE.DATE_RANGE]: DateRangeField,
+}
+
+const Field: React.FC<FiledProps> = ({label, value, type, options, handleChange}) => {
+  const C = FILED_MAPPING[type];
+  return <C title={label} value={value} handleChange={handleChange} options={options}/>
 }
 
 export default Field;
