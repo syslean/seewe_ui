@@ -2,16 +2,20 @@ import React, {useContext} from "react";
 import {LanguageContext} from "../../../../context/LanguageContext";
 import useLocalStorage from "../../../../service/useLocalStorage";
 import Card from "../component/card";
-import {template} from "./template";
+import {Module} from "./config";
 import BaseField from "./baseField";
 import {AddIcon, CloseIcon, DeleteIcon} from "../component/action/index.style";
 import SubCard from "../component/subCard";
-import {Module} from "../component/field/index.style";
+import {Form} from "../component/field/index.style";
+import Hint from "../component/card/hint";
 
-const CardGenerator: React.FC = () => {
+interface Props {
+  module: Module
+}
+
+const CardGenerator: React.FC<Props> = ({module}: Props) => {
   const {t} = useContext(LanguageContext);
 
-  const module = template.modules[0];
   const [store, setStore] = useLocalStorage<any>(module.storeKey, {} as any);
 
   const handleChangeValue = (key: string) => (valueOf: (e: any) => any) => (e: any) => {
@@ -25,7 +29,7 @@ const CardGenerator: React.FC = () => {
 
   return (
     <Card title={t(module.label)}>
-      <Module>
+      <Form>
         {module.fields.map(
           ({label, value, type, options}, index) =>
             <BaseField key={index} label={t(label)} value={store[value]} type={type}
@@ -33,17 +37,15 @@ const CardGenerator: React.FC = () => {
                        handleChange={handleChangeValue(value)}/>
         )
         }
-      </Module>
-
+      </Form>
     </Card>
   )
 }
 
 
-const ListCardGenerator: React.FC = () => {
+const ListCardGenerator: React.FC<Props> = ({module}: Props) => {
   const {t} = useContext(LanguageContext);
 
-  const module = template.modules[1];
   const [store, setStore] = useLocalStorage<Array<any>>(module.storeKey, []);
 
   const translateOptions = (options: { label: string, value: string }[] | undefined) => {
@@ -80,10 +82,11 @@ const ListCardGenerator: React.FC = () => {
 
   return (
     <Card title={t(module.label)} actions={actions}>
+      {store.length === 0 && (<Hint value={t(module.hint)}/>)}
       {
         store.map((item: any, index: number) => (
           <SubCard actions={generateSubActions(index)} key={index}>
-            <Module>
+            <Form>
               {module.fields.map(
                 ({label, value, type, options}, subIndex) =>
                   <BaseField key={subIndex} label={t(label)} value={item[value]} type={type}
@@ -91,7 +94,7 @@ const ListCardGenerator: React.FC = () => {
                              handleChange={handleChangeValueWithIndex(value, index)}/>
               )
               }
-            </Module>
+            </Form>
           </SubCard>
         ))
       }

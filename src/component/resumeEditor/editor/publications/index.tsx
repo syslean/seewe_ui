@@ -2,7 +2,7 @@ import React, {useContext} from 'react';
 import Card from "../component/card";
 import SubCard from "../component/subCard";
 import {DateField, TextField} from "../component/field";
-import {Module} from "../component/field/index.style";
+import {Form} from "../component/field/index.style";
 import {AddIcon, CloseIcon, DeleteIcon} from '../component/action/index.style';
 import {LanguageContext} from "../../../../context/LanguageContext";
 import useLocalStorage from "../../../../service/useLocalStorage";
@@ -62,13 +62,13 @@ const Publications: React.FC = () => {
       {
         publications.map((item, index) => (
           <SubCard actions={generateSubActions(index)} key={index}>
-            <Module>
+            <Form>
               <TextField title={t(PUBLICATIONS_LABEL.NAME)} value={item.name}
                          onChange={handleChangeValue("name", index)}/>
               <DateField title={t(PUBLICATIONS_LABEL.PUBLISHED_AT)}
                          value={item.publishedAt ? dayjs(item.publishedAt) : undefined}
                          onChange={handleChangeValue("publishedAt", index)}/>
-            </Module>
+            </Form>
           </SubCard>
         ))
       }

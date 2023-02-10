@@ -11,7 +11,7 @@ export type TLanguages = {
 interface Props {
   language: Language,
   setLanguage: Dispatch<Language>;
-  t: (path: string) => string;
+  t: (path: string| undefined) => string;
 }
 
 export const LanguageContext = React.createContext<Props>({
@@ -27,7 +27,7 @@ export const LanguageProvider = ({
 }): React.ReactElement => {
   const [language, setLanguage] = useLocalStorage<Language>(LanguageKey, Language.ENGB);
 
-  const t = (path: string) => {
+  const t = (path: string| undefined) => {
     return get(languages, `${language}.${path}`, "");
   };
 

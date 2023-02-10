@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Module = styled.div`
+export const Form = styled.div`
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;

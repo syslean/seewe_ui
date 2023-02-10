@@ -4,7 +4,7 @@ import Card from "../component/card";
 import {LanguageContext} from "../../../../context/LanguageContext";
 import useLocalStorage from "../../../../service/useLocalStorage";
 import {ResumeKey} from "../../../../constants/enums";
-import {Module} from '../component/field/index.style';
+import {Form} from '../component/field/index.style';
 
 const PROFILE_PREFIX = "editor.profile"
 
@@ -29,18 +29,18 @@ const Profile: React.FC = () => {
 
   return (
     <Card title={t(PROFILE_LABEL.KEY)}>
-      <Module>
+      <Form>
         <TextField title={t(PROFILE_LABEL.NAME)} value={profile.name} onChange={handleChangeValue("name")}/>
         <TextField title={t(PROFILE_LABEL.TITLE)} value={profile.title} onChange={handleChangeValue("title")}/>
-      </Module>
-      <Module>
+      </Form>
+      <Form>
         <TextField title={t(PROFILE_LABEL.PHONE)} value={profile.phone} onChange={handleChangeValue("phone")}/>
         <TextField title={t(PROFILE_LABEL.EMAIL)} value={profile.email} onChange={handleChangeValue("email")}
         />
-      </Module>
-      <Module>
+      </Form>
+      <Form>
         <TextAreaField title={t(PROFILE_LABEL.ABOUT)} value={profile.about} onChange={handleChangeValue("about")}/>
-      </Module>
+      </Form>
     </Card>
   )
 }

@@ -1,14 +1,12 @@
 import React from 'react';
 import SideBar from "../../component/resumeEditor/sidebar";
 import Editor from "../../component/resumeEditor/editor";
-import Profile from "../../component/resumeEditor/editor/profile";
 import {ReactComponent as ProfileLogo} from "../../assets/img/profile.svg";
 import {ReactComponent as EducationsLogo} from "../../assets/img/educations.svg";
 import {ReactComponent as ExperiencesLogo} from "../../assets/img/experiences.svg";
 import {ResumeWrapper} from "./index.style";
-import Educations from "../../component/resumeEditor/editor/educations";
-import Experiences from "../../component/resumeEditor/editor/experiences";
-import {CardGenerator} from "../../component/resumeEditor/editor/cardGenerator";
+import {CardGenerator, ListCardGenerator} from "../../component/resumeEditor/editor/cardGenerator";
+import {config} from "../../component/resumeEditor/editor/cardGenerator/config";
 
 export const RESUME_COMPONENT_NAME = {
   PROFILE: 'sidebar.profile',
@@ -19,19 +17,19 @@ export const RESUME_COMPONENT_NAME = {
 
 export const RESUME_COMPONENT_MAPPING = {
   [RESUME_COMPONENT_NAME.PROFILE]: {
-    component: <Profile/>,
+    component: <CardGenerator module={config.modules[0]}/>,
     icon: <ProfileLogo/>
   },
   [RESUME_COMPONENT_NAME.EDUCATIONS]: {
-    component: <Educations/>,
+    component: <ListCardGenerator module={config.modules[1]}/>,
     icon: <EducationsLogo/>
   },
   [RESUME_COMPONENT_NAME.EXPERIENCES]: {
-    component: <Experiences/>,
+    component: <ListCardGenerator module={config.modules[2]}/>,
     icon: <ExperiencesLogo/>
   },
   [RESUME_COMPONENT_NAME.PUBLICATIONS]: {
-    component: <CardGenerator/>,
+    component: <ListCardGenerator module={config.modules[3]}/>,
     // todo: icon
     icon: <ExperiencesLogo/>
   }
