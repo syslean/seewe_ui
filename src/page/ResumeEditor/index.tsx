@@ -4,6 +4,7 @@ import Editor from "../../component/resumeEditor/editor";
 import {ReactComponent as ProfileLogo} from "../../assets/img/profile.svg";
 import {ReactComponent as EducationsLogo} from "../../assets/img/educations.svg";
 import {ReactComponent as ExperiencesLogo} from "../../assets/img/experiences.svg";
+import {ReactComponent as PublicationsLogo} from "../../assets/img/publications.svg";
 import {ResumeWrapper} from "./index.style";
 import {config} from "../../component/resumeEditor/editor/generator/config";
 import Generator from "../../component/resumeEditor/editor/generator";
@@ -30,8 +31,7 @@ export const RESUME_COMPONENT_MAPPING = {
   },
   [RESUME_COMPONENT_NAME.PUBLICATIONS]: {
     component: <Generator module={config.modules[3]}/>,
-    // todo: icon
-    icon: <ExperiencesLogo/>
+    icon: <PublicationsLogo/>
   }
 }
 
