@@ -16,9 +16,9 @@ interface Props {
 const Generator: React.FC<Props> = ({module}: Props) => {
   const {type} = module;
   if (type === "list") {
-    return <CardGenerator module={module}/>
-  } else {
     return <ListCardGenerator module={module}/>
+  } else {
+    return <CardGenerator module={module}/>
   }
 }
 
