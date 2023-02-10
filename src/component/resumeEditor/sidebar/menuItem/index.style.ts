@@ -23,6 +23,8 @@ export const MenuTitle = styled.div`
   font-size: 0.875rem;
   font-weight: 600;
 
+  flex: 1;
+
   color: #636363;
 
 `

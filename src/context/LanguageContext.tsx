@@ -1,6 +1,6 @@
 import get from "lodash.get";
 import React from 'react';
-import {Language, LanguageKey} from "../constants/enums";
+import {Language, LANGUAGE_KEY} from "../constants/enums";
 import useLocalStorage from "../service/useLocalStorage";
 import {Dispatch} from "react";
 
@@ -25,7 +25,7 @@ export const LanguageProvider = ({
   children: React.ReactNode;
   languages?: TLanguages;
 }): React.ReactElement => {
-  const [language, setLanguage] = useLocalStorage<Language>(LanguageKey, Language.ENGB);
+  const [language, setLanguage] = useLocalStorage<Language>(LANGUAGE_KEY, Language.ENGB);
 
   const t = (path: string| undefined) => {
     return get(languages, `${language}.${path}`, "");
