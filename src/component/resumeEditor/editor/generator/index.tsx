@@ -13,6 +13,15 @@ interface Props {
   module: Module
 }
 
+const Generator: React.FC<Props> = ({module}: Props) => {
+  const {type} = module;
+  if (type === "list") {
+    return <CardGenerator module={module}/>
+  } else {
+    return <ListCardGenerator module={module}/>
+  }
+}
+
 const CardGenerator: React.FC<Props> = ({module}: Props) => {
   const {t} = useContext(LanguageContext);
 
@@ -79,7 +88,6 @@ const ListCardGenerator: React.FC<Props> = ({module}: Props) => {
 
   const generateSubActions = (key: number) => [{icon: <DeleteIcon/>, onClick: handleDeleteAction(key)}]
 
-
   return (
     <Card title={t(module.label)} actions={actions}>
       {store.length === 0 && (<Hint value={t(module.hint)}/>)}
@@ -102,4 +110,4 @@ const ListCardGenerator: React.FC<Props> = ({module}: Props) => {
   )
 }
 
-export {CardGenerator, ListCardGenerator};
+export default Generator;

@@ -28,7 +28,7 @@ export const config: ResumeConfig = {
     {
       storeKey: ResumeKey.profile,
       label: "editor.profile.key",
-      type: "none",
+      type: "default",
       fields: [
         {
           label: "editor.profile.name",
