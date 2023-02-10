@@ -11,6 +11,11 @@ export interface ResumeConfig {
   modules: Module[];
 }
 
+export interface Option {
+  label: string,
+  value: string,
+}
+
 export interface Module {
   storeKey: string;
   label: string;
@@ -19,10 +24,7 @@ export interface Module {
     label: string;
     value: string;
     type: string;
-    options?: {
-      label: string,
-      value: string,
-    }[],
+    options?: Option[],
   }[];
   hint?: string;
 }
