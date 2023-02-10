@@ -1,11 +1,7 @@
 import {RESUME_KEY} from "../../../../constants/enums";
 import {FIELD_TYPE} from "../component/field";
 import {ICON_TYPE} from "../../sidebar/menuItem";
-
-export enum MODULE_TYPE {
-  BASIC = "basic",
-  LIST = "list"
-}
+import {GENERATOR_TYPE} from "./index";
 
 export interface ResumeConfig {
   name: string;
@@ -20,7 +16,7 @@ export interface Option {
 export interface Module {
   storeKey: string;
   label: string;
-  type: MODULE_TYPE;
+  type: GENERATOR_TYPE;
   icon: ICON_TYPE;
   fields: {
     label: string;
@@ -31,13 +27,13 @@ export interface Module {
   hint?: string;
 }
 
-export const config: ResumeConfig = {
+export const resumeConfig: ResumeConfig = {
   name: "Resume",
   modules: [
     {
       storeKey: RESUME_KEY.PROFILE,
       label: "editor.profile.key",
-      type: MODULE_TYPE.BASIC,
+      type: GENERATOR_TYPE.BASIC,
       icon: ICON_TYPE.PROFILE,
       fields: [
         {
@@ -71,7 +67,7 @@ export const config: ResumeConfig = {
       storeKey: RESUME_KEY.EDUCATIONS,
       label: "editor.educations.key",
       hint: "hint.noEducation",
-      type: MODULE_TYPE.LIST,
+      type: GENERATOR_TYPE.LIST,
       icon: ICON_TYPE.EDUCATIONS,
       fields: [
         {
@@ -105,7 +101,7 @@ export const config: ResumeConfig = {
     {
       storeKey: RESUME_KEY.EXPERIENCES,
       label: "editor.experiences.key",
-      type: MODULE_TYPE.LIST,
+      type: GENERATOR_TYPE.LIST,
       hint: "hint.noExperience",
       icon: ICON_TYPE.EXPERIENCES,
       fields: [
@@ -134,7 +130,7 @@ export const config: ResumeConfig = {
     {
       storeKey: RESUME_KEY.PUBLICATIONS,
       label: "editor.publications.key",
-      type: MODULE_TYPE.LIST,
+      type: GENERATOR_TYPE.LIST,
       hint: "hint.noPublication",
       icon: ICON_TYPE.PUBLICATIONS,
       fields: [
