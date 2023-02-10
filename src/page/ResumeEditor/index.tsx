@@ -5,8 +5,8 @@ import {ReactComponent as ProfileLogo} from "../../assets/img/profile.svg";
 import {ReactComponent as EducationsLogo} from "../../assets/img/educations.svg";
 import {ReactComponent as ExperiencesLogo} from "../../assets/img/experiences.svg";
 import {ResumeWrapper} from "./index.style";
-import {CardGenerator, ListCardGenerator} from "../../component/resumeEditor/editor/cardGenerator";
-import {config} from "../../component/resumeEditor/editor/cardGenerator/config";
+import {CardGenerator, ListCardGenerator} from "../../component/resumeEditor/editor/generator";
+import {config} from "../../component/resumeEditor/editor/generator/config";
 
 export const RESUME_COMPONENT_NAME = {
   PROFILE: 'sidebar.profile',

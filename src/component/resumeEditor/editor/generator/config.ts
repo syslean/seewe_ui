@@ -1,5 +1,5 @@
-import {FIELD_TYPE} from "./baseField";
 import {ResumeKey} from "../../../../constants/enums";
+import {FIELD_TYPE} from "../component/field";
 
 export interface ResumeConfig {
   name: string;

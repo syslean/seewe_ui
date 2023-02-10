@@ -3,11 +3,11 @@ import {LanguageContext} from "../../../../context/LanguageContext";
 import useLocalStorage from "../../../../service/useLocalStorage";
 import Card from "../component/card";
 import {Module} from "./config";
-import BaseField from "./baseField";
 import {AddIcon, CloseIcon, DeleteIcon} from "../component/action/index.style";
 import SubCard from "../component/subCard";
 import {Form} from "../component/field/index.style";
 import Hint from "../component/card/hint";
+import Field from "../component/field";
 
 interface Props {
   module: Module
@@ -32,9 +32,9 @@ const CardGenerator: React.FC<Props> = ({module}: Props) => {
       <Form>
         {module.fields.map(
           ({label, value, type, options}, index) =>
-            <BaseField key={index} label={t(label)} value={store[value]} type={type}
-                       options={translateOptions(options)}
-                       handleChange={handleChangeValue(value)}/>
+            <Field key={index} label={t(label)} value={store[value]} type={type}
+                   options={translateOptions(options)}
+                   handleChange={handleChangeValue(value)}/>
         )
         }
       </Form>
@@ -89,9 +89,9 @@ const ListCardGenerator: React.FC<Props> = ({module}: Props) => {
             <Form>
               {module.fields.map(
                 ({label, value, type, options}, subIndex) =>
-                  <BaseField key={subIndex} label={t(label)} value={item[value]} type={type}
-                             options={translateOptions(options)}
-                             handleChange={handleChangeValueWithIndex(value, index)}/>
+                  <Field key={subIndex} label={t(label)} value={item[value]} type={type}
+                         options={translateOptions(options)}
+                         handleChange={handleChangeValueWithIndex(value, index)}/>
               )
               }
             </Form>
