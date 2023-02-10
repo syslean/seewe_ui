@@ -2,7 +2,7 @@ import React, {useContext} from "react";
 import {LanguageContext} from "../../../../context/LanguageContext";
 import useLocalStorage from "../../../../service/useLocalStorage";
 import Card from "../component/card";
-import {Module} from "./config";
+import {Module, MODULE_TYPE} from "./config";
 import {AddIcon, CloseIcon, DeleteIcon} from "../component/action/index.style";
 import SubCard from "../component/subCard";
 import {Form} from "../component/field/index.style";
@@ -13,16 +13,7 @@ interface Props {
   module: Module
 }
 
-const Generator: React.FC<Props> = ({module}: Props) => {
-  const {type} = module;
-  if (type === "list") {
-    return <ListCardGenerator module={module}/>
-  } else {
-    return <CardGenerator module={module}/>
-  }
-}
-
-const CardGenerator: React.FC<Props> = ({module}: Props) => {
+const BasicGenerator: React.FC<Props> = ({module}: Props) => {
   const {t} = useContext(LanguageContext);
 
   const [store, setStore] = useLocalStorage<any>(module.storeKey, {} as any);
@@ -51,8 +42,7 @@ const CardGenerator: React.FC<Props> = ({module}: Props) => {
   )
 }
 
-
-const ListCardGenerator: React.FC<Props> = ({module}: Props) => {
+const ListGenerator: React.FC<Props> = ({module}: Props) => {
   const {t} = useContext(LanguageContext);
 
   const [store, setStore] = useLocalStorage<Array<any>>(module.storeKey, []);
@@ -108,6 +98,16 @@ const ListCardGenerator: React.FC<Props> = ({module}: Props) => {
       }
     </Card>
   )
+}
+
+const GENERATOR_MAPPING = {
+  [MODULE_TYPE.BASIC]: BasicGenerator,
+  [MODULE_TYPE.LIST]: ListGenerator
+}
+
+const Generator: React.FC<Props> = ({module}: Props) => {
+  const C = GENERATOR_MAPPING[module.type];
+  return <C module={module}/>
 }
 
 export default Generator;

@@ -1,6 +1,11 @@
 import {ResumeKey} from "../../../../constants/enums";
 import {FIELD_TYPE} from "../component/field";
 
+export enum MODULE_TYPE {
+  BASIC = "basic",
+  LIST = "list"
+}
+
 export interface ResumeConfig {
   name: string;
   modules: Module[];
@@ -9,7 +14,7 @@ export interface ResumeConfig {
 export interface Module {
   storeKey: string;
   label: string;
-  type: string;
+  type: MODULE_TYPE;
   fields: {
     label: string;
     value: string;
@@ -28,7 +33,7 @@ export const config: ResumeConfig = {
     {
       storeKey: ResumeKey.profile,
       label: "editor.profile.key",
-      type: "default",
+      type: MODULE_TYPE.BASIC,
       fields: [
         {
           label: "editor.profile.name",
@@ -61,7 +66,7 @@ export const config: ResumeConfig = {
       storeKey: ResumeKey.educations,
       label: "editor.educations.key",
       hint: "hint.noEducation",
-      type: "list",
+      type: MODULE_TYPE.LIST,
       fields: [
         {
           label: "editor.educations.school",
@@ -94,7 +99,7 @@ export const config: ResumeConfig = {
     {
       storeKey: ResumeKey.experiences,
       label: "editor.experiences.key",
-      type: "list",
+      type: MODULE_TYPE.LIST,
       hint: "hint.noExperience",
       fields: [
         {
@@ -122,7 +127,7 @@ export const config: ResumeConfig = {
     {
       storeKey: ResumeKey.publications,
       label: "editor.publications.key",
-      type: "list",
+      type: MODULE_TYPE.LIST,
       hint: "hint.noPublication",
       fields: [
         {
