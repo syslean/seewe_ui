@@ -1,38 +1,51 @@
 import React from "react";
 import {FieldWrapper, FiledTitle} from "./index.style";
 import {DatePicker, Input, Select} from "antd";
-import {Dayjs} from "dayjs";
+import dayjs, {Dayjs} from "dayjs";
 
-interface Props<T> {
+interface Props<V> {
   title: string;
-  value?: T;
+  value: unknown;
   placeholder?: string;
   options?: { value: string; label: string }[];
-  // eslint-disable-next-line
-  onChange?: any;
+  handleChange: (valueOf: (e: any) => V) => (e: any) => void;
 }
 
-const TextField: React.FC<Props<string>> = ({title, value, placeholder, onChange}: Props<string>) => {
+interface TextFieldProps extends Props<string> {
+  value: string;
+}
+
+interface DateFieldProps extends Props<Dayjs> {
+  value: string;
+}
+
+interface DateRangeFieldProps extends Props<[Dayjs, Dayjs]> {
+  value: [string, string];
+}
+
+const TextField: React.FC<TextFieldProps> = ({title, value, placeholder, handleChange}: TextFieldProps) => {
 
   return (
     <FieldWrapper>
       <FiledTitle>{title}</FiledTitle>
-      <Input value={value} placeholder={placeholder} onChange={onChange}/>
+      <Input value={value} placeholder={placeholder}
+             onChange={handleChange((e) => e.target.value)}/>
     </FieldWrapper>
   );
 }
 
-const TextAreaField: React.FC<Props<string>> = ({title, value, placeholder, onChange}: Props<string>) => {
+const TextAreaField: React.FC<TextFieldProps> = ({title, value, placeholder, handleChange}: TextFieldProps) => {
 
   return (
     <FieldWrapper style={{width: "100%"}}>
       <FiledTitle>{title}</FiledTitle>
-      <Input.TextArea placeholder={placeholder} value={value} onChange={onChange}/>
+      <Input.TextArea placeholder={placeholder} value={value}
+                      onChange={handleChange((e) => e.target.value)}/>
     </FieldWrapper>
   );
 }
 
-const SelectorField: React.FC<Props<string>> = ({title, value, options, onChange}: Props<string>) => {
+const SelectorField: React.FC<TextFieldProps> = ({title, value, options, handleChange}: TextFieldProps) => {
 
   return (
     <FieldWrapper>
@@ -40,36 +53,35 @@ const SelectorField: React.FC<Props<string>> = ({title, value, options, onChange
       <Select
         value={value}
         options={options ? options : []}
-        onChange={onChange}
+        onChange={handleChange(e => e)}
       />
     </FieldWrapper>
   );
 }
 
-const DateField: React.FC<Props<Dayjs>> = ({title, value, onChange}: Props<Dayjs>) => {
+const DateField: React.FC<DateFieldProps> = ({title, value, handleChange}: DateFieldProps) => {
 
   return (
     <FieldWrapper>
       <FiledTitle>{title}</FiledTitle>
-      <DatePicker
-        value={value}
-        onChange={onChange}
+      <DatePicker.MonthPicker
+        value={value ? dayjs(value) : undefined}
+        onChange={handleChange((e) => e.toString())}
         placeholder={""}
         format="YYYY / MM"
-        picker="month"
       />
     </FieldWrapper>
   );
 }
 
-const DateRangeField: React.FC<Props<[Dayjs, Dayjs]>> = ({title, value, onChange}: Props<[Dayjs, Dayjs]>) => {
+const DateRangeField: React.FC<DateRangeFieldProps> = ({title, value, handleChange}: DateRangeFieldProps) => {
 
   return (
     <FieldWrapper>
       <FiledTitle>{title}</FiledTitle>
       <DatePicker.RangePicker
-        value={value}
-        onChange={onChange}
+        value={value ? [dayjs(value[1]), dayjs(value[1])] : undefined}
+        onChange={handleChange((e) => e)}
         placeholder={["", ""]}
         format="YYYY / MM"
         picker="month"
@@ -78,5 +90,33 @@ const DateRangeField: React.FC<Props<[Dayjs, Dayjs]>> = ({title, value, onChange
   );
 }
 
+export const FIELD_TYPE = {
+  TEXT: "text",
+  AREA: "area",
+  DATE: "date",
+  SELECTOR: "selector",
+  DATE_RANGE: "dateRange",
+}
 
-export {TextAreaField, TextField, SelectorField, DateField, DateRangeField}
+interface FiledProps {
+  label: string;
+  value: any;
+  type: string;
+  options?: any;
+  handleChange: (valueOf: (e: any) => any) => (e: any) => void
+}
+
+const FILED_MAPPING = {
+  [FIELD_TYPE.TEXT]: TextField,
+  [FIELD_TYPE.AREA]: TextAreaField,
+  [FIELD_TYPE.DATE]: DateField,
+  [FIELD_TYPE.SELECTOR]: SelectorField,
+  [FIELD_TYPE.DATE_RANGE]: DateRangeField,
+}
+
+const Field: React.FC<FiledProps> = ({label, value, type, options, handleChange}) => {
+  const C = FILED_MAPPING[type];
+  return <C title={label} value={value} handleChange={handleChange} options={options}/>
+}
+
+export default Field;

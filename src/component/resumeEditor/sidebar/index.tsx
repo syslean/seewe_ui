@@ -2,18 +2,18 @@ import React from 'react';
 import MenuItem from "./menuItem";
 import {SideBarWrapper} from "./index.style";
 
-const SideBar: React.FC<Props> = ({items}: Props) => {
+const SideBar: React.FC<Props> = ({labels}: Props) => {
   return (
     <SideBarWrapper>
       {
-        items.map((item, index) => <MenuItem key={index} title={item.label} label={item.label}/>)
+        labels.map((label, index) => <MenuItem key={index} label={label}/>)
       }
     </SideBarWrapper>
   )
 };
 
 interface Props {
-  items: { label: string }[]
+  labels: string[]
 }
 
 export default SideBar;

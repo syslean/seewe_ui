@@ -3,11 +3,11 @@ export enum Language {
   ZHCN = "zh-CN",
 }
 
-export const LanguageKey = "language";
+export const LANGUAGE_KEY = "language";
 
-export const ResumeKey = {
-  profile: "profile",
-  educations: "educations",
-  experiences: "experiences",
-  publications: "publications"
+export const RESUME_KEY = {
+  PROFILE: "profile",
+  EDUCATIONS: "educations",
+  EXPERIENCES: "experiences",
+  PUBLICATIONS: "publications"
 }

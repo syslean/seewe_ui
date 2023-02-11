@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
-export const Inline = styled.div`
-  margin-bottom: 0.5rem;
+export const Form = styled.div`
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
@@ -16,11 +15,11 @@ export const FieldWrapper = styled.div`
   width: calc(50% - 0.75rem);
   display: flex;
   flex-direction: column;
+  margin-bottom: 0.5rem;
 
   // ipad size
   @media (max-width: 768px) {
     width: 100%;
-    margin-bottom: 0.5rem;
   }
 `
 export const FiledTitle = styled.div`

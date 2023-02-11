@@ -2,12 +2,6 @@ export const language = {
   common: {
     header: "SEEWE RESUME",
   },
-  sidebar: {
-    profile: "Profile",
-    educations: "Educations",
-    experiences: "Experiences",
-    publications: "Publications"
-  },
   editor: {
     profile: {
       key: "Profile",
