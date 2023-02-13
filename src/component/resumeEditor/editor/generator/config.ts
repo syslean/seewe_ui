@@ -1,4 +1,4 @@
-import {RESUME_KEY} from "../../../../constants/enums";
+import {RESUME_FIELDS} from "../../../../constants/enums";
 import {FIELD_TYPE} from "../component/field";
 import {ICON_TYPE} from "../../sidebar/menuItem";
 import {GENERATOR_TYPE} from "./index";
@@ -31,7 +31,7 @@ export const resumeConfig: ResumeConfig = {
   name: "Resume",
   modules: [
     {
-      storeKey: RESUME_KEY.PROFILE,
+      storeKey: RESUME_FIELDS.PROFILE,
       label: "editor.profile.key",
       type: GENERATOR_TYPE.BASIC,
       icon: ICON_TYPE.PROFILE,
@@ -64,7 +64,7 @@ export const resumeConfig: ResumeConfig = {
       ]
     },
     {
-      storeKey: RESUME_KEY.EDUCATIONS,
+      storeKey: RESUME_FIELDS.EDUCATIONS,
       label: "editor.educations.key",
       hint: "hint.noEducation",
       type: GENERATOR_TYPE.LIST,
@@ -99,7 +99,7 @@ export const resumeConfig: ResumeConfig = {
       ]
     },
     {
-      storeKey: RESUME_KEY.EXPERIENCES,
+      storeKey: RESUME_FIELDS.EXPERIENCES,
       label: "editor.experiences.key",
       type: GENERATOR_TYPE.LIST,
       hint: "hint.noExperience",
@@ -128,7 +128,7 @@ export const resumeConfig: ResumeConfig = {
       ]
     },
     {
-      storeKey: RESUME_KEY.PUBLICATIONS,
+      storeKey: RESUME_FIELDS.PUBLICATIONS,
       label: "editor.publications.key",
       type: GENERATOR_TYPE.LIST,
       hint: "hint.noPublication",

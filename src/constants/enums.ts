@@ -5,7 +5,7 @@ export enum Language {
 
 export const LANGUAGE_KEY = "language";
 
-export const RESUME_KEY = {
+export const RESUME_FIELDS = {
   PROFILE: "profile",
   EDUCATIONS: "educations",
   EXPERIENCES: "experiences",
