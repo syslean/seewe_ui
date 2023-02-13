@@ -1,19 +1,9 @@
-name: CI Action
+name: Seewe continuous integrate
 
-on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
-  workflow_dispatch:
-    inputs:
-      action:
-        description: 'Action Workflows Information:'
-        required: true
-        default: 'default.'
+on: push
 
 jobs:
-  build:
+  Lint_and_test:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -37,5 +27,17 @@ jobs:
       - name: Run the tests
         run:  npm run test
 
-      - name: Run build task
-        run:  npm run build
+  codeball_job:
+    runs-on: ubuntu-latest
+    name: Codeball
+
+    steps:
+      - name: Codeball
+        uses: sturdy-dev/codeball-action@v2
+        with:
+          # For all configuration options see https://github.com/sturdy-dev/codeball-action/blob/v2/action.yml
+          approvePullRequests: "true"
+          labelPullRequestsWhenApproved: "true"
+          labelPullRequestsWhenReviewNeeded: "false"
+          failJobsWhenReviewNeeded: "false"
+
