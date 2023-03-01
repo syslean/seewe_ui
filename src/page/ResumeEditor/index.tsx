@@ -11,12 +11,10 @@ const Resume: React.FC = () => {
   const resumeItems = Object.keys(RESUME_COMPONENT_MAPPING);
 
   return (
-    // <ResumeProvider>
     <ResumeWrapper>
       <SideBar labels={resumeItems}/>
       <Editor labels={resumeItems}/>
     </ResumeWrapper>
-    // </ResumeProvider>
   )
 }
 

@@ -39,7 +39,9 @@ const TextAreaField: React.FC<TextFieldProps> = ({title, value, placeholder, han
   return (
     <FieldWrapper style={{width: "100%"}}>
       <FiledTitle>{title}</FiledTitle>
-      <Input.TextArea placeholder={placeholder} value={value}
+      <Input.TextArea placeholder={placeholder}
+                      value={value}
+                      autoSize={{ minRows: 3}}
                       onChange={handleChange((e) => e.target.value)}/>
     </FieldWrapper>
   );
@@ -80,7 +82,7 @@ const DateRangeField: React.FC<DateRangeFieldProps> = ({title, value, handleChan
     <FieldWrapper>
       <FiledTitle>{title}</FiledTitle>
       <DatePicker.RangePicker
-        value={value ? [dayjs(value[1]), dayjs(value[1])] : undefined}
+        value={value ? [dayjs(value[0]), dayjs(value[1])] : undefined}
         onChange={handleChange((e) => e)}
         placeholder={["", ""]}
         format="YYYY / MM"
