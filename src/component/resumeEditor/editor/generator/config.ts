@@ -64,6 +64,35 @@ export const resumeConfig: ResumeConfig = {
       ]
     },
     {
+      storeKey: RESUME_KEY.EXPERIENCES,
+      label: "editor.experiences.key",
+      type: GENERATOR_TYPE.LIST,
+      hint: "hint.noExperience",
+      icon: ICON_TYPE.EXPERIENCES,
+      fields: [
+        {
+          label: "editor.experiences.name",
+          value: "name",
+          type: FIELD_TYPE.TEXT
+        },
+        {
+          label: "editor.experiences.position",
+          value: "position",
+          type: FIELD_TYPE.TEXT
+        },
+        {
+          label: "editor.experiences.period",
+          value: "period",
+          type: FIELD_TYPE.DATE_RANGE
+        },
+        {
+          label: "editor.experiences.summary",
+          value: "summary",
+          type: FIELD_TYPE.AREA,
+        },
+      ]
+    },
+    {
       storeKey: RESUME_KEY.EDUCATIONS,
       label: "editor.educations.key",
       hint: "hint.noEducation",
@@ -96,35 +125,6 @@ export const resumeConfig: ResumeConfig = {
           value: "period",
           type: "dateRange"
         }
-      ]
-    },
-    {
-      storeKey: RESUME_KEY.EXPERIENCES,
-      label: "editor.experiences.key",
-      type: GENERATOR_TYPE.LIST,
-      hint: "hint.noExperience",
-      icon: ICON_TYPE.EXPERIENCES,
-      fields: [
-        {
-          label: "editor.experiences.name",
-          value: "name",
-          type: FIELD_TYPE.TEXT
-        },
-        {
-          label: "editor.experiences.position",
-          value: "position",
-          type: FIELD_TYPE.TEXT
-        },
-        {
-          label: "editor.experiences.period",
-          value: "period",
-          type: FIELD_TYPE.DATE_RANGE
-        },
-        {
-          label: "editor.experiences.summary",
-          value: "summary",
-          type: FIELD_TYPE.AREA,
-        },
       ]
     },
     {
