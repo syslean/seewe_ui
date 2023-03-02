@@ -28,7 +28,7 @@ export const FiledTitle = styled.div`
 
   font-family: "Open Sans", serif;
   font-size: 0.875rem;
-  font-weight: 600;
+  // font-weight: 600;
 
   color: rgba(0, 0, 0, 0.85);
 `

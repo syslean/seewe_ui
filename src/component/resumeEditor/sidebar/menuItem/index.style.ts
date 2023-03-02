@@ -21,7 +21,7 @@ export const MenuIcon = styled.div`
 export const MenuTitle = styled.div`
   font-family: "Open Sans", serif;
   font-size: 0.875rem;
-  font-weight: 600;
+  // font-weight: 600;
 
   flex: 1;
 

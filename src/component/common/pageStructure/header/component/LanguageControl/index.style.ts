@@ -12,7 +12,7 @@ export const LanguageLabel = styled.span<{
 }>`
   margin: 0 0.25rem;
   color: ${(props) => props.isSelected ? "#162A48": "#b1b1b1"};
-  font-weight: ${(props) => props.isSelected ? 600: 200};
+  //font-weight: ${(props) => props.isSelected ? 600: 200};
 `
 
 
