@@ -6,7 +6,8 @@ export const SideBarWrapper = styled.div`
   border-radius: 0.5rem;
   background-color: #235385;;
   width: 11rem;
-
+  display: flex;
+  flex-direction: column;
   // phone size
   @media (max-width: 480px) {
     display: none;

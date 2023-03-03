@@ -6,13 +6,10 @@ export const ResumePreviewWrapper = styled.div`
   width: 100%;
   margin: 0.75rem auto;
   display: flex;
+  flex-direction: column;
 
   #pdfobject {
     width: inherit;
-  }
-
-  // phone size
-  @media (max-width: 480px) {
-    height: calc(100vh - 7rem);
+    flex: 1;
   }
 `

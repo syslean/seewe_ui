@@ -1,6 +1,7 @@
 import React from 'react';
 import MenuItem from "./menuItem";
 import {SideBarWrapper} from "./index.style";
+import PreviewButton from "./previewButton";
 
 const SideBar: React.FC<Props> = ({labels}: Props) => {
   return (
@@ -8,6 +9,7 @@ const SideBar: React.FC<Props> = ({labels}: Props) => {
       {
         labels.map((label, index) => <MenuItem key={index} label={label}/>)
       }
+      <PreviewButton />
     </SideBarWrapper>
   )
 };

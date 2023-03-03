@@ -55,6 +55,8 @@ const FONTS = [
     style: FONT_STYLE.SEMIBOLD
   }]
 
+
+
 const PDFViewer: React.FC = () => {
 
   const [profile] = useLocalStorage<{ name?: string, title?: string, about?: string }>('profile');
@@ -114,7 +116,7 @@ const PDFViewer: React.FC = () => {
   }
 
   const loadFont = () => {
-    FONTS.forEach((font)=> {
+    FONTS.forEach((font) => {
       const name = `${font.id}-${font.style}.ttf`
       doc.addFileToVFS(name, font.base64);
       doc.addFont(name, font.id, font.style);
@@ -140,47 +142,54 @@ const PDFViewer: React.FC = () => {
   stepForward(SPACING.LARGE)
   renderLongText(about, SPACING.SMALL);
 
-  doc.setFont(FONT_ID.INTER, FONT_STYLE.BOLD);
-  doc.setFontSize(FONT_SIZE.TITLE);
-  stepForward(SPACING.LARGE)
-  doc.text("Thoughtworks Experience", LEFT_MARGIN, top)
-  stepForward(SPACING.SMALL);
-  experiences.map((experience) => {
+  if (experiences && experiences.length > 0) {
+    doc.setFont(FONT_ID.INTER, FONT_STYLE.BOLD);
+    doc.setFontSize(FONT_SIZE.TITLE);
+    stepForward(SPACING.LARGE)
+    doc.text("Thoughtworks Experience", LEFT_MARGIN, top)
     stepForward(SPACING.SMALL);
-    doc.setFont(FONT_ID.INTER, FONT_STYLE.SEMIBOLD);
-    doc.setFontSize(FONT_SIZE.SUBTITLE);
-    const label = [experience.position, experience.name, formatDateRange(experience.period)].join(", ");
-    renderLongText(label, SPACING.MEDIUM);
-    doc.setFont(FONT_ID.INTER, FONT_STYLE.REGULAR);
-    doc.setFontSize(FONT_SIZE.BODY)
-    renderLongText(experience.summary || "Summary", SPACING.SMALL);
-  })
+    experiences.map((experience) => {
+      stepForward(SPACING.SMALL);
+      doc.setFont(FONT_ID.INTER, FONT_STYLE.SEMIBOLD);
+      doc.setFontSize(FONT_SIZE.SUBTITLE);
+      const label = [experience.position, experience.name, formatDateRange(experience.period)].join(", ");
+      renderLongText(label, SPACING.MEDIUM);
+      doc.setFont(FONT_ID.INTER, FONT_STYLE.REGULAR);
+      doc.setFontSize(FONT_SIZE.BODY)
+      renderLongText(experience.summary || "Summary", SPACING.SMALL);
+    })
+  }
 
-  doc.setFont(FONT_ID.INTER, FONT_STYLE.BOLD);
-  doc.setFontSize(FONT_SIZE.TITLE);
-  stepForward(SPACING.SMALL)
-  doc.text("Education", LEFT_MARGIN, top)
-  stepForward(SPACING.LARGE);
-  educations.map((education) => {
-    doc.setFont(FONT_ID.INTER, FONT_STYLE.REGULAR);
-    doc.setFontSize(FONT_SIZE.BODY)
-    const label = [`${education.degree} in ${education.major}`, education.school, formatDateRange(education.period)].join(", ")
-    renderLongText(label, SPACING.SMALL);
-  })
+  if (educations && educations.length > 0) {
+    doc.setFont(FONT_ID.INTER, FONT_STYLE.BOLD);
+    doc.setFontSize(FONT_SIZE.TITLE);
+    stepForward(SPACING.SMALL)
+    doc.text("Education", LEFT_MARGIN, top)
+    stepForward(SPACING.LARGE);
+    educations.map((education) => {
+      doc.setFont(FONT_ID.INTER, FONT_STYLE.REGULAR);
+      doc.setFontSize(FONT_SIZE.BODY)
+      const label = [`${education.degree} in ${education.major}`, education.school, formatDateRange(education.period)].join(", ")
+      renderLongText(label, SPACING.SMALL);
+    })
+  }
 
-  doc.setFont(FONT_ID.INTER, FONT_STYLE.BOLD);
-  doc.setFontSize(FONT_SIZE.TITLE);
-  stepForward(SPACING.SMALL)
-  doc.text("Publications", LEFT_MARGIN, top)
-  stepForward(SPACING.LARGE);
-  publications.map((publication) => {
-    doc.setFont(FONT_ID.INTER, FONT_STYLE.REGULAR);
-    doc.setFontSize(FONT_SIZE.BODY)
-    const label = [publication.name, publication.type, formatDate(publication.publishedAt)].join(", ")
-    renderLongText(label, SPACING.SMALL);
-  })
+  if (publications && publications.length > 0) {
+    doc.setFont(FONT_ID.INTER, FONT_STYLE.BOLD);
+    doc.setFontSize(FONT_SIZE.TITLE);
+    stepForward(SPACING.SMALL)
+    doc.text("Publications", LEFT_MARGIN, top)
+    stepForward(SPACING.LARGE);
+    publications.map((publication) => {
+      doc.setFont(FONT_ID.INTER, FONT_STYLE.REGULAR);
+      doc.setFontSize(FONT_SIZE.BODY)
+      const label = [publication.name, publication.type, formatDate(publication.publishedAt)].join(", ")
+      renderLongText(label, SPACING.SMALL);
+    })
+  }
 
   renderPageFooter();
+
   return (
     // <PreviewContainer>
     <PDFObject
