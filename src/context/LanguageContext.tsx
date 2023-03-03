@@ -1,7 +1,7 @@
 import get from "lodash.get";
 import React from 'react';
 import {Language, LANGUAGE_KEY} from "../constants/enums";
-import useLocalStorage from "../service/useLocalStorage";
+import useLocalStorage from "../hook/useLocalStorage";
 import {Dispatch} from "react";
 
 export type TLanguages = {

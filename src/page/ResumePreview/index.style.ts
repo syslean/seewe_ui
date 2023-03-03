@@ -1,15 +1,18 @@
 import styled from "styled-components";
 
-export const PreviewContainer = styled.div`
-  height: calc(100vh - 8.6rem);
-  margin: 0.75rem auto;
-  width: 100%;
+export const ResumePreviewWrapper = styled.div`
+  height: calc(100vh - 8.5rem);
   max-width: 1020px;
-  overflow: scroll;
+  width: 100%;
+  margin: 0.75rem auto;
   display: flex;
-  justify-content: center;
 
   #pdfobject {
     width: inherit;
+  }
+
+  // phone size
+  @media (max-width: 480px) {
+    height: calc(100vh - 7rem);
   }
 `

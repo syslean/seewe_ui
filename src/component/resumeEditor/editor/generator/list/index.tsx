@@ -1,5 +1,5 @@
 import React, {useContext} from "react";
-import useLocalStorage from "../../../../../service/useLocalStorage";
+import useLocalStorage from "../../../../../hook/useLocalStorage";
 import {LanguageContext} from "../../../../../context/LanguageContext";
 import {AddIcon, CloseIcon, DeleteIcon} from "../../component/action/index.style";
 import Card from "../../component/card";

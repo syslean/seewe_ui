@@ -10,7 +10,7 @@ module.exports = {
   coverageProvider: "v8",
   // 覆盖路径
   collectCoverageFrom: [
-    "<rootDir>/src/service/**/*.{tsx,ts}",
+    "<rootDir>/src/hook/**/*.{tsx,ts}",
     "<rootDir>/src/utils/**/*.{tsx,ts}",
   ],
   transform: {

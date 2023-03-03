@@ -1,6 +1,6 @@
 import React, {useContext} from "react";
 import {LanguageContext} from "../../../../../context/LanguageContext";
-import useLocalStorage from "../../../../../service/useLocalStorage";
+import useLocalStorage from "../../../../../hook/useLocalStorage";
 import Card from "../../component/card";
 import {Form} from "../../component/field/index.style";
 import Field from "../../component/field";
