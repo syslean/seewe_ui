@@ -1,10 +1,11 @@
-import React from "react";
+import React, {useContext} from "react";
 import {jsPDF} from "jspdf";
 import {PDFObject} from "react-pdfobject";
 import useLocalStorage from "../../../hook/useLocalStorage";
 import {TwLogo} from "../../../assets/img/base64/tw-logo";
 import {BitterBold, InterBold, InterRegular, InterSemibold} from "../../../assets/font/fonts";
 import {formatDate, formatDateRange} from "../../../utils/DatetimeUtils";
+import {LanguageContext} from "../../../context/LanguageContext";
 
 
 const LEFT_MARGIN = 15;
@@ -58,6 +59,8 @@ const FONTS = [
 
 
 const PDFViewer: React.FC = () => {
+
+  const {t} = useContext(LanguageContext);
 
   const [profile] = useLocalStorage<{ name?: string, title?: string, about?: string }>('profile');
   const [experiences] = useLocalStorage<{ name?: string, position?: string, period?: string[], summary?: string }[]>('experiences');
@@ -169,7 +172,8 @@ const PDFViewer: React.FC = () => {
     educations.map((education) => {
       doc.setFont(FONT_ID.INTER, FONT_STYLE.REGULAR);
       doc.setFontSize(FONT_SIZE.BODY)
-      const label = [`${education.degree} in ${education.major}`, education.school, formatDateRange(education.period)].join(", ")
+      const degree = t(`editor.educations.degreeType.${education.degree}`)
+      const label = [`${degree} in ${education.major}`, education.school, formatDateRange(education.period)].join(", ")
       renderLongText(label, SPACING.SMALL);
     })
   }
@@ -183,7 +187,8 @@ const PDFViewer: React.FC = () => {
     publications.map((publication) => {
       doc.setFont(FONT_ID.INTER, FONT_STYLE.REGULAR);
       doc.setFontSize(FONT_SIZE.BODY)
-      const label = [publication.name, publication.type, formatDate(publication.publishedAt)].join(", ")
+      const publicationType = t(`editor.publications.publicationType.${publication.type}`)
+      const label = [publication.name, publicationType, formatDate(publication.publishedAt)].join(", ")
       renderLongText(label, SPACING.SMALL);
     })
   }
