@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import {Input, Tag} from "antd";
 
 export const Form = styled.div`
   display: flex;
@@ -31,4 +32,30 @@ export const FiledTitle = styled.div`
   // font-weight: 600;
 
   color: rgba(0, 0, 0, 0.85);
+`
+
+export const TagWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+`
+
+export const TagInput = styled(Input)`
+  width: 80px;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+`
+
+export const StyledTag = styled(Tag)`
+  height: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+`
+
+export const DashedTag = styled(StyledTag)`
+  background: #FFF;
+  border-style: dashed;
 `

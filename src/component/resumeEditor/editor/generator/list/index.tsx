@@ -1,7 +1,7 @@
 import React, {useContext} from "react";
 import useLocalStorage from "../../../../../hook/useLocalStorage";
 import {LanguageContext} from "../../../../../context/LanguageContext";
-import {AddIcon, CloseIcon, DeleteIcon} from "../../component/action/index.style";
+import {AddIcon, DeleteIcon} from "../../component/action/index.style";
 import Card from "../../component/card";
 import Hint from "../../component/card/hint";
 import SubCard from "../../component/subCard";
@@ -28,10 +28,6 @@ const ListGenerator: React.FC<GeneratorProps> = ({module}: GeneratorProps) => {
     setStore([...store]);
   }
 
-  const handleCloseAction = () => {
-    alert('//todo close')
-  }
-
   const handleDeleteAction = (index: number) => () => {
     store.splice(index, 1);
     setStore([...store]);
@@ -39,7 +35,6 @@ const ListGenerator: React.FC<GeneratorProps> = ({module}: GeneratorProps) => {
 
   const actions = [
     {icon: <AddIcon/>, onClick: handleAddAction},
-    {icon: <CloseIcon/>, onClick: handleCloseAction}
   ];
 
   const generateSubActions = (key: number) => [{icon: <DeleteIcon/>, onClick: handleDeleteAction(key)}]
@@ -52,8 +47,8 @@ const ListGenerator: React.FC<GeneratorProps> = ({module}: GeneratorProps) => {
           <SubCard key={index} actions={generateSubActions(index)}>
             <Form>
               {module.fields.map(
-                ({label, value, type, options}, subIndex) =>
-                  <Field key={subIndex} label={t(label)} value={item[value]} type={type}
+                ({label, value, type, options, placeholder}, subIndex) =>
+                  <Field key={subIndex} label={t(label)} value={item[value]} type={type} placeholder={t(placeholder)}
                          options={options ? translateOptions(options) : options}
                          handleChange={handleChangeValueWithIndex(value, index)}/>
               )}

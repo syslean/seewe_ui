@@ -9,5 +9,6 @@ export const RESUME_KEY = {
   PROFILE: "profile",
   EDUCATIONS: "educations",
   EXPERIENCES: "experiences",
-  PUBLICATIONS: "publications"
+  PUBLICATIONS: "publications",
+  SKILLS: "skills"
 }

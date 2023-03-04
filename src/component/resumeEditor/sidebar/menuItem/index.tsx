@@ -6,6 +6,7 @@ import {ReactComponent as ProfileLogo} from "../../../../assets/img/profile.svg"
 import {ReactComponent as EducationsLogo} from "../../../../assets/img/educations.svg";
 import {ReactComponent as ExperiencesLogo} from "../../../../assets/img/experiences.svg";
 import {ReactComponent as PublicationsLogo} from "../../../../assets/img/publications.svg";
+import {ReactComponent as SkillsLogo} from "../../../../assets/img/skills.svg";
 
 interface Props {
   label: string;
@@ -16,6 +17,7 @@ export enum ICON_TYPE {
   EDUCATIONS = "EDUCATIONS_ICON",
   EXPERIENCES = "EXPERIENCES_ICON",
   PUBLICATIONS = "PUBLICATIONS_ICON",
+  SKILLS = "SKILLS_ICON"
 }
 
 const ICON_MAPPING = {
@@ -23,6 +25,7 @@ const ICON_MAPPING = {
   [ICON_TYPE.EDUCATIONS]: <EducationsLogo/>,
   [ICON_TYPE.EXPERIENCES]: <ExperiencesLogo/>,
   [ICON_TYPE.PUBLICATIONS]: <PublicationsLogo/>,
+  [ICON_TYPE.SKILLS]: <SkillsLogo/>,
 }
 
 const MenuItem: React.FC<Props> = ({label}: Props) => {

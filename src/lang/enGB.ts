@@ -64,12 +64,23 @@ export const language = {
       },
       type: "type",
       publishedAt: "Published At"
+    },
+    skills: {
+      key: "Skills",
+      type: "Skill type",
+      list: "List",
+      addNewSkill: "+ New skill"
     }
+  },
+  navigate: {
+    preview: 'Preview',
+    returnToEdit: 'Return to edit'
   },
   hint: {
     noEducation: "No education experience added.\nPlease click the plus sign in the top right corner to add :)",
     noExperience: "No work experience added.\nPlease click the plus sign in the top right corner to add :)",
     noPublication: "No publication added.\nPlease click the plus sign in the top right corner to add :)",
+    noSkill: "No skill added.\nPlease click the plus sign in the top right corner to add :)",
   }
 };
 export default language;

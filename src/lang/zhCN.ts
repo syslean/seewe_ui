@@ -65,12 +65,23 @@ export const language = {
       },
       link: "链接",
       publishedAt: "出版时间"
+    },
+    skills: {
+      key: "技能",
+      type: "技能类型",
+      list: "列出相关技能",
+      addNewSkill: "+ 增加技能"
     }
+  },
+  navigate: {
+    preview: '预览',
+    returnToEdit: '继续编辑'
   },
   hint: {
     noEducation: "您还没有添加教育经历.\n点击右侧添加按钮添加一个吧 :)",
     noExperience: "您还没有添加工作经历.\n点击右侧添加按钮添加一个吧 :)",
-    noPublication: "您还没有添加出版项.\n点击右侧添加按钮添加一个吧 :)"
+    noPublication: "您还没有添加出版项.\n点击右侧添加按钮添加一个吧 :)",
+    noSkill: "您还没有添加技能.\n点击右侧添加按钮添加一个吧 :)"
   }
 };
 export default language;

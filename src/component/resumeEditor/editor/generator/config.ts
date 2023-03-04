@@ -22,6 +22,7 @@ export interface Module {
     label: string;
     value: string;
     type: string;
+    placeholder?: string;
     options?: Option[],
   }[];
   hint?: string;
@@ -93,6 +94,26 @@ export const resumeConfig: ResumeConfig = {
       ]
     },
     {
+      storeKey: RESUME_KEY.SKILLS,
+      label: "editor.skills.key",
+      type: GENERATOR_TYPE.LIST,
+      hint: "hint.noSkill",
+      icon: ICON_TYPE.SKILLS,
+      fields: [
+        {
+          label: "editor.skills.type",
+          value: "type",
+          type: FIELD_TYPE.TEXT
+        },
+        {
+          label: "editor.skills.list",
+          value: "list",
+          type: FIELD_TYPE.TAG,
+          placeholder: "editor.skills.addNewSkill",
+        },
+      ]
+    },
+    {
       storeKey: RESUME_KEY.EDUCATIONS,
       label: "editor.educations.key",
       hint: "hint.noEducation",
@@ -143,33 +164,33 @@ export const resumeConfig: ResumeConfig = {
           label: "editor.publications.type",
           value: "type",
           type: FIELD_TYPE.SELECTOR,
-          options:[
-            { label: 'editor.publications.publicationType.book', value: 'book' },
-            { label: 'editor.publications.publicationType.journalArticle', value: 'journalArticle' },
-            { label: 'editor.publications.publicationType.conferencePaper', value: 'conferencePaper' },
-            { label: 'editor.publications.publicationType.thesis', value: 'thesis' },
-            { label: 'editor.publications.publicationType.dissertation', value: 'dissertation' },
-            { label: 'editor.publications.publicationType.report', value: 'report' },
-            { label: 'editor.publications.publicationType.review', value: 'review' },
-            { label: 'editor.publications.publicationType.editorial', value: 'editorial' },
-            { label: 'editor.publications.publicationType.letter', value: 'letter' },
-            { label: 'editor.publications.publicationType.news', value: 'news' },
-            { label: 'editor.publications.publicationType.magazineArticle', value: 'magazineArticle' },
-            { label: 'editor.publications.publicationType.technicalNote', value: 'technicalNote' },
-            { label: 'editor.publications.publicationType.commentary', value: 'commentary' },
-            { label: 'editor.publications.publicationType.bookChapter', value: 'bookChapter' },
-            { label: 'editor.publications.publicationType.caseReport', value: 'caseReport' },
-            { label: 'editor.publications.publicationType.proceedingsPaper', value: 'proceedingsPaper' },
-            { label: 'editor.publications.publicationType.monograph', value: 'monograph' },
-            { label: 'editor.publications.publicationType.patent', value: 'patent' },
-            { label: 'editor.publications.publicationType.standard', value: 'standard' },
-            { label: 'editor.publications.publicationType.dataset', value: 'dataset' },
-            { label: 'editor.publications.publicationType.software', value: 'software' },
-            { label: 'editor.publications.publicationType.website', value: 'website' },
-            { label: 'editor.publications.publicationType.blogPost', value: 'blogPost' },
-            { label: 'editor.publications.publicationType.translation', value: 'translation' },
-            { label: 'editor.publications.publicationType.video', value: 'video' },
-            { label: 'editor.publications.publicationType.audio', value: 'audio' }
+          options: [
+            {label: 'editor.publications.publicationType.book', value: 'book'},
+            {label: 'editor.publications.publicationType.journalArticle', value: 'journalArticle'},
+            {label: 'editor.publications.publicationType.conferencePaper', value: 'conferencePaper'},
+            {label: 'editor.publications.publicationType.thesis', value: 'thesis'},
+            {label: 'editor.publications.publicationType.dissertation', value: 'dissertation'},
+            {label: 'editor.publications.publicationType.report', value: 'report'},
+            {label: 'editor.publications.publicationType.review', value: 'review'},
+            {label: 'editor.publications.publicationType.editorial', value: 'editorial'},
+            {label: 'editor.publications.publicationType.letter', value: 'letter'},
+            {label: 'editor.publications.publicationType.news', value: 'news'},
+            {label: 'editor.publications.publicationType.magazineArticle', value: 'magazineArticle'},
+            {label: 'editor.publications.publicationType.technicalNote', value: 'technicalNote'},
+            {label: 'editor.publications.publicationType.commentary', value: 'commentary'},
+            {label: 'editor.publications.publicationType.bookChapter', value: 'bookChapter'},
+            {label: 'editor.publications.publicationType.caseReport', value: 'caseReport'},
+            {label: 'editor.publications.publicationType.proceedingsPaper', value: 'proceedingsPaper'},
+            {label: 'editor.publications.publicationType.monograph', value: 'monograph'},
+            {label: 'editor.publications.publicationType.patent', value: 'patent'},
+            {label: 'editor.publications.publicationType.standard', value: 'standard'},
+            {label: 'editor.publications.publicationType.dataset', value: 'dataset'},
+            {label: 'editor.publications.publicationType.software', value: 'software'},
+            {label: 'editor.publications.publicationType.website', value: 'website'},
+            {label: 'editor.publications.publicationType.blogPost', value: 'blogPost'},
+            {label: 'editor.publications.publicationType.translation', value: 'translation'},
+            {label: 'editor.publications.publicationType.video', value: 'video'},
+            {label: 'editor.publications.publicationType.audio', value: 'audio'}
           ]
         },
         {
@@ -178,6 +199,7 @@ export const resumeConfig: ResumeConfig = {
           type: FIELD_TYPE.DATE
         }
       ]
-    }
+    },
+
   ]
 }
