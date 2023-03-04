@@ -6,6 +6,7 @@ import {TwLogo} from "../../../assets/img/base64/tw-logo";
 import {BitterBold, InterBold, InterRegular, InterSemibold} from "../../../assets/font/fonts";
 import {formatDate, formatDateRange} from "../../../utils/DatetimeUtils";
 import {LanguageContext} from "../../../context/LanguageContext";
+import {RESUME_KEY} from "../../../constants/enums";
 
 
 const LEFT_MARGIN = 15;
@@ -63,9 +64,10 @@ const PDFViewer: React.FC = () => {
   const {t} = useContext(LanguageContext);
 
   const [profile] = useLocalStorage<{ name?: string, title?: string, about?: string }>('profile');
-  const [experiences] = useLocalStorage<{ name?: string, position?: string, period?: string[], summary?: string }[]>('experiences');
-  const [educations] = useLocalStorage<{ school?: string, degree?: string, period?: string[], major?: string }[]>('educations');
-  const [publications] = useLocalStorage<{ name?: string, type?: string, publishedAt?: string }[]>('publications');
+  const [experiences] = useLocalStorage<{ name?: string, position?: string, period?: string[], summary?: string }[]>(RESUME_KEY.EXPERIENCES);
+  const [skills] = useLocalStorage<{ type?: string, list?: string[] }[]>(RESUME_KEY.SKILLS);
+  const [educations] = useLocalStorage<{ school?: string, degree?: string, period?: string[], major?: string }[]>(RESUME_KEY.EDUCATIONS);
+  const [publications] = useLocalStorage<{ name?: string, type?: string, publishedAt?: string }[]>(RESUME_KEY.PUBLICATIONS);
 
   let top = TOP_MARGIN;
   const doc = new jsPDF();
@@ -160,6 +162,18 @@ const PDFViewer: React.FC = () => {
       doc.setFont(FONT_ID.INTER, FONT_STYLE.REGULAR);
       doc.setFontSize(FONT_SIZE.BODY)
       renderLongText(experience.summary || "Summary", SPACING.SMALL);
+    })
+  }
+  if (skills && skills.length > 0) {
+    doc.setFont(FONT_ID.INTER, FONT_STYLE.BOLD);
+    doc.setFontSize(FONT_SIZE.TITLE);
+    stepForward(SPACING.SMALL)
+    doc.text("Skills", LEFT_MARGIN, top)
+    stepForward(SPACING.LARGE);
+    skills.map((skill) => {
+      doc.setFont(FONT_ID.INTER, FONT_STYLE.REGULAR);
+      doc.setFontSize(FONT_SIZE.BODY)
+      renderLongText(`${skill.type || "Skill type"}: ${(skill.list || []).join(", ")}`, SPACING.SMALL);
     })
   }
 

@@ -98,7 +98,7 @@ const DateRangeField: React.FC<DateRangeFieldProps> = ({title, value, handleChan
 }
 
 const TagField: React.FC<TagFieldProps> = ({title, value, handleChange,placeholder}: TagFieldProps) => {
-  // const [tags, setTags] = useState<string[]>([]);
+  value = value || [];
   const [inputVisible, setInputVisible] = useState(false);
   const [inputValue, setInputValue] = useState('');
   const [editInputIndex, setEditInputIndex] = useState(-1);
@@ -129,7 +129,7 @@ const TagField: React.FC<TagFieldProps> = ({title, value, handleChange,placehold
   };
 
   const handleInputConfirm = () => {
-    if (inputValue && value?.indexOf(inputValue) === -1) {
+    if (inputValue && value.indexOf(inputValue) === -1) {
       console.log(inputValue)
       handleChange(() => [...value, inputValue])(null);
     }
