@@ -16,15 +16,16 @@ const MAXIMUM_LINE_WIDTH = 185;
 const FONT_SIZE = {
   HEAD: 32,
   TITLE: 18,
-  SUBTITLE: 14,
-  BODY: 12,
+  SUBTITLE: 13,
+  BODY: 11,
   FOOT: 9,
 }
 const SPACING = {
   EXTRA_SMALL: 3,
   SMALL: 5,
-  MEDIUM: 7,
-  LARGE: 10
+  MEDIUM: 6,
+  LARGE: 8,
+  EXTRA_LARGE: 12
 }
 
 enum FONT_ID {
@@ -74,14 +75,14 @@ const PDFViewer: React.FC = () => {
   let pageNum = 1;
 
   const renderPageFooter = () => {
-    doc.addImage(TwLogo, LEFT_MARGIN, 278, 42, 7)
+    doc.addImage(TwLogo, LEFT_MARGIN, 274, 42, 7)
     const font = doc.getFont();
     const fontSize = doc.getFontSize();
     const textColor = doc.getTextColor();
     doc.setFont(FONT_ID.INTER, FONT_STYLE.REGULAR);
     doc.setTextColor("#BABABA");
     doc.setFontSize(FONT_SIZE.FOOT);
-    doc.text(`© 2023 Thoughtworks Confidential | ${pageNum}`, 140, 284)
+    doc.text(`© 2023 Thoughtworks Confidential | ${pageNum}`, 140, 280)
     doc.setFont(font.fontName, font.fontStyle);
     doc.setTextColor(textColor);
     doc.setFontSize(fontSize);
@@ -136,7 +137,7 @@ const PDFViewer: React.FC = () => {
   doc.setFont(FONT_ID.INTER, FONT_STYLE.BOLD);
   doc.setTextColor("#F2617A")
   doc.setFontSize(FONT_SIZE.TITLE)
-  stepForward(SPACING.LARGE)
+  stepForward(SPACING.EXTRA_LARGE)
   doc.text(profile.title || "Title", LEFT_MARGIN, top)
 
   doc.setFont(FONT_ID.INTER, FONT_STYLE.REGULAR);
@@ -150,7 +151,7 @@ const PDFViewer: React.FC = () => {
   if (experiences && experiences.length > 0) {
     doc.setFont(FONT_ID.INTER, FONT_STYLE.BOLD);
     doc.setFontSize(FONT_SIZE.TITLE);
-    stepForward(SPACING.LARGE)
+    stepForward(SPACING.MEDIUM)
     doc.text("Thoughtworks Experience", LEFT_MARGIN, top)
     stepForward(SPACING.SMALL);
     experiences.map((experience) => {

@@ -1,6 +1,15 @@
 import React, {useEffect, useRef, useState} from "react";
-import {DashedTag, FieldWrapper, FiledTitle, StyledTag, TagInput, TagWrapper} from "./index.style";
-import {DatePicker, Input, InputRef, Select} from "antd";
+import {
+  AIAssist,
+  DashedTag,
+  FieldHeader,
+  FieldWrapper,
+  FiledTitle,
+  StyledTag,
+  TagInput,
+  TagWrapper
+} from "./index.style";
+import {DatePicker, Input, InputRef, Modal, Select} from "antd";
 import dayjs, {Dayjs} from "dayjs";
 
 interface Props<V> {
@@ -40,14 +49,32 @@ const TextField: React.FC<TextFieldProps> = ({title, value, placeholder, handleC
 }
 
 const TextAreaField: React.FC<TextFieldProps> = ({title, value, placeholder, handleChange}: TextFieldProps) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
+  const showModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleOk = () => {
+    setIsModalOpen(false);
+  };
+
+  const handleCancel = () => {
+    setIsModalOpen(false);
+  };
   return (
     <FieldWrapper style={{width: "100%"}}>
-      <FiledTitle>{title}</FiledTitle>
+      <FieldHeader>
+        <FiledTitle>{title}</FiledTitle>
+        <AIAssist onClick={showModal}>AI Assist</AIAssist>
+      </FieldHeader>
       <Input.TextArea placeholder={placeholder}
                       value={value}
                       autoSize={{minRows: 3}}
                       onChange={handleChange((e) => e.target.value)}/>
+      <Modal title="AI Assist" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
+        <p>这里会有俩功能，一个是对已有内容进行语法修正，语句改良，添油加醋。一个是提供提示语让GPT生成，还在开发，不要着急</p>
+      </Modal>
     </FieldWrapper>
   );
 }
@@ -97,7 +124,7 @@ const DateRangeField: React.FC<DateRangeFieldProps> = ({title, value, handleChan
   );
 }
 
-const TagField: React.FC<TagFieldProps> = ({title, value, handleChange,placeholder}: TagFieldProps) => {
+const TagField: React.FC<TagFieldProps> = ({title, value, handleChange, placeholder}: TagFieldProps) => {
   value = value || [];
   const [inputVisible, setInputVisible] = useState(false);
   const [inputValue, setInputValue] = useState('');
@@ -236,7 +263,7 @@ const FILED_MAPPING = {
 
 const Field: React.FC<FiledProps> = ({label, value, type, options, handleChange, placeholder}) => {
   const C = FILED_MAPPING[type];
-  return <C title={label} value={value} handleChange={handleChange} options={options} placeholder={placeholder} />
+  return <C title={label} value={value} handleChange={handleChange} options={options} placeholder={placeholder}/>
 }
 
 export default Field;

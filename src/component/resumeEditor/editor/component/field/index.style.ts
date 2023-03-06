@@ -17,21 +17,34 @@ export const FieldWrapper = styled.div`
   display: flex;
   flex-direction: column;
   margin-bottom: 0.5rem;
+  font-family: "Open Sans", serif;
 
   // ipad size
   @media (max-width: 768px) {
     width: 100%;
   }
 `
+
+export const FieldHeader = styled.div`
+  display: flex;
+`
 export const FiledTitle = styled.div`
   margin-bottom: 0.5rem;
   cursor: default;
-
-  font-family: "Open Sans", serif;
   font-size: 0.875rem;
-  // font-weight: 600;
-
   color: rgba(0, 0, 0, 0.85);
+`
+
+export const AIAssist = styled.span`
+  height: 1rem;
+  font-size: 0.5rem;
+  line-height: 1rem;
+  background: #000;
+  color: #FFF;
+  padding: 0 0.5rem;
+  border-radius: 0.25rem;
+  margin-left: 0.5rem;
+  cursor: pointer;
 `
 
 export const TagWrapper = styled.div`
