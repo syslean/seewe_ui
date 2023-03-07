@@ -9,8 +9,10 @@ import {
   TagInput,
   TagWrapper
 } from "./index.style";
-import {DatePicker, Input, InputRef, Modal, Select} from "antd";
+import {DatePicker, Input, InputRef, Select} from "antd";
 import dayjs, {Dayjs} from "dayjs";
+import AIModal from "../modal/AIModal";
+
 
 interface Props<V> {
   title: string;
@@ -50,18 +52,10 @@ const TextField: React.FC<TextFieldProps> = ({title, value, placeholder, handleC
 
 const TextAreaField: React.FC<TextFieldProps> = ({title, value, placeholder, handleChange}: TextFieldProps) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-
   const showModal = () => {
     setIsModalOpen(true);
   };
 
-  const handleOk = () => {
-    setIsModalOpen(false);
-  };
-
-  const handleCancel = () => {
-    setIsModalOpen(false);
-  };
   return (
     <FieldWrapper style={{width: "100%"}}>
       <FieldHeader>
@@ -72,9 +66,7 @@ const TextAreaField: React.FC<TextFieldProps> = ({title, value, placeholder, han
                       value={value}
                       autoSize={{minRows: 3}}
                       onChange={handleChange((e) => e.target.value)}/>
-      <Modal title="AI Assist" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
-        <p>这里会有俩功能，一个是对已有内容进行语法修正，语句改良，添油加醋。一个是提供提示语让GPT生成，还在开发，不要着急</p>
-      </Modal>
+      <AIModal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} content={value} onOK={handleChange(e => e)}/>
     </FieldWrapper>
   );
 }
