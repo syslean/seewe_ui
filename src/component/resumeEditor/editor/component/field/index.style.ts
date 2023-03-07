@@ -17,7 +17,7 @@ export const FieldWrapper = styled.div`
   display: flex;
   flex-direction: column;
   margin-bottom: 0.5rem;
-  font-family: "Open Sans", serif;
+
 
   // ipad size
   @media (max-width: 768px) {

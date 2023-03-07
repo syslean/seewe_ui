@@ -21,7 +21,7 @@ export const HeaderWrapper = styled.div`
     align-items: center;
 
     > span {
-      font-family: "Open Sans", serif;
+
       font-size: 1.25rem;
       // font-weight: 600;
       color: #162A48;

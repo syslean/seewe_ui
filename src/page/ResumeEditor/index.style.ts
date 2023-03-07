@@ -7,7 +7,6 @@ export const ResumeWrapper = styled.div`
   margin: 0.75rem auto;
   display: flex;
 
-
   // phone size
   @media (max-width: 480px) {
     height: calc(100vh - 7rem);

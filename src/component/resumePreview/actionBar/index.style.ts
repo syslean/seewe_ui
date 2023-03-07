@@ -15,7 +15,7 @@ export const ActionItem = styled.div`
 
   display: flex;
   align-items: center;
-  font-family: "Open Sans", serif;
+
   font-size: 0.875rem;
   padding: 0 1rem;
   margin-right: 1rem;

@@ -18,7 +18,6 @@ export const Copyright = styled.div`
   margin: 0 auto;
   padding: 0 1rem;
   max-width: 1020px;
-  font-family: "Open Sans", serif;
   font-size: 0.75rem;
   color: #E5EFFF;
 

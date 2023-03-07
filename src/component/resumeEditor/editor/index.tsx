@@ -1,7 +1,7 @@
 import React from 'react';
 import {EditorInnerCard, EditorWrapper} from "./index.style";
 import {RESUME_COMPONENT_MAPPING} from "../../../page/ResumeEditor";
-import Generator from "./generator";
+import SectionGenerator from "./generator";
 
 interface Props {
   labels: string[]
@@ -13,7 +13,7 @@ const Editor: React.FC<Props> = ({labels}: Props) => {
       {labels.map((label, index) => {
         return (
           <EditorInnerCard key={index} id={label}>
-            <Generator module={RESUME_COMPONENT_MAPPING[label]}/>
+            <SectionGenerator module={RESUME_COMPONENT_MAPPING[label]}/>
           </EditorInnerCard>
         )
       })}

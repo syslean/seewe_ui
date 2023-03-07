@@ -12,7 +12,7 @@ export const HeaderWrapper = styled.div`
 
 export const HeaderTitle = styled.div`
   flex: 1;
-  font-family: "Open Sans", serif;
+
   font-size: 1rem;
   //font-weight: bold;
 

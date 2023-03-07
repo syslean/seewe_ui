@@ -17,9 +17,9 @@ const GENERATOR_MAPPING = {
   [GENERATOR_TYPE.LIST]: ListGenerator
 }
 
-const Generator: React.FC<GeneratorProps> = ({module}: GeneratorProps) => {
-  const C = GENERATOR_MAPPING[module.type];
-  return <C module={module}/>
+const SectionGenerator: React.FC<GeneratorProps> = ({module}: GeneratorProps) => {
+  const Section = GENERATOR_MAPPING[module.type];
+  return <Section module={module}/>
 }
 
-export default Generator;
+export default SectionGenerator;

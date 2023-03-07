@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const LanguageControlWrapper = styled.div`
   margin-left: auto;
-  font-family: "Open Sans", serif;
+
   font-size: 1.25rem;
   display: flex;
 `

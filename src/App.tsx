@@ -1,8 +1,8 @@
 import React from 'react';
 import {RouterProvider} from "react-router-dom";
+import {ConfigProvider} from "antd";
 import router from "./routes";
 import PageStructure from "./component/common/pageStructure";
-import {ConfigProvider} from "antd";
 import ANT_THEME_CONFIG from "./config/theme";
 
 import {LanguageProvider} from "./context/LanguageContext";

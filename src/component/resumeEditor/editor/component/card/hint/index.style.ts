@@ -11,8 +11,6 @@ export const HintWrapper = styled.div`
 export const HintText = styled.div`
   line-height: 1.25rem;
   white-space: pre-line;
-
-  font-family: "Open Sans", serif;
   font-size: 0.75rem;
   text-align: center;
 

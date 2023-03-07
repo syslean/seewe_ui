@@ -11,7 +11,7 @@ export const Preview = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: "Open Sans", serif;
+
   font-size: 0.875rem;
   color: #000;
 `
