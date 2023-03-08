@@ -59,12 +59,11 @@ const FONTS = [
   }]
 
 
-
 const PDFViewer: React.FC = () => {
 
   const {t} = useContext(LanguageContext);
 
-  const [profile] = useLocalStorage<{ name?: string, title?: string, about?: string }>('profile');
+  const [profile] = useLocalStorage<{ firstname?: string, lastname?: string, title?: string, about?: string }>('profile');
   const [experiences] = useLocalStorage<{ name?: string, position?: string, period?: string[], summary?: string }[]>(RESUME_KEY.EXPERIENCES);
   const [skills] = useLocalStorage<{ type?: string, list?: string[] }[]>(RESUME_KEY.SKILLS);
   const [educations] = useLocalStorage<{ school?: string, degree?: string, period?: string[], major?: string }[]>(RESUME_KEY.EDUCATIONS);
@@ -132,7 +131,8 @@ const PDFViewer: React.FC = () => {
   loadFont();
   doc.setFont(FONT_ID.BITTER, FONT_STYLE.BOLD);
   doc.setFontSize(FONT_SIZE.HEAD);
-  doc.text(profile.name || "Name", LEFT_MARGIN, top)
+  const name = `${profile.firstname} ${profile.lastname}`
+  doc.text(name, LEFT_MARGIN, top)
 
   doc.setFont(FONT_ID.INTER, FONT_STYLE.BOLD);
   doc.setTextColor("#F2617A")

@@ -5,7 +5,7 @@ import {FieldHeader, FieldWrapper, FiledTitle} from "../field/index.style";
 import {SelectorField, TagField} from "../field";
 import useLocalStorage from "../../../../../hook/useLocalStorage";
 
-const OPENAI_KEY = "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";
+const OPENAI_KEY = "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";
 
 interface Props {
   isModalOpen: boolean;
@@ -17,7 +17,7 @@ interface Props {
 const AIModal: React.FC<Props> = ({isModalOpen, setIsModalOpen, content, onOK}: Props) => {
   const chatApi = "https://api.openai.com/v1/chat/completions";
 
-  // const [profile] = useLocalStorage<{ name?: string, title?: string, about?: string }>('profile');
+  const [profile] = useLocalStorage<{ firstname?: string }>('profile');
 
   const options = [
     {
@@ -30,6 +30,11 @@ const AIModal: React.FC<Props> = ({isModalOpen, setIsModalOpen, content, onOK}: 
       label: "She", value: "She"
     },
   ]
+
+  profile.firstname && options.push({
+    label: profile.firstname,
+    value: profile.firstname
+  })
 
   const source = new SSE(chatApi, {
     headers: {

@@ -39,8 +39,13 @@ export const resumeConfig: ResumeConfig = {
       icon: ICON_TYPE.PROFILE,
       fields: [
         {
-          label: "editor.profile.name",
-          value: "name",
+          label: "editor.profile.firstname",
+          value: "firstname",
+          type: FIELD_TYPE.TEXT
+        },
+        {
+          label: "editor.profile.lastname",
+          value: "lastname",
           type: FIELD_TYPE.TEXT
         },
         {

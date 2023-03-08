@@ -5,7 +5,8 @@ export const language = {
   editor: {
     profile: {
       key: "Profile",
-      name: "Full Name",
+      firstname: "First Name",
+      lastname: "Last Name",
       title: "Title",
       phone: "Mobile Phone",
       email: "Email Address",
