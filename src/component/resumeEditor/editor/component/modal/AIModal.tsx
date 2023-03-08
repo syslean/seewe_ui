@@ -5,8 +5,6 @@ import {FieldHeader, FieldWrapper, FiledTitle} from "../field/index.style";
 import {SelectorField, TagField} from "../field";
 import useLocalStorage from "../../../../../hook/useLocalStorage";
 
-const OPENAI_KEY = "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";
-
 interface Props {
   isModalOpen: boolean;
   setIsModalOpen: (isModalOpen: boolean) => void;
@@ -14,10 +12,33 @@ interface Props {
   onOK: (response: string) => void;
 }
 
-const AIModal: React.FC<Props> = ({isModalOpen, setIsModalOpen, content, onOK}: Props) => {
-  const chatApi = "https://api.openai.com/v1/chat/completions";
+export const AIKeyModal: React.FC<{ isModalOpen: boolean;
+  setIsModalOpen: (isModalOpen: boolean) => void; }> = ({isModalOpen, setIsModalOpen}) => {
+  const onKeyChange = (e: any) => {
+    localStorage.setItem("aiKey", e.target.value);
+  };
 
+  const onClose = () => {
+    setIsModalOpen(false);
+  };
+
+  return <Modal width={800} title="Set your OPENAI API key" open={isModalOpen} onOk={onClose} onCancel={onClose}
+                okText="Apply Key">
+    <Alert
+      message="This assistant is developed based on OPENAI api, please add your key before use the service, your key will be saved in your local storage only."
+      type="info" showIcon/>
+    <FieldWrapper>
+      <FiledTitle>OPENAI API key</FiledTitle>
+      <Input onChange={onKeyChange}/>
+    </FieldWrapper>
+  </Modal>
+}
+
+export const AIModal: React.FC<Props> = ({isModalOpen, setIsModalOpen, content, onOK}: Props) => {
+  const chatApi = "https://api.openai.com/v1/chat/completions";
   const [profile] = useLocalStorage<{ firstname?: string }>('profile');
+  const aiKey = localStorage.getItem('aiKey');
+
 
   const options = [
     {
@@ -39,11 +60,10 @@ const AIModal: React.FC<Props> = ({isModalOpen, setIsModalOpen, content, onOK}: 
   const source = new SSE(chatApi, {
     headers: {
       'Content-Type': 'application/json',
-      'Authorization': `Bearer ${OPENAI_KEY}`
+      'Authorization': `Bearer ${aiKey}`
     },
     method: "POST"
   });
-
 
   const [keywords, setKeywords] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -199,4 +219,3 @@ const AIModal: React.FC<Props> = ({isModalOpen, setIsModalOpen, content, onOK}: 
   )
 }
 
-export default AIModal;

@@ -11,7 +11,7 @@ import {
 } from "./index.style";
 import {DatePicker, Input, InputRef, Select} from "antd";
 import dayjs, {Dayjs} from "dayjs";
-import AIModal from "../modal/AIModal";
+import {AIModal, AIKeyModal} from "../modal/AIModal";
 
 
 interface Props<V> {
@@ -40,7 +40,7 @@ interface TagFieldProps extends Props<string[]> {
 }
 
 
-const TextField: React.FC<TextFieldProps> = ({title, value, placeholder, handleChange}: TextFieldProps) => {
+export const TextField: React.FC<TextFieldProps> = ({title, value, placeholder, handleChange}: TextFieldProps) => {
 
   return (
     <FieldWrapper>
@@ -51,8 +51,15 @@ const TextField: React.FC<TextFieldProps> = ({title, value, placeholder, handleC
   );
 }
 
-const TextAreaField: React.FC<TextFieldProps> = ({title, value, placeholder, handleChange, enableAI}: TextFieldProps) => {
+const TextAreaField: React.FC<TextFieldProps> = ({
+                                                   title,
+                                                   value,
+                                                   placeholder,
+                                                   handleChange,
+                                                   enableAI
+                                                 }: TextFieldProps) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const aiKey = localStorage.getItem('aiKey');
   const showModal = () => {
     setIsModalOpen(true);
   };
@@ -67,7 +74,9 @@ const TextAreaField: React.FC<TextFieldProps> = ({title, value, placeholder, han
                       value={value}
                       autoSize={{minRows: 3}}
                       onChange={handleChange((e) => e.target.value)}/>
-      <AIModal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} content={value} onOK={handleChange(e => e)}/>
+      {aiKey ? <AIModal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} content={value}
+                        onOK={handleChange(e => e)}/> :
+        <AIKeyModal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}/>}
     </FieldWrapper>
   );
 }
@@ -255,9 +264,10 @@ const FILED_MAPPING = {
   [FIELD_TYPE.TAG]: TagField,
 }
 
-const Field: React.FC<FiledProps> = ({label, value, type, options, handleChange, placeholder,enableAI}) => {
+const Field: React.FC<FiledProps> = ({label, value, type, options, handleChange, placeholder, enableAI}) => {
   const C = FILED_MAPPING[type];
-  return <C title={label} value={value} handleChange={handleChange} options={options} enableAI={enableAI} placeholder={placeholder}/>
+  return <C title={label} value={value} handleChange={handleChange} options={options} enableAI={enableAI}
+            placeholder={placeholder}/>
 }
 
 export default Field;
