@@ -24,8 +24,8 @@ const BasicGenerator: React.FC<GeneratorProps> = ({module}: GeneratorProps) => {
     <Card title={t(module.label)}>
       <Form>
         {module.fields.map(
-          ({label, value, type, options}, index) =>
-            <Field key={index} label={t(label)} value={store[value]} type={type}
+          ({label, value, type, options, enableAI}, index) =>
+            <Field key={index} label={t(label)} value={store[value]} type={type} enableAI={enableAI}
                    options={options ? translateOptions(options) : undefined}
                    handleChange={handleChangeValue(value)}/>
         )}

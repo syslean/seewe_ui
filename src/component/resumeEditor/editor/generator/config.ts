@@ -24,6 +24,7 @@ export interface Module {
     type: string;
     placeholder?: string;
     options?: Option[],
+    enableAI?: boolean;
   }[];
   hint?: string;
 }
@@ -61,6 +62,7 @@ export const resumeConfig: ResumeConfig = {
           label: "editor.profile.about",
           value: "about",
           type: FIELD_TYPE.AREA,
+          enableAI: true,
         },
       ]
     },

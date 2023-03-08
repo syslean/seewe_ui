@@ -19,6 +19,7 @@ interface Props<V> {
   value: unknown;
   placeholder?: string;
   options?: { value: string; label: string }[];
+  enableAI?: boolean;
   handleChange: (valueOf: (e: any) => V) => (e: any) => void;
 }
 
@@ -50,7 +51,7 @@ const TextField: React.FC<TextFieldProps> = ({title, value, placeholder, handleC
   );
 }
 
-const TextAreaField: React.FC<TextFieldProps> = ({title, value, placeholder, handleChange}: TextFieldProps) => {
+const TextAreaField: React.FC<TextFieldProps> = ({title, value, placeholder, handleChange, enableAI}: TextFieldProps) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const showModal = () => {
     setIsModalOpen(true);
@@ -60,7 +61,7 @@ const TextAreaField: React.FC<TextFieldProps> = ({title, value, placeholder, han
     <FieldWrapper style={{width: "100%"}}>
       <FieldHeader>
         <FiledTitle>{title}</FiledTitle>
-        <AIAssist onClick={showModal}>AI Assist</AIAssist>
+        {enableAI && <AIAssist onClick={showModal}>AI Assist</AIAssist>}
       </FieldHeader>
       <Input.TextArea placeholder={placeholder}
                       value={value}
@@ -71,7 +72,7 @@ const TextAreaField: React.FC<TextFieldProps> = ({title, value, placeholder, han
   );
 }
 
-const SelectorField: React.FC<TextFieldProps> = ({title, value, options, handleChange}: TextFieldProps) => {
+export const SelectorField: React.FC<TextFieldProps> = ({title, value, options, handleChange}: TextFieldProps) => {
 
   return (
     <FieldWrapper>
@@ -116,7 +117,7 @@ const DateRangeField: React.FC<DateRangeFieldProps> = ({title, value, handleChan
   );
 }
 
-const TagField: React.FC<TagFieldProps> = ({title, value, handleChange, placeholder}: TagFieldProps) => {
+export const TagField: React.FC<TagFieldProps> = ({title, value, handleChange, placeholder}: TagFieldProps) => {
   value = value || [];
   const [inputVisible, setInputVisible] = useState(false);
   const [inputValue, setInputValue] = useState('');
@@ -240,6 +241,7 @@ interface FiledProps {
   type: string;
   options?: any;
 
+  enableAI?: boolean;
   placeholder?: string;
   handleChange: (valueOf: (e: any) => any) => (e: any) => void
 }
@@ -253,9 +255,9 @@ const FILED_MAPPING = {
   [FIELD_TYPE.TAG]: TagField,
 }
 
-const Field: React.FC<FiledProps> = ({label, value, type, options, handleChange, placeholder}) => {
+const Field: React.FC<FiledProps> = ({label, value, type, options, handleChange, placeholder,enableAI}) => {
   const C = FILED_MAPPING[type];
-  return <C title={label} value={value} handleChange={handleChange} options={options} placeholder={placeholder}/>
+  return <C title={label} value={value} handleChange={handleChange} options={options} enableAI={enableAI} placeholder={placeholder}/>
 }
 
 export default Field;

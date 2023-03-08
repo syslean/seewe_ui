@@ -1,9 +1,11 @@
 import React, {useEffect, useRef, useState} from "react";
-import {Button, Input, Modal, Tabs} from "antd";
+import {Alert, Button, Input, Modal, Tabs} from "antd";
 import {SSE} from "../../../../../utils/sse";
-import {AIAssist, FieldHeader, FieldWrapper, FiledTitle} from "../field/index.style";
+import {FieldHeader, FieldWrapper, FiledTitle} from "../field/index.style";
+import {SelectorField, TagField} from "../field";
+import useLocalStorage from "../../../../../hook/useLocalStorage";
 
-const OPENAI_KEY = "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";
+const OPENAI_KEY = "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";
 
 interface Props {
   isModalOpen: boolean;
@@ -13,11 +15,35 @@ interface Props {
 }
 
 const AIModal: React.FC<Props> = ({isModalOpen, setIsModalOpen, content, onOK}: Props) => {
+  const chatApi = "https://api.openai.com/v1/chat/completions";
 
-  const [keywords, setKeywords] = useState('');
+  // const [profile] = useLocalStorage<{ name?: string, title?: string, about?: string }>('profile');
+
+  const options = [
+    {
+      label: "I", value: "I"
+    },
+    {
+      label: "He", value: "He"
+    },
+    {
+      label: "She", value: "She"
+    },
+  ]
+
+  const source = new SSE(chatApi, {
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${OPENAI_KEY}`
+    },
+    method: "POST"
+  });
+
+
+  const [keywords, setKeywords] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [isAbleToApply, setIsAbleToApply] = useState(false);
   const [response, setResponse] = useState('');
+  const [pronoun, setPronoun] = useState('I');
 
   const resultRef = useRef('');
 
@@ -25,46 +51,53 @@ const AIModal: React.FC<Props> = ({isModalOpen, setIsModalOpen, content, onOK}: 
     resultRef.current = response;
   }, [response])
 
+  const onChangeTab = () => {
+    setResponse("");
+    setIsLoading(false);
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    source.close()
+  }
+
   const proofreading = () => {
     setIsLoading(true);
-    setIsAbleToApply(false);
     const prompt = `Optimize the giving content, fix misspellings, grammar issues and express them in a better way. here is the content: ${content}`
     handleRequest(prompt);
   }
+
+  const generating = () => {
+    setIsLoading(true);
+    const prompt = `Write a brief introduction in English in less than 200 english words and less than 3 paragraphs，pronoun is ${pronoun}, some keywords: ${keywords.join(', ')}`
+    handleRequest(prompt);
+  }
+
   const handleRequest = (prompt: string) => {
     resultRef.current = "";
-    const chatApi = "https://api.openai.com/v1/chat/completions";
     const data = {
       model: "gpt-3.5-turbo",
       messages: [{"role": "user", "content": prompt}],
       stream: true
     }
-    const source = new SSE(chatApi, {
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${OPENAI_KEY}`
-      },
-      method: "POST",
-      payload: JSON.stringify(data),
-    });
 
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
-    source.addEventListener("message", (e: any) => {
-      if (e.data !== "[DONE]") {
-        const payload = JSON.parse(e.data);
-        const text = payload.choices[0].delta.content;
-        resultRef.current = resultRef.current.trimStart().split('\n\n').join('\n');
-        text && (resultRef.current += text);
-        setResponse(resultRef.current)
-      } else {
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
-        source.close();
-        setIsLoading(false)
-        setIsAbleToApply(true)
-      }
-    })
+
+    source.payload = JSON.stringify(data),
+
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
+      source.addEventListener("message", (e: any) => {
+        if (e.data !== "[DONE]") {
+          const payload = JSON.parse(e.data);
+          const text = payload.choices[0].delta.content;
+          resultRef.current = resultRef.current.trimStart().split('\n\n').join('\n');
+          text && (resultRef.current += text);
+          setResponse(resultRef.current)
+        } else {
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          // @ts-ignore
+          source.close();
+          setIsLoading(false)
+        }
+      })
 
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
@@ -79,21 +112,31 @@ const AIModal: React.FC<Props> = ({isModalOpen, setIsModalOpen, content, onOK}: 
 
   const handleCancel = () => {
     setIsModalOpen(false);
-    setResponse("")
+    setResponse("");
+    setIsLoading(false);
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    source.close()
   };
+
+  const handleChangeKeyword = (key: string[]) => (valueOf: (e: any) => any) => (e: any) => {
+    setKeywords(valueOf)
+  };
+
+  const handleChangePronoun = (key: string) => (valueOf: (e: any) => any) => (e: any) => {
+    setPronoun(e)
+  };
+
 
   const tabs = [
     {
-      label: "Revision proofreading",
+      label: "Prompt generation",
       children: <>
-        <FieldWrapper style={{width: "100%"}}>
-          <FieldHeader>
-            <FiledTitle>Your input</FiledTitle>
-          </FieldHeader>
-          <Input.TextArea value={content} autoSize={true}/>
-        </FieldWrapper>
-        <Button type="primary" loading={isLoading} onClick={proofreading}>
-          Revision proofreading
+        <SelectorField value={pronoun} title="Pronoun" handleChange={handleChangePronoun(pronoun)} options={options}/>
+        <TagField title="Key points" value={keywords} handleChange={handleChangeKeyword(keywords)}
+                  placeholder="Add new"/>
+        <Button type="primary" loading={isLoading} onClick={generating} disabled={keywords.length === 0}>
+          AI Generation
         </Button>
         {response && <FieldWrapper style={{width: "100%"}}>
           <FieldHeader>
@@ -103,22 +146,37 @@ const AIModal: React.FC<Props> = ({isModalOpen, setIsModalOpen, content, onOK}: 
         </FieldWrapper>
         }
       </>
-    },
-    {
-      label: "Prompt generation",
-      children: <>
-        <h2>Enter Text:</h2>
-        <textarea value={keywords} onChange={(e) => setKeywords(e.target.value)}/>
-        <button>Submit</button>
-        <h2>Response:</h2>
-        <p>{response}</p>
-      </>
     }
   ]
 
+  content && tabs.push({
+    label: "Revision proofreading",
+    children: <>
+      <FieldWrapper style={{width: "100%"}}>
+        <FieldHeader>
+          <FiledTitle>Your input</FiledTitle>
+        </FieldHeader>
+        <Input.TextArea value={content} autoSize={true}/>
+      </FieldWrapper>
+      <Button type="primary" loading={isLoading} onClick={proofreading}>
+        AI Proofreading
+      </Button>
+      {response && <FieldWrapper style={{width: "100%"}}>
+        <FieldHeader>
+          <FiledTitle>AI Response</FiledTitle>
+        </FieldHeader>
+        <Input.TextArea value={response} autoSize={true}/>
+      </FieldWrapper>
+      }
+    </>
+  },)
+
   return (
     <Modal width={800} title="AI Assist" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}
-           okButtonProps={{disabled: !isAbleToApply}} okText="Apply AI Response">
+           okButtonProps={{disabled: !response || isLoading}} okText="Apply AI Response">
+      <Alert
+        message="This assistant is developed based on GPT api, please make sure your network can access OpenAI's service normally before use"
+        type="info" showIcon/>
       <Tabs
         defaultActiveKey="1"
         centered
@@ -130,6 +188,7 @@ const AIModal: React.FC<Props> = ({isModalOpen, setIsModalOpen, content, onOK}: 
             children: tab.children,
           };
         })}
+        onChange={onChangeTab}
       />
     </Modal>
   )
