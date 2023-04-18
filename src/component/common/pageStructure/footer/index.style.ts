@@ -25,4 +25,7 @@ export const Copyright = styled.div`
   @media (max-width: 480px) {
     line-height: 1.5rem;
   }
+  a {
+    color: #E5EFFF;
+  }
 `
