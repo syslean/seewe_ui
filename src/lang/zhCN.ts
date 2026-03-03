@@ -6,6 +6,8 @@ export const language = {
     profile: {
       key: "简介",
       name: "姓名",
+      firstname: "名",
+      lastname: "姓",
       title: "职位",
       phone: "手机号",
       email: "邮箱",
